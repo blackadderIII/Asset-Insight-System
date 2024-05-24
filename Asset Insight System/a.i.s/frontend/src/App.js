@@ -1,13 +1,25 @@
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import './Components/all.css'
-import Navbar from './Components/Navbar.js';
+import './css/all.css'
+import Navbar from './Components/Navbar';
+import Toasts from './Components/Toasts';
+import Titlebar from './Components/Titlebar';
+
+
+
+
 
 
 function App() {
   return (
-    <div className="App">
+    <main>
+    <Titlebar/>
       <Navbar/>
-    </div>
+      <Toasts/>
+      <section className='render-space'>
+        <Outlet/>
+      </section>
+    </main>
   );
 }
 
