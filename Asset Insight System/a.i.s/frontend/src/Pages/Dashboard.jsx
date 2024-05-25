@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/dashboard.css";
 
 function Dashboard() {
   
+  const [activeTab, setActiveTab] = useState([null,"laptops","phones","monitors","networkdevices","printers","miscellaneous"]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab === activeTab? null : tab);
+  };
 
   return (
       <section className="mainDash">
@@ -20,7 +25,8 @@ function Dashboard() {
 
         <div className="second-row">
           <div className="singleStats">
-            <div className="single-stat" id="laptops">
+            <div id="laptops" className={`single-stat ${activeTab === "laptops" ? "active" : ""}`}
+            onClick={() => handleTabClick("laptops")} >
               <div className="singleStat-total">
                 <i className="fal fa-laptop"></i>
                 <h4>Laptops</h4>
@@ -57,7 +63,8 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="single-stat" id="phones">
+            <div className={`single-stat ${activeTab === "phones"? "active" : ""}`}
+            onClick={() => handleTabClick("phones")} id="phones">
               <div className="singleStat-total">
                 <i className="fal fa-mobile-screen"></i>
                 <h4>Phones</h4>
@@ -94,7 +101,8 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="single-stat" id="monitors">
+            <div className={`single-stat ${activeTab === "monitors"? "active" : ""}`}
+            onClick={() => handleTabClick("monitors")} id="monitors">
               <div className="singleStat-total">
                 <i className="fal fa-desktop"></i>
                 <h4>Monitors</h4>
@@ -131,7 +139,8 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="single-stat" id="networkdevices">
+            <div className={`single-stat ${activeTab === "networkdevices"? "active" : ""}`}
+            onClick={() => handleTabClick("networkdevices")} id="networkdevices">
               <div className="singleStat-total">
                 <i className="fal fa-router"></i>
                 <h4>Network Devices</h4>
@@ -168,7 +177,8 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="single-stat" id="printers">
+            <div className={`single-stat ${activeTab === "printers"? "active" : ""}`}
+            onClick={() => handleTabClick("printers")} id="printers">
               <div className="singleStat-total">
                 <i className="fal fa-print"></i>
                 <h4>Printers</h4>
@@ -205,7 +215,8 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="single-stat" id="miscellaneous">
+            <div className={`single-stat ${activeTab === "miscellaneous"? "active" : ""}`}
+            onClick={() => handleTabClick("miscellaneous")} id="miscellaneous">
               <div className="singleStat-total">
                 <i className="fal fa-stars"></i>
                 <h4>miscellaneous</h4>
