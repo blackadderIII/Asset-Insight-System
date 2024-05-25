@@ -50,31 +50,36 @@
   justify-content: space-between;
   flex-direction: column;
   position: relative;
-  transition: 0.3s;
+  transition: width 0.3s ease-in, height 0.3s ease-in, background 0.3s ease-in, padding 0.3s ease-in, transform 0.3s ease-in; /* added transition */
 }
 
-
+.mainDash .second-row .singleStats .single-stat:hover {
+  height: 160%;
+  transform: translateY(16.5%);
+  cursor: pointer;
+  box-shadow: 0 10px 30px -20px #000;
+}
+ 
 /* Extra Stats  Module */
 
 .mainDash .second-row .singleStats .single-stat.active {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 60%;
   border-radius: 20px;
   background: #fff;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  position:absolute;
-  z-index: 50;
-  left: 25%;
-  top:25%;
-  transition: 0.3s ease-in;
+  z-index: 100;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  backdrop-filter: blur(5px);
+  left: 50%;
+  top:50%;
 }
 
 .mainDash .second-row .singleStats .single-stat.active:hover {
-  height: 50%;
-  transform: translateY(0%);
   cursor: pointer;
   box-shadow: 0 10px 30px -20px #000;
 }
@@ -89,7 +94,6 @@
   opacity: 0;
 }
 
-
 .mainDash .second-row .singleStats .single-stat.active .extra-stat {
   display: flex;
   transform: translateY(0%)!important;
@@ -101,23 +105,14 @@
   visibility: hidden;
 }
 
-
-/* Extra  */
 .mainDash .second-row .singleStats .single-stat.active:hover .single-stat-extra {
   transform: translateY(0%)!important;
   visibility: hidden;
-  opacity: 1;
+  opacity: 0;
 }
 /* --------------------------------------- */
 
 
-.mainDash .second-row .singleStats .single-stat:hover {
-  height: 160%;
-  transform: translateY(16.5%);
-  cursor: pointer;
-  box-shadow: 0 10px 30px -20px #000;
-}
-  
 .mainDash .second-row .singleStats .single-stat i {
   width: fit-content;
   padding: 15px;
