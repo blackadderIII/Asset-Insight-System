@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../css/dashboard.css";
+import {TitleComponent2} from "../Components/TitleComponent";
 
 function Dashboard() {
   
@@ -9,19 +10,10 @@ function Dashboard() {
     setActiveTab(tab === activeTab? null : tab);
   };
 
+  const name = "Samuel";
   return (
       <section className="mainDash">
-        <div className="first-row">
-          <div className="greeting">
-            <h1>
-              Hello <span id="greeting-userName"></span> 👋🏽
-            </h1>
-            <p>An overview of all the assets in the organization</p>
-          </div>
-          <div className="date">
-            <span id="todaysDate">Today, January 01, 2024</span>
-          </div>
-        </div>
+        <TitleComponent2 title={`Hello ${name} 👋🏽`}/>
 
         <div className="second-row">
           <div className="singleStats">
