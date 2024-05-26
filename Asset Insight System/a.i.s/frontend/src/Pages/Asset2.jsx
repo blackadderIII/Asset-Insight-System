@@ -1,19 +1,13 @@
 import React from 'react';
 import '../css/Table.css'
 import Table from '../Components/Table';
+import {TitleComponent1} from '../Components/TitleComponent';
 
-function Asset1() {
+function Asset2() {
+     
   return (
     <section class="main">
-        <div class="first-row">
-            <div class="greeting">
-                <h1>Phones</h1>
-                <p>An overview of the laptops in the origanization</p>
-            </div>
-            <div class="date">
-                <span id="todaysDate">Today, November 22, 2023</span>
-            </div>
-        </div>
+        <TitleComponent1 title={'Phones'}/>
 
         <div class="second-row">
             <div class="buttons">
@@ -38,4 +32,4 @@ function Asset1() {
   )
 }
 
-export default Asset1
+export default Asset2
