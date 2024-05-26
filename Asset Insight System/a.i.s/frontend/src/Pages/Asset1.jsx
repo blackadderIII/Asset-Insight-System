@@ -1,19 +1,14 @@
 import React from 'react';
 import '../css/Table.css'
 import Table from '../Components/Table';
+import {TitleComponent1} from '../Components/TitleComponent';
 
 function Asset1() {
+
   return (
     <section class="main">
-        <div class="first-row">
-            <div class="greeting">
-                <h1>Laptops</h1>
-                <p>An overview of the laptops in the origanization</p>
-            </div>
-            <div class="date">
-                <span id="todaysDate">Today, November 22, 2023</span>
-            </div>
-        </div>
+        
+        <TitleComponent1 title={'Laptops'}/>
 
         <div class="second-row">
             <div class="buttons">
