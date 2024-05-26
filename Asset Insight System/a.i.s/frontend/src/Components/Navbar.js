@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/navbar.css";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
+  const [toggleNav, setToggleNav] = useState([null, "active"]);
+
+  const handleToggle = (nav) => {
+    setToggleNav(nav === toggleNav ? null : nav);
+  };
+
   return (
     <div>
-      <nav id="navbar">
+      <nav id="navbar" className={`${toggleNav === 'active'? "active" : ""}`} onClick={()=> handleToggle("active")}>
         <div className="top-row">
-          <a href="" id="toggleMenuBar">
+          <a href="#" id="toggleMenuBar">
             <i className="fas fa-bars"></i>
           </a>
-          <NavLink to={"dashboard"}>
+          <NavLink to={""}>
             <i className="fas fa-grid-2"></i>
             <h4>Dashboard</h4>
           </NavLink>
@@ -26,22 +32,22 @@ function Navbar() {
             <i className="fal fa-desktop"></i>
             <h4>Monitors</h4>
           </NavLink>
-          <NavLink to ={'/Asset4'}>
+          <NavLink to={"/Asset4"}>
             <i className="fal fa-router"></i>
             <h4>Routers</h4>
           </NavLink>
-          <NavLink to ={'/Asset5'}>
+          <NavLink to={"/Asset5"}>
             <i className="fal fa-print"></i>
             <h4>Printers</h4>
           </NavLink>
-          <NavLink to ={'/Asset6'}>
+          <NavLink to={"/Asset6"}>
             <i className="fal fa-stars"></i>
             <h4>Miscellaneous</h4>
           </NavLink>
-          <a href="./users.html">
+          <NavLink to={"/Users"}>
             <i className="fal fa-users"></i>
             <h4>Users</h4>
-          </a>
+          </NavLink>
         </div>
 
         <div className="bottom-row">
@@ -49,10 +55,10 @@ function Navbar() {
             <i className="fal fa-moon"></i>
             <h4>Theme</h4>
           </a>
-          <a href="./settings.html">
+          <NavLink to="/settings">
             <i className="fal fa-gear"></i>
             <h4>Settings</h4>
-          </a>
+          </NavLink>
           <div className="nav-profile">
             <img
               src="./profiles/profile.jpeg"
