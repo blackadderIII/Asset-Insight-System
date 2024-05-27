@@ -2,27 +2,52 @@ import React, { useState } from "react";
 import "../css/navbar.css";
 import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ toggleTheme }) {
+  // Navbar Toggle Function
   const [toggleNav, setToggleNav] = useState([null, "active"]);
 
-  const handleToggle = (nav) => {
-    setToggleNav(nav === toggleNav ? null : nav);
+  const handleToggle = (state) => {
+    {
+      setToggleNav(state === toggleNav ? null : state);
+    }
   };
 
   return (
     <div>
-      <nav id="navbar" className={`${toggleNav === 'active'? "active" : ""}`} onClick={()=> handleToggle("active")}>
+      <nav id="navbar" className={`${toggleNav === "active" ? "active" : ""}`}>
         <div className="top-row">
-          <a href="#" id="toggleMenuBar">
+          <a href="#" id="toggleMenuBar" onClick={() => handleToggle("active")}>
             <i className="fas fa-bars"></i>
           </a>
           <NavLink to={""}>
-            <i className="fas fa-grid-2"></i>
-            <h4>Dashboard</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-grid-2"></i>
+                  <h4>Dashboard</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fad fa-grid-2"></i>
+                  <h4>Dashboard</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Asset1"}>
-            <i className="fal fa-laptop"></i>
-            <h4>Laptop</h4>
+            {({ isActive }) => 
+              isActive ? (
+                <>
+                  <i className="fas fa-laptop"></i>
+                  <h4>Laptop</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fad fa-laptop"></i>
+                  <h4>Laptop</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Asset2"}>
             <i className="fal fa-mobile-screen"></i>
@@ -51,7 +76,7 @@ function Navbar() {
         </div>
 
         <div className="bottom-row">
-          <a href="" id="theme">
+          <a href="#" id="theme" onClick={toggleTheme}>
             <i className="fal fa-moon"></i>
             <h4>Theme</h4>
           </a>
