@@ -6,7 +6,7 @@ import { TitleComponent2 } from "../Components/TitleComponent";
 export default function Settings() {
   return (
     <div>
-      <section className="main">
+      <section className="mainSettings">
         <TitleComponent2 title={"Settings"} />
 
         <div className="second-row">
