@@ -7,13 +7,12 @@
 // npm install "express@>=5.0.0-beta.1" --save
 // copy everything above expect the '//'
 import express, { json } from "express";
-import nodemailer from 'nodemailer'; // this is for sending mails
-import bcrypt from "bcryptjs";
+// import nodemailer from 'nodemailer'; // this is for sending mails
+// import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
 import mysql from "mysql2";
 import cors from "cors";
-import { Stream } from "nodemailer/lib/xoauth2";
-
+// import { Stream } from "nodemailer/lib/xoauth2";
 
 // configurations for express to work properly
 dotenv.config();
@@ -24,23 +23,33 @@ app.use(express.json(), cors());
 // you'll need to create a .env file in the same directory/ folder you'll put this file in
 // I'll attach an example.
 const conn = mysql.createPool({
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    port: process.env.MYSQLPORT,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    port: process.env.MYSQL_PORT,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
     multipleStatements: true,
 });
-
+//  console.log(process.env)
 // test
 app.get("/test", (req, res) => {
-    res.send("This is a test");
+    conn.execute('SELECT * FROM admin', (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send("Something Broke!");
+        } else {
+            console.log(results);
+            res.send("This is a test");
+        }
+    });
 });
 
-conn.on('connection',()=>{
-    console.log(`Connected to Database ${conn.config.host} and on port ${conn.config.port}`)
-})
-// DO NOT GO BENEATH THIS AKOCHIEEE!
+conn.on('connection', () => {
+    const { host, port } = conn.config;
+    console.log(`Connected to database ${host} on port ${port}`);
+  });
+
+
 
 // general error
 app.use((err, req, res, next) => {
