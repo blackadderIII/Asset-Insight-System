@@ -35,7 +35,7 @@ function Navbar({ toggleTheme }) {
             }
           </NavLink>
           <NavLink to={"/Asset1"}>
-            {({ isActive }) => 
+            {({ isActive }) =>
               isActive ? (
                 <>
                   <i className="fas fa-laptop"></i>
@@ -43,35 +43,116 @@ function Navbar({ toggleTheme }) {
                 </>
               ) : (
                 <>
-                  <i className="fad fa-laptop"></i>
+                  <i className="fal fa-laptop"></i>
                   <h4>Laptop</h4>
                 </>
               )
             }
           </NavLink>
           <NavLink to={"/Asset2"}>
-            <i className="fal fa-mobile-screen"></i>
-            <h4>Phone</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-mobile-screen"></i>
+                  <h4>Phone</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-mobile-screen"></i>
+                  <h4>Phone</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Asset3"}>
-            <i className="fal fa-desktop"></i>
-            <h4>Monitors</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-desktop"></i>
+                  <h4>Monitors</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-desktop"></i>
+                  <h4>Monitors</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Asset4"}>
-            <i className="fal fa-router"></i>
-            <h4>Routers</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-router"></i>
+                  <h4>Routers</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-router"></i>
+                  <h4>Routers</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Asset5"}>
-            <i className="fal fa-print"></i>
-            <h4>Printers</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-print"></i>
+                  <h4>Printers</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-print"></i>
+                  <h4>Printers</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Asset6"}>
-            <i className="fal fa-stars"></i>
-            <h4>Miscellaneous</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-stars"></i>
+                  <h4>Miscellaneous</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-stars"></i>
+                  <h4>Miscellaneous</h4>
+                </>
+              )
+            }
           </NavLink>
           <NavLink to={"/Users"}>
-            <i className="fal fa-users"></i>
-            <h4>Users</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-users"></i>
+                  <h4>Users</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-users"></i>
+                  <h4>Users</h4>
+                </>
+              )
+            }
+          </NavLink>
+          <NavLink to={"/Suppliers"}>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-users-gear"></i>
+                  <h4>Suppliers</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-users-gear"></i>
+                  <h4>Suppliers</h4>
+                </>
+              )
+            }
           </NavLink>
         </div>
 
@@ -81,8 +162,19 @@ function Navbar({ toggleTheme }) {
             <h4>Theme</h4>
           </a>
           <NavLink to="/settings">
-            <i className="fal fa-gear"></i>
-            <h4>Settings</h4>
+            {({ isActive }) =>
+              isActive ? (
+                <>
+                  <i className="fas fa-gear"></i>
+                  <h4>Settings</h4>
+                </>
+              ) : (
+                <>
+                  <i className="fal fa-gear"></i>
+                  <h4>Settings</h4>
+                </>
+              )
+            }
           </NavLink>
           <div className="nav-profile">
             <img
