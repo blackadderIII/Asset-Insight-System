@@ -68,6 +68,7 @@ export default function Settings() {
           </section>
         </div>
       </section>
+      
       <div class="about-module" id="about-module">
         <i class="fas fa-times" onclick="closeAbout()"></i>
         <img src="./assets/logo/assetman.io.png" alt=""/>
