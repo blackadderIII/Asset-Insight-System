@@ -20,6 +20,7 @@ import Asset5 from './Pages/Asset5.jsx';
 import Asset6 from './Pages/Asset6.jsx';
 import Users from './Pages/Users';
 import Settings from "./Pages/Settings.jsx";
+import Suppliers from "./Pages/Suppliers.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromChildren([
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route path='/Asset5' element={<Asset5/>}/>
       <Route path='/Asset6' element={<Asset6/>}/>
       <Route path="/Users" element={<Users/>}/>
+      <Route path="/Suppliers" element={<Suppliers/>}/>
       <Route path="/settings" element={<Settings/>}/>
     </Route>,
   ])
