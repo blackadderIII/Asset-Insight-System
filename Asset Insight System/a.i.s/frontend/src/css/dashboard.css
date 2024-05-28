@@ -54,7 +54,7 @@
 }
 
 .mainDash .second-row .singleStats .single-stat:hover {
-  height: 160%;
+  height: 170%;
   transform: translateY(16.5%);
   cursor: pointer;
   box-shadow: 0 10px 30px -20px #000;
