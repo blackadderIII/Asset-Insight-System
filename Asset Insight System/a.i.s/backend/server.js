@@ -44,10 +44,10 @@ app.get("/test", (req, res) => {
     });
 });
 
-conn.on('connection', () => {
-    const { host, port } = conn.config;
-    console.log(`Connected to database ${host} on port ${port}`);
-  });
+
+    const host = process.env.MYSQL_HOST;
+    const db = process.env.MYSQL_DATABASE
+    console.log(`Connected to database ${db} on ${host}`);
 
 
 
