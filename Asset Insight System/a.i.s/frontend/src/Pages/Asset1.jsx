@@ -2,7 +2,7 @@ import React , { useState }  from 'react';
 import '../css/Table.css'
 import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
-import Module from '../Components/module';
+import  { ModuleLaptop } from '../Components/module';
 
 function Asset1() {
 
@@ -13,6 +13,10 @@ function Asset1() {
           state  === moduleActive ? null : state
         ) 
     }
+
+    const closeModule = () => {
+        setModuleActive(null);
+      };
   return (
     <>
     <section class="main">
@@ -44,7 +48,7 @@ function Asset1() {
 
     </section>
 
-    <Module asset={'Laptop'} modulestate={moduleActive} />
+    <ModuleLaptop asset={'Laptop'} modulestate={moduleActive} onClose={closeModule} />
     </>
   )
 }
