@@ -79,7 +79,7 @@
   color: var(--blue);
   font-weight: 600;
   font-size: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
 }
 
 .module .field input {
@@ -152,8 +152,8 @@
   text-align: center;
   font-weight: 600;
   border-radius: 5px;
-  position: absolute;
-  bottom: 20px;
+  position: relative;
+  bottom: 10px;
 }
 
 .module button:hover {
