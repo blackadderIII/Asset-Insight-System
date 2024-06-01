@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
@@ -19,7 +19,7 @@ function Asset1() {
   const [laptops, setLaptops] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const loadingRef = useRef(null);
+//   const loadingRef = useRef(null);
 
   useEffect(() => {
     async function getLaptops() {
@@ -36,6 +36,17 @@ function Asset1() {
     getLaptops();
   }, []);
 
+  const [moduleEdit,setModuleEdit] = useState([]);
+
+  const [showEditModule, setShowEditModule] = useState(false);
+  const closeEditModule = () =>{
+    setShowEditModule(null)
+  }
+
+const handleEditClick = (laptop) => {
+  setShowEditModule(true);
+  setModuleEdit(laptop);
+};
   return (
     <>
       <section class="main">
@@ -63,7 +74,7 @@ function Asset1() {
         </div>
 
          
-          <Table laptops={laptops} loading={loading}/>
+          <Table laptops={laptops} loading={loading} onEdit={handleEditClick}/>
         
       </section>
 
@@ -71,7 +82,11 @@ function Asset1() {
         asset={"Laptop"}
         modulestate={moduleActive}
         onClose={closeModule}
+        assetEditState={moduleEdit}
+        showEditModule={showEditModule}
+        closeEditModule={closeEditModule}
       />
+      
     </>
   );
 }
