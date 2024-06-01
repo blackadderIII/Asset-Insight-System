@@ -1,9 +1,11 @@
-import React, { createRef } from "react";
+import React, { createRef ,useState} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export default function Table({ laptops, loading }) {
+export default function Table({ laptops,loading,onEdit}) {
   const loadingRef = createRef();
+ 
+  
   return (
     <div class="third-row">
       <table id="laptops">
@@ -24,8 +26,9 @@ export default function Table({ laptops, loading }) {
           {loading ? (
             <div className="loading" ref={loadingRef}></div>
           ) : laptops.length === 0 ? (
-            <div>
-              <img src={emptyPng} alt="No laptops" />
+            <div className="emptyIllustration">
+              <img src={emptyPng} alt="No Asset Found"/>
+              <p>There's nothing here yet</p>
             </div>
           ) : (
             laptops.map((laptop) => (
@@ -70,7 +73,7 @@ export default function Table({ laptops, loading }) {
                   <button id="revoke">Revoke</button>
                 </td>
                 <td>
-                  <i className="far fa-edit" id="edit"></i>
+                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(laptop)}></i>
                 </td>
                 <td>
                   <i className="far fa-trash-alt" id="delete"></i>
@@ -83,7 +86,7 @@ export default function Table({ laptops, loading }) {
         <tbody class="inactive" id="search-table"></tbody>
       </table>
     </div>
-  );
+ );
 }
 
 // export function TableSupplier() {
