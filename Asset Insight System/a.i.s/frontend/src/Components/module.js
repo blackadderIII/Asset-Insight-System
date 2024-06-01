@@ -1,10 +1,13 @@
 import React from "react";
 import "../css/module.css";
 
-export function ModuleLaptop({ asset, modulestate ,onClose}) {
-  const handleClose = ()=>{
+export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
+  const handleClose = () => {
     onClose();
-  }
+  };
+  const handleEditClose = () => {
+    closeEditModule();
+  };
   return (
     <div>
       {/* Add Laptop */}
@@ -110,7 +113,7 @@ export function ModuleLaptop({ asset, modulestate ,onClose}) {
 
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
-          <input type="text" name="minT" id="minThresh-module"  required />
+          <input type="text" name="minT" id="minThresh-module" required />
         </div>
 
         <div class="field">
@@ -137,107 +140,131 @@ export function ModuleLaptop({ asset, modulestate ,onClose}) {
       </div>
 
       {/* edit laptops*/}
-      <div class="module" id="editModule">
-        <i class="fas fa-x" onclick="closeEditModule()"></i>
+      
+       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
+       <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-        <div class="field">
-          <h2>Edit {asset} Information</h2>
-        </div>
+    <div class="field">
+      <h2>Edit {asset} Information</h2>
+    </div>
 
-        <div class="status-field">
-          <h4 id="SN-Display"></h4>
-          <div class="status" id="laptop-status"></div>
-        </div>
-
-        <div class="field">
-          <label for="status">Status</label>
-          <select name="status" id="edit-status-module">
-            <option value="" disabled selected hidden>
-              Select a Status
-            </option>
-            <option value="Assigned" hidden disabled>
-              Assigned
-            </option>
-            <option value="Unused">Unused</option>
-            <option value="Retired">Retired</option>
-            <option value="Damaged">Damaged</option>
-            <option value="Out of Service">Out of Service</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="brand">*Brand</label>
-          <input
-            type="text"
-            name="brand"
-            id="edit-brand-module"
-            placeholder="eg. HP"
-            required
-          />
-        </div>
-
-        <div class="field">
-          <label for="model">*Model</label>
-          <input
-            type="text"
-            name="model"
-            id="edit-model-module"
-            placeholder="Enter the laptop's model"
-            required
-          />
-        </div>
-
-        <div class="field">
-          <label for="processor">Processor</label>
-          <input
-            type="text"
-            name="processor"
-            id="edit-processor-module"
-            placeholder="Enter the laptop's processor spec"
-          />
-        </div>
-
-        <div class="field">
-          <label for="ram">RAM Size</label>
-          <input
-            type="text"
-            name="ram"
-            id="edit-ram-module"
-            placeholder="Enter the laptop's RAM spec"
-          />
-        </div>
-
-        <div class="field">
-          <label for="hardDrive">Hard Drive Capacity</label>
-          <input
-            type="text"
-            name="hardDrive"
-            id="edit-rom-module"
-            placeholder="Enter the laptop's RAM spec"
-          />
-        </div>
-
-        <div class="field">
-          <label for="supplier">Supplied By</label>
-          <input
-            type="text"
-            name="supplier"
-            id="supplier-module"
-            placeholder="Enter the laptop's Supplier name."
-          />
-        </div>
-
-        <div class="field">
-          <label for="comment">Comment</label>
-          <textarea name="comment" id="edit-comment-module" rows="5"></textarea>
-        </div>
-
-        <div class="button-module">
-          <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
-            Save
-          </button>
-        </div>
+    <div class="status-field">
+      <h4 id="SN-Display">{assetEditState.sn}</h4>
+      <div class="status" id="laptop-status">
+        {assetEditState.status === "Assigned" ? (
+          <div className="status a">Assigned</div>
+        ) : assetEditState.status === "Unused" ? (
+          <div className="status u">Unused</div>
+        ) : assetEditState.status === "Damaged" ? (
+          <div className="status d">Damaged</div>
+        ) : assetEditState.status === "Out of Service" ? (
+          <div className="status oos">Out of Service</div>
+        ) : (
+          <div className="status r">Retired</div>
+        )}
       </div>
+    </div>
+
+    <div class="field">
+      <label for="status">Status</label>
+      <select name="status" id="edit-status-module" value={assetEditState.status}>
+        <option value="" disabled selected hidden>
+          Select a Status
+        </option>
+        <option value="Assigned" hidden disabled>
+          Assigned
+        </option>
+        <option value="Unused">Unused</option>
+        <option value="Retired">Retired</option>
+        <option value="Damaged">Damaged</option>
+        <option value="Out of Service">Out of Service</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="brand">*Brand</label>
+      <input
+        type="text"
+        name="brand"
+        id="edit-brand-module"
+        placeholder="eg. HP"
+        required
+        value={assetEditState.brand}
+      />
+    </div>
+
+    <div class="field">
+      <label for="model">*Model</label>
+      <input
+        type="text"
+        name="model"
+        id="edit-model-module"
+        placeholder="Enter the laptop's model"
+        required
+        value={assetEditState.model}
+      />
+    </div>
+
+    <div class="field">
+      <label for="processor">Processor</label>
+      <input
+        type="text"
+        name="processor"
+        id="edit-processor-module"
+        placeholder="Enter the laptop's processor spec"
+        value={assetEditState.processor}
+      />
+    </div>
+
+    <div class="field">
+      <label for="ram">RAM Size</label>
+      <input
+        type="text"
+        name="ram"
+        id="edit-ram-module"
+        placeholder="Enter the laptop's RAM spec"
+        value={assetEditState.ram}
+      />
+    </div>
+
+    <div class="field">
+      <label for="hardDrive">Hard Drive Capacity</label>
+      <input
+        type="text"
+        name="hardDrive"
+        id="edit-rom-module"
+        placeholder="Enter the laptop's RAM spec"
+        value={assetEditState.rom}
+      />
+    </div>
+
+    <div class="field">
+      <label for="supplier">Supplied By</label>
+      <input
+        type="text"
+        name="supplier"
+        id="supplier-module"
+        placeholder="Enter the laptop's Supplier name."
+        value={assetEditState.supplier}
+      />
+    </div>
+
+    <div class="field">
+      <label for="comment">Comment</label>
+      <textarea
+        name="comment"
+        id="edit-comment-module"
+        rows="5"
+        value={assetEditState.comment}
+      />
+    </div>
+
+    <div class="button-module">
+      <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
+        Save
+      </button>
+    </div>
+  </div>
 
       {/* Assign Asset */}
       <div class="module" id="assignModule">
@@ -269,13 +296,12 @@ export function ModuleLaptop({ asset, modulestate ,onClose}) {
       </div>
     </div>
   );
-};
+}
 
-
-export function ModulePhone({ asset, modulestate ,onClose}) {
-  const handleClose = ()=>{
+export function ModulePhone({ asset, modulestate, onClose }) {
+  const handleClose = () => {
     onClose();
-  }
+  };
   return (
     <div>
       {/* Add Laptop */}
@@ -371,7 +397,7 @@ export function ModulePhone({ asset, modulestate ,onClose}) {
 
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
-          <input type="text" name="minT" id="minThresh-module"  required />
+          <input type="text" name="minT" id="minThresh-module" required />
         </div>
 
         <div class="field">
@@ -531,10 +557,10 @@ export function ModulePhone({ asset, modulestate ,onClose}) {
     </div>
   );
 }
-export function ModuleMNP({ asset, modulestate ,onClose}) {
-  const handleClose = ()=>{
+export function ModuleMNP({ asset, modulestate, onClose }) {
+  const handleClose = () => {
     onClose();
-  }
+  };
   return (
     <div>
       {/* Add Laptop */}
@@ -575,7 +601,6 @@ export function ModuleMNP({ asset, modulestate ,onClose}) {
           />
         </div>
 
-
         <div class="field">
           <label for="supplier">Supplied By</label>
           <input
@@ -611,7 +636,7 @@ export function ModuleMNP({ asset, modulestate ,onClose}) {
 
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
-          <input type="text" name="minT" id="minThresh-module"  required />
+          <input type="text" name="minT" id="minThresh-module" required />
         </div>
 
         <div class="field">
@@ -687,7 +712,6 @@ export function ModuleMNP({ asset, modulestate ,onClose}) {
             required
           />
         </div>
-
 
         <div class="field">
           <label for="supplier">Supplied By</label>
