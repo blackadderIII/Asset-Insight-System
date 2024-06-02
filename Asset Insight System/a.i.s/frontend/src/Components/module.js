@@ -492,17 +492,6 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
     </div>
 
     <div class="field">
-      <label for="processor">Processor</label>
-      <input
-        type="text"
-        name="processor"
-        id="edit-processor-module"
-        placeholder="Enter the laptop's processor spec"
-        value={assetEditState.processor}
-      />
-    </div>
-
-    <div class="field">
       <label for="ram">RAM Size</label>
       <input
         type="text"
