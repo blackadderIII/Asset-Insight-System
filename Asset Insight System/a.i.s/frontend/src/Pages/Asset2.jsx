@@ -19,6 +19,38 @@ function Asset2() {
     setModuleActive(null);
   };
 
+  const [phones, setPhones] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+//   const loadingRef = useRef(null);
+
+  useEffect(() => {
+    async function getPhones() {
+      try {
+        const response = await fetch(`http://localhost:3300/getPhones`);
+        const data = await response.json();
+        setPhones(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    }
+    getPhones();
+  }, []);
+
+  const [moduleEdit,setModuleEdit] = useState([]);
+
+  const [showEditModule, setShowEditModule] = useState(false);
+  const closeEditModule = () =>{
+    setShowEditModule(null)
+  }
+
+const handleEditClick = (phone) => {
+  setShowEditModule(true);
+  setModuleEdit(phone);
+};
+
   return (
     <>
       <section class="main">
@@ -46,7 +78,7 @@ function Asset2() {
           </div>
         </div>
 
-        <Table />
+        <Table asset={phones} loading={loading} onEdit={handleEditClick}/>
         
       </section>
       <ModulePhone
