@@ -2,7 +2,7 @@ import React, { createRef ,useState} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export default function Table({ laptops,loading,onEdit}) {
+export default function Table({ asset,loading,onEdit}) {
   const loadingRef = createRef();
  
   
@@ -25,13 +25,13 @@ export default function Table({ laptops,loading,onEdit}) {
         <tbody id="main-table">
           {loading ? (
             <div className="loading" ref={loadingRef}></div>
-          ) : laptops.length === 0 ? (
+          ) : asset.length === 0 ? (
             <div className="emptyIllustration">
               <img src={emptyPng} alt="No Asset Found"/>
               <p>There's nothing here yet</p>
             </div>
           ) : (
-            laptops.map((laptop) => (
+            asset.map((laptop) => (
               <tr key={laptop.sn}>
                 <td>{laptop.sn}</td>
                 <td>{laptop.brand}</td>
