@@ -74,7 +74,7 @@ const handleEditClick = (laptop) => {
         </div>
 
          
-          <Table laptops={laptops} loading={loading} onEdit={handleEditClick}/>
+          <Table asset={laptops} loading={loading} onEdit={handleEditClick}/>
         
       </section>
 
