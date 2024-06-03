@@ -18,17 +18,39 @@ function Asset3() {
         setModuleActive(null);
       };
 
-      const [moduleEdit,setModuleEdit] = useState([]);
 
-  const [showEditModule, setShowEditModule] = useState(false);
-  const closeEditModule = () =>{
+const [moduleEdit,setModuleEdit] = useState([]);
+
+const [showEditModule, setShowEditModule] = useState(false);
+const closeEditModule = () =>{
     setShowEditModule(null)
   }
 
-const handleEditClick = (phone) => {
+const handleEditClick = (monitor) => {
   setShowEditModule(true);
-  setModuleEdit(phone);
+  setModuleEdit(monitor);
 };
+
+const [monitors, setMonitors] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+// get monitors
+useEffect(() => {
+  async function getMonitors() {
+    try {
+      const response = await fetch(`http://localhost:3300/getMonitors`);
+      const data = await response.json();
+      setMonitors(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  }
+  getMonitors();
+}, []);
+
 
   return (
     <section class="main">
@@ -55,7 +77,7 @@ const handleEditClick = (phone) => {
             </div>
         </div>
 
-        <Table/>
+        <Table asset={monitors} loading={loading} onEdit={handleEditClick}/>
 
         <ModuleMNP asset={"Monitor"} modulestate={moduleActive} onClose={closeModule}/>
 
