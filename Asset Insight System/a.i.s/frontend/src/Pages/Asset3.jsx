@@ -79,7 +79,9 @@ useEffect(() => {
 
         <Table asset={monitors} loading={loading} onEdit={handleEditClick}/>
 
-        <ModuleMNP asset={"Monitor"} modulestate={moduleActive} onClose={closeModule}/>
+        <ModuleMNP asset={"Monitor"} modulestate={moduleActive} onClose={closeModule} assetEditState={moduleEdit}
+        showEditModule={showEditModule}
+        closeEditModule={closeEditModule}/>
 
     </section>
   )
