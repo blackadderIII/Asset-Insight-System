@@ -24,6 +24,7 @@ function Asset2() {
   const [error, setError] = useState(null);
 //   const loadingRef = useRef(null);
 
+//get phones 
   useEffect(() => {
     async function getPhones() {
       try {
