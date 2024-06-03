@@ -18,6 +18,18 @@ function Asset3() {
         setModuleActive(null);
       };
 
+      const [moduleEdit,setModuleEdit] = useState([]);
+
+  const [showEditModule, setShowEditModule] = useState(false);
+  const closeEditModule = () =>{
+    setShowEditModule(null)
+  }
+
+const handleEditClick = (phone) => {
+  setShowEditModule(true);
+  setModuleEdit(phone);
+};
+
   return (
     <section class="main">
         <TitleComponent1 title={'Monitors'}/>
