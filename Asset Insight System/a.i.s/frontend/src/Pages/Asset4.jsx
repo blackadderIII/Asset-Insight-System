@@ -54,12 +54,12 @@ useEffect(() => {
         <TitleComponent1 title={'Network Devices'}/>
 
         <div class="second-row">
-            <div class="buttons">
-                <div class="add-button" onclick="openModule()">
+        <div class="buttons">
+                <div class="add-button" onClick={()=>openModule('add-active')}>
                     <i class="fal fa-add"></i>
                     <h5>Add</h5>
                 </div>
-                <div class="add-button" onclick="openModule()">
+                <div class="add-button" onClick={()=>openModule('edit-active')}>
                     <i class="fal fa-edit"></i>
                     <h5>Edit</h5>
                 </div>
