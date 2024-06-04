@@ -2,9 +2,53 @@ import React from 'react';
 import '../css/Table.css'
 import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
+import { ModuleMNP } from '../Components/module';
 
 function Asset4() {
-     
+    const [moduleActive,setModuleActive] = useState([null,"add-active","edit-active"]);
+
+    const openModule = (state) =>{
+        setModuleActive(
+          state  === moduleActive ? null : state
+        ) 
+    }
+
+    const closeModule = () => {
+        setModuleActive(null);
+      };
+
+
+const [moduleEdit,setModuleEdit] = useState([]);
+
+const [showEditModule, setShowEditModule] = useState(false);
+const closeEditModule = () =>{
+    setShowEditModule(null)
+  }
+
+const handleEditClick = (monitor) => {
+  setShowEditModule(true);
+  setModuleEdit(monitor);
+};
+
+const [Ndevices, setNdevices] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+// get Network devices
+useEffect(() => {
+  async function getNdevices() {
+    try {
+      const response = await fetch(`http://localhost:3300/getNetworks`);
+      const data = await response.json();
+      setNdevices(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  }
+  getNdevices();
+}, []);
   return (
     <section class="main">
         <TitleComponent1 title={'Network Devices'}/>
@@ -30,7 +74,12 @@ function Asset4() {
             </div>
         </div>
 
-        <Table/>
+        <Table asset={Ndevices} loading={loading} onEdit={handleEditClick}/>
+
+        <ModuleMNP asset={"Network Devices"} modulestate={moduleActive} onClose={closeModule} assetEditState={moduleEdit}
+        showEditModule={showEditModule}
+        closeEditModule={closeEditModule}/>
+
 
     </section>
   )
