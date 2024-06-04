@@ -572,7 +572,8 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
     </div>
   );
 }
-export function ModuleMNP({ asset, modulestate, onClose }) {
+
+export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
     onClose();
   };
