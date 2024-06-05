@@ -4,7 +4,50 @@ import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
 
 function Asset6() {
-     
+    const [moduleActive,setModuleActive] = useState([null,"add-active","edit-active"]);
+
+    const openModule = (state) =>{
+        setModuleActive(
+          state  === moduleActive ? null : state
+        ) 
+    }
+
+    const closeModule = () => {
+        setModuleActive(null);
+      };
+
+
+const [moduleEdit,setModuleEdit] = useState([]);
+
+const [showEditModule, setShowEditModule] = useState(false);
+const closeEditModule = () =>{
+    setShowEditModule(null)
+  }
+
+const handleEditClick = (monitor) => {
+  setShowEditModule(true);
+  setModuleEdit(monitor);
+};
+
+const [printers, setPrinters] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+// get Network devices
+useEffect(() => {
+  async function getprinters() {
+    try {
+      const response = await fetch(`http://localhost:3300/getNetworks`);
+      const data = await response.json();
+      setPrinters(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  }
+  getNdevices();
+}, []);
   return (
     <section class="main">
         <TitleComponent1 title={'Printers'}/>
