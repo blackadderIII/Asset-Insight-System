@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import '../css/Table.css'
 import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
+import { ModuleMNP } from './../Components/module';
 
 function Asset6() {
     const [moduleActive,setModuleActive] = useState([null,"add-active","edit-active"]);
