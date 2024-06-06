@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{} from 'react';
 import '../css/Table.css'
 import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
