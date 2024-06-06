@@ -35,7 +35,7 @@ const [error, setError] = useState(null);
 
 // get Network devices
 useEffect(() => {
-  async function getprinters() {
+  async function getPrinters() {
     try {
       const response = await fetch(`http://localhost:3300/getNetworks`);
       const data = await response.json();
@@ -46,7 +46,7 @@ useEffect(() => {
       setLoading(false);
     }
   }
-  getNdevices();
+  getPrinters();
 }, []);
   return (
     <section class="main">
