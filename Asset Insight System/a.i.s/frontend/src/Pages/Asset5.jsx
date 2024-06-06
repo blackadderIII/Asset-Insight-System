@@ -38,7 +38,7 @@ const [error, setError] = useState(null);
 useEffect(() => {
   async function getPrinters() {
     try {
-      const response = await fetch(`http://localhost:3300/getNetworks`);
+      const response = await fetch(`http://localhost:3300/getPrinters`);
       const data = await response.json();
       setPrinters(data);
       setLoading(false);
