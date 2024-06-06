@@ -4,7 +4,7 @@ import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
 import { ModuleMNP } from './../Components/module';
 
-function Asset6() {
+function Asset5() {
     const [moduleActive,setModuleActive] = useState([null,"add-active","edit-active"]);
 
     const openModule = (state) =>{
@@ -84,4 +84,4 @@ useEffect(() => {
   )
 }
 
-export default Asset6
+export default Asset5
