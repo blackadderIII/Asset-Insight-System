@@ -4,7 +4,7 @@ import Table from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
 
 function Asset5() {
-     
+    const [moduleActive,setModuleActive] = useState([null,"add-active","edit-active"]);
   return (
     <section class="main">
         <TitleComponent1 title={'Miscellaneous Items'}/>
