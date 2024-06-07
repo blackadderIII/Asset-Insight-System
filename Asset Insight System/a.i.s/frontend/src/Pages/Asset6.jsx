@@ -11,6 +11,9 @@ function Asset5() {
           state  === moduleActive ? null : state
         ) 
     }
+    const closeModule = () => {
+        setModuleActive(null);
+      };
   return (
     <section class="main">
         <TitleComponent1 title={'Miscellaneous Items'}/>
