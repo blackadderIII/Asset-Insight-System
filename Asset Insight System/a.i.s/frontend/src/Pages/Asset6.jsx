@@ -5,6 +5,12 @@ import {TitleComponent1} from '../Components/TitleComponent';
 
 function Asset5() {
     const [moduleActive,setModuleActive] = useState([null,"add-active","edit-active"]);
+    
+    const openModule = (state) =>{
+        setModuleActive(
+          state  === moduleActive ? null : state
+        ) 
+    }
   return (
     <section class="main">
         <TitleComponent1 title={'Miscellaneous Items'}/>
