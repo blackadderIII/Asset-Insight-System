@@ -40,6 +40,7 @@ function Asset5() {
             </div>
         </div>
 
+
         <Table/>
 
     </section>
