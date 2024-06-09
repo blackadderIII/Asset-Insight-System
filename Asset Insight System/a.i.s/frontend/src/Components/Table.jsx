@@ -31,29 +31,29 @@ export default function Table({ asset,loading,onEdit}) {
               <p>There's nothing here yet</p>
             </div>
           ) : (
-            asset.map((laptop) => (
-              <tr key={laptop.sn}>
-                <td>{laptop.sn}</td>
-                <td>{laptop.brand}</td>
-                <td>{laptop.model}</td>
+            asset.map((asset) => (
+              <tr key={asset.sn}>
+                <td>{asset.sn}</td>
+                <td>{asset.brand}</td>
+                <td>{asset.model}</td>
                 <td>
-                  {laptop.status === "Assigned" ? (
+                  {asset.status === "Assigned" ? (
                     <div className="status a">Assigned</div>
-                  ) : laptop.status === "Unused" ? (
+                  ) : asset.status === "Unused" ? (
                     <div className="status u">Unused</div>
-                  ) : laptop.status === "Damaged" ? (
+                  ) : asset.status === "Damaged" ? (
                     <div className="status d">Damaged</div>
-                  ) : laptop.status === "Out of Service" ? (
+                  ) : asset.status === "Out of Service" ? (
                     <div className="status oos">Out of Service</div>
                   ) : (
                     <div className="status r">Retired</div>
                   )}
                 </td>
                 <td>
-                  {laptop.username ? (
+                  {asset.username ? (
                     <div className="user">
-                      <h4>{laptop.username}</h4>
-                      <a href="#">{laptop.useremail}</a>
+                      <h4>{asset.username}</h4>
+                      <a href="#">{asset.useremail}</a>
                     </div>
                   ) : (
                     <div className="user">
@@ -63,8 +63,8 @@ export default function Table({ asset,loading,onEdit}) {
                   )}
                 </td>
                 <td>
-                  {new Date(laptop.dateadded).toLocaleDateString()} |{" "}
-                  {new Date(laptop.dateadded).toLocaleTimeString()}
+                  {new Date(asset.dateadded).toLocaleDateString()} |{" "}
+                  {new Date(asset.dateadded).toLocaleTimeString()}
                 </td>
                 <td>
                   <button id="assign">Assign</button>
@@ -73,7 +73,7 @@ export default function Table({ asset,loading,onEdit}) {
                   <button id="revoke">Revoke</button>
                 </td>
                 <td>
-                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(laptop)}></i>
+                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(asset)}></i>
                 </td>
                 <td>
                   <i className="far fa-trash-alt" id="delete"></i>
