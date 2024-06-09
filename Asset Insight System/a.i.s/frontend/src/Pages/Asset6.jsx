@@ -29,7 +29,7 @@ function Asset5() {
   };
 
 
-  const [printers, setMISC] = useState([]);
+  const [misc, setMISC] = useState([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
