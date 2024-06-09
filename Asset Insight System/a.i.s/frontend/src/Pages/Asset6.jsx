@@ -29,11 +29,25 @@ function Asset5() {
   };
 
 
-  const [printers, setPrinters] = useState([]);
+  const [printers, setMISC] = useState([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
-
+// get Misc Items
+useEffect(() => {
+    async function getPrinters() {
+      try {
+        const response = await fetch(`http://localhost:3300/getPrinters`);
+        const data = await response.json();
+        setMISC(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    }
+    getPrinters();
+  }, []);
   return (
     <section class="main">
       <TitleComponent1 title={"Miscellaneous Items"} />
