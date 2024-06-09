@@ -3,6 +3,7 @@ import "../css/Table.css";
 import Table from "../Components/Table";
 import { TitleComponent1 } from "../Components/TitleComponent";
 
+
 function Asset5() {
   const [moduleActive, setModuleActive] = useState([
     null,
@@ -74,6 +75,10 @@ useEffect(() => {
       </div>
 
       <Table asset={misc} loading={loading} onEdit={handleEditClick}/>
+
+      <ModuleMNP asset={"Printers"} modulestate={moduleActive} onClose={closeModule} assetEditState={moduleEdit}
+        showEditModule={showEditModule}
+        closeEditModule={closeEditModule}/>
     </section>
   );
 }
