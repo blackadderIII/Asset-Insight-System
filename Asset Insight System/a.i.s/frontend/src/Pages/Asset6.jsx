@@ -15,6 +15,8 @@ function Asset5() {
         setModuleActive(null);
       };
       const [moduleEdit,setModuleEdit] = useState([]);
+
+      
   return (
     <section class="main">
         <TitleComponent1 title={'Miscellaneous Items'}/>
