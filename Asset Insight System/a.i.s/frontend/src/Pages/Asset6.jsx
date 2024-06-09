@@ -37,7 +37,7 @@ const [error, setError] = useState(null);
 useEffect(() => {
     async function getPrinters() {
       try {
-        const response = await fetch(`http://localhost:3300/getPrinters`);
+        const response = await fetch(`http://localhost:3300/getMics`);
         const data = await response.json();
         setMISC(data);
         setLoading(false);
