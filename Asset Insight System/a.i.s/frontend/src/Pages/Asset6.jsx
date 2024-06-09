@@ -35,7 +35,7 @@ const [error, setError] = useState(null);
 
 // get Misc Items
 useEffect(() => {
-    async function getPrinters() {
+    async function getMiscs() {
       try {
         const response = await fetch(`http://localhost:3300/getMics`);
         const data = await response.json();
@@ -46,7 +46,7 @@ useEffect(() => {
         setLoading(false);
       }
     }
-    getPrinters();
+    getMiscs();
   }, []);
   return (
     <section class="main">
