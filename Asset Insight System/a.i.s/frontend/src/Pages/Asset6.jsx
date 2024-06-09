@@ -27,6 +27,13 @@ function Asset5() {
     setShowEditModule(true);
     setModuleEdit(monitor);
   };
+
+
+  const [printers, setPrinters] = useState([]);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+
   return (
     <section class="main">
       <TitleComponent1 title={"Miscellaneous Items"} />
