@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import "../css/Table.css";
 import Table from "../Components/Table";
 import { TitleComponent1 } from "../Components/TitleComponent";
@@ -37,7 +37,7 @@ const [error, setError] = useState(null);
 useEffect(() => {
     async function getMiscs() {
       try {
-        const response = await fetch(`http://localhost:3300/getMics`);
+        const response = await fetch(`http://localhost:3300/getMiscs`);
         const data = await response.json();
         setMISC(data);
         setLoading(false);
