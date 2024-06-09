@@ -73,7 +73,7 @@ useEffect(() => {
         </div>
       </div>
 
-      <Table />
+      <Table asset={misc} loading={loading} onEdit={handleEditClick}/>
     </section>
   );
 }
