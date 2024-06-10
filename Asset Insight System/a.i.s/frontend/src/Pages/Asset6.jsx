@@ -75,7 +75,7 @@ useEffect(() => {
       </div>
 
       <Table asset={misc} loading={loading} onEdit={handleEditClick}/>
-a
+
       <ModuleMNP asset={"Miscellaneous Items"} modulestate={moduleActive} onClose={closeModule} assetEditState={moduleEdit}
         showEditModule={showEditModule}
         closeEditModule={closeEditModule}/>
