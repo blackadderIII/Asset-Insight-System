@@ -7,7 +7,9 @@ export default function Users() {
         null,
         "add-active",
       ]);
-
+      const openModule = (state) => {
+        setModuleActive(state === moduleActive ? null : state);
+      };
 
   return (
     <section class="main">
