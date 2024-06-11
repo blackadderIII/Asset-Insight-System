@@ -3,6 +3,12 @@ import { TitleComponent1 } from '../Components/TitleComponent';
 import Table from '../Components/Table';
 
 export default function Users() {
+    const [moduleActive, setModuleActive] = useState([
+        null,
+        "add-active",
+      ]);
+
+
   return (
     <section class="main">
     <TitleComponent1 title={'Users'}/>
