@@ -15,6 +15,7 @@ export default function Users() {
   };
 
   const [moduleEdit, setModuleEdit] = useState([]);
+  const [showEditModule, setShowEditModule] = useState(false);
 
   return (
     <section class="main">
