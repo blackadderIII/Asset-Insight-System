@@ -10,7 +10,9 @@ export default function Users() {
       const openModule = (state) => {
         setModuleActive(state === moduleActive ? null : state);
       };
-      
+      const closeModule = () => {
+    setModuleActive(null);
+  };
 
   return (
     <section class="main">
