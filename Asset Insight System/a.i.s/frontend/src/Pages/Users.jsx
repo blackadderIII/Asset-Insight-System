@@ -23,6 +23,7 @@ export default function Users() {
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   return (
     <section class="main">
