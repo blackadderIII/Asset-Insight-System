@@ -25,6 +25,7 @@ export default function Users() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   return (
     <section class="main">
     <TitleComponent1 title={'Users'}/>
