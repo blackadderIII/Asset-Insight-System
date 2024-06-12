@@ -22,7 +22,7 @@ export default function Users() {
   };
 
   const [users, setUsers] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
 
   return (
     <section class="main">
