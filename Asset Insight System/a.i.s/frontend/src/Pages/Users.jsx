@@ -25,7 +25,21 @@ export default function Users() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  
+  // get Misc Items
+useEffect(() => {
+  async function getMiscs() {
+    try {
+      const response = await fetch(`http://localhost:3300/getMiscs`);
+      const data = await response.json();
+      setMISC(data);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  }
+  getMiscs();
+}, []);
 
   return (
     <section class="main">
