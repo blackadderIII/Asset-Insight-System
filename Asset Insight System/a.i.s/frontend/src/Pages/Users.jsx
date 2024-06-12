@@ -16,7 +16,10 @@ export default function Users() {
 
   const [moduleEdit, setModuleEdit] = useState([]);
   const [showEditModule, setShowEditModule] = useState(false);
-  
+  const handleEditClick = (monitor) => {
+    setShowEditModule(true);
+    setModuleEdit(monitor);
+  };
 
   return (
     <section class="main">
