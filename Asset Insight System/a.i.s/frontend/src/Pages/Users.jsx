@@ -21,6 +21,9 @@ export default function Users() {
     setModuleEdit(monitor);
   };
 
+  const [users, setUsers] = useState([]);
+  
+
   return (
     <section class="main">
     <TitleComponent1 title={'Users'}/>
