@@ -939,7 +939,7 @@ export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEd
 
       
 
-      {/* edit phones*/}
+      {/* edit use*/}
       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
