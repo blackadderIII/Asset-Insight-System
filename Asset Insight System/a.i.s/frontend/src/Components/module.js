@@ -1054,34 +1054,7 @@ export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEd
     </div>
   </div>
 
-      {/* Assign Asset */}
-      <div class="module" id="assignModule">
-        <i class="fas fa-x" onclick="closeAssignModule()"></i>
-
-        <div class="field">
-          <h2>Assign {asset}</h2>
-        </div>
-
-        <div class="field">
-          <label for="status">Users</label>
-          <select
-            name="status"
-            class="users-dropdown"
-            id="users-dropdown"
-            multiple
-          >
-            <option value="" disabled selected hidden>
-              Select a User
-            </option>
-          </select>
-        </div>
-
-        <div class="button-module">
-          <button id="assignLaptopBtn" onclick="assignLaptop()">
-            Assign
-          </button>
-        </div>
-      </div>
+    
     </div>
   );
 }
