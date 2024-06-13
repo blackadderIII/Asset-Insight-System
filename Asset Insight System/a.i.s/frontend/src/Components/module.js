@@ -937,44 +937,7 @@ export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEd
         </div>
       </div>
 
-      {/* Edit Laptop Asset Category */}
-      <div
-        className={`module ${modulestate === "edit-active" ? "active" : ""}`}
-        id="module"
-      >
-        <i class="fas fa-x" onClick={() => handleClose()}></i>
-
-        <div class="field">
-          <h2>Edit {asset} category</h2>
-        </div>
-
-        <div class="field">
-          <label for="MinThresh">Input Minimum Threshold Value</label>
-          <input type="text" name="minT" id="minThresh-module" required />
-        </div>
-
-        <div class="field">
-          <label for="MaxThresh">Input Maximum Threshold Value</label>
-          <input
-            type="text"
-            name="maxT"
-            id="maxThresh-module"
-            placeholder=""
-            required
-          />
-        </div>
-
-        <div class="field">
-          <label for="comment">Comment</label>
-          <textarea name="comment" id="comment-module" rows="5"></textarea>
-        </div>
-
-        <div class="button-module">
-          <button id="addLaptop" onclick="addLaptop()">
-            Add
-          </button>
-        </div>
-      </div>
+      
 
       {/* edit phones*/}
       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
