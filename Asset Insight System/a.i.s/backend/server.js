@@ -1135,6 +1135,7 @@ app.get("/deleteNetwork/:sn", (req, res) => {
 });
 
 // ----MONITOR FUNCTIONS-----
+
 // get Monitors
 app.get("/getMonitors", (req, res) => {
   const query = `SELECT * FROM assets WHERE category ="Monitor" ORDER by dateadded DESC `;
@@ -1182,6 +1183,7 @@ app.get("/deleteMonitor/:sn", (req, res) => {
   });
 });
 
+// User Functions
 // get user
 app.get("/getUsers", (req, res) => {
   const query = `SELECT * FROM users ORDER BY firstname ASC`;
