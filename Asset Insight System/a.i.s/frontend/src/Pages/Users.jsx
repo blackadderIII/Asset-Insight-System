@@ -31,7 +31,7 @@ useEffect(() => {
     try {
       const response = await fetch(`http://localhost:3300/getUsers`);
       const data = await response.json();
-      set(data);
+      setUsers(data);
       setLoading(false);
     } catch (error) {
       setError(error.message);
