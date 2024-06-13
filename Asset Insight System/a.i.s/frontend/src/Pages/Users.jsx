@@ -38,7 +38,7 @@ useEffect(() => {
       setLoading(false);
     }
   }
-  getMiscs();
+  getUsers();
 }, []);
 
   return (
