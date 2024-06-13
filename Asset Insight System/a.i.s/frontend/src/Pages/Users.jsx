@@ -47,10 +47,10 @@ useEffect(() => {
 
     <div class="second-row">
         <div class="buttons">
-            <div class="add-button" onclick="openModule()">
-                <i class="fal fa-add"></i>
-                <h5>Add</h5>
-            </div>
+        <div class="add-button" onClick={() => openModule("add-active")}>
+            <i class="fal fa-add"></i>
+            <h5>Add</h5>
+          </div>
             <div class="add-button" onclick="exportLaptops()">
                 <i class="fal fa-file-export"></i>
                 <h5>Export</h5>
