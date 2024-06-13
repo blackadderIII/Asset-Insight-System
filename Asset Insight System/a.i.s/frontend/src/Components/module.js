@@ -857,7 +857,7 @@ export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEd
   };
   return (
     <div>
-      {/* Add Laptop */}
+      {/* Add Users */}
       <div
         className={`module ${modulestate === "add-active" ? "active" : ""}`}
         id="module"
