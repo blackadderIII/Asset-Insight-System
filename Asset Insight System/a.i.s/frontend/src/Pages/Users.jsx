@@ -29,7 +29,7 @@ export default function Users() {
 useEffect(() => {
   async function getUsers() {
     try {
-      const response = await fetch(`http://localhost:3300/getMiscs`);
+      const response = await fetch(`http://localhost:3300/getUsers`);
       const data = await response.json();
       setMISC(data);
       setLoading(false);
