@@ -848,7 +848,7 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
     </div>
   );
 }
-export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
+export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
     onClose();
   };
