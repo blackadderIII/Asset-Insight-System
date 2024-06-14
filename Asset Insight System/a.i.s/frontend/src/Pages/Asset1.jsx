@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
-import Table from "../Components/Table";
+import { AssetTable } from "../Components/Table";
 import "../css/loading.css"
 
 function Asset1() {
@@ -74,7 +74,7 @@ const handleEditClick = (laptop) => {
         </div>
 
          
-          <Table asset={laptops} loading={loading} onEdit={handleEditClick}/>
+          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick}/>
         
       </section>
 
