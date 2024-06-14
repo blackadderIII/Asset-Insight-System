@@ -97,8 +97,8 @@ export default function TableUser({ asset,loading,onEdit}) {
       <table id="laptops">
         <thead>
           <th>Users</th>
-          <th>Brand</th>
-          <th>Model</th>
+          <th>Phone No.</th>
+          <th>Department</th>
           <th></th>
           <th>User</th>
           <th>Date Added</th>
