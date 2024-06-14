@@ -96,7 +96,7 @@ export default function TableUser({ asset,loading,onEdit}) {
     <div class="third-row">
       <table id="laptops">
         <thead>
-          <th>Users</th>
+          <th>User</th>
           <th>Phone No.</th>
           <th>Department</th>
           <th>Designation</th>
