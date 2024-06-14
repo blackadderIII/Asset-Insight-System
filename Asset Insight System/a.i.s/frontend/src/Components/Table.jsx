@@ -88,7 +88,7 @@ export  function AssetTable({ asset,loading,onEdit}) {
     </div>
  );
 }
-export function TableUser({ data,loading,onEdit}) {
+export function UserTable({ data,loading,onEdit}) {
   const loadingRef = createRef();
  
   
