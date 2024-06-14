@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from "react";
 import "../css/Table.css";
-import Table from "../Components/Table";
+import { AssetTable } from './../Components/Table';
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModulePhone } from "../Components/module";
+
 
 function Asset2() {
   const [moduleActive, setModuleActive] = useState([
@@ -79,7 +80,7 @@ const handleEditClick = (phone) => {
           </div>
         </div>
 
-        <Table asset={phones} loading={loading} onEdit={handleEditClick}/>
+        <AssetTable asset={phones} loading={loading} onEdit={handleEditClick}/>
         
       </section>
       <ModulePhone
