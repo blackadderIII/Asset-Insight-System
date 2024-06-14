@@ -88,7 +88,7 @@ export default function Table({ asset,loading,onEdit}) {
     </div>
  );
 }
-export default function Table({ asset,loading,onEdit}) {
+export default function TableUser({ asset,loading,onEdit}) {
   const loadingRef = createRef();
  
   
