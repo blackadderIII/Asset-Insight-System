@@ -88,7 +88,7 @@ export default function Table({ asset,loading,onEdit}) {
     </div>
  );
 }
-export default function TableUser({ asset,loading,onEdit}) {
+export default function TableUser({ data,loading,onEdit}) {
   const loadingRef = createRef();
  
   
@@ -101,7 +101,7 @@ export default function TableUser({ asset,loading,onEdit}) {
           <th>Department</th>
           <th>Designation</th>
           <th></th>
-          <th>Date Added</th>
+          <th></th>
           <th></th>
           <th></th>
           <th></th>
@@ -111,35 +111,35 @@ export default function TableUser({ asset,loading,onEdit}) {
         <tbody id="main-table">
           {loading ? (
             <div className="loading" ref={loadingRef}></div>
-          ) : asset.length === 0 ? (
+          ) : data.length === 0 ? (
             <div className="emptyIllustration">
               <img src={emptyPng} alt="No Asset Found"/>
               <p>There's nothing here yet</p>
             </div>
           ) : (
-            asset.map((asset) => (
-              <tr key={asset.sn}>
-                <td>{asset.sn}</td>
-                <td>{asset.brand}</td>
-                <td>{asset.model}</td>
+            data.map((data) => (
+              <tr key={data.sn}>
+                <td>{data.sn}</td>
+                <td>{data.brand}</td>
+                <td>{data.model}</td>
                 <td>
-                  {asset.status === "Assigned" ? (
+                  {data.status === "Assigned" ? (
                     <div className="status a">Assigned</div>
-                  ) : asset.status === "Unused" ? (
+                  ) : data.status === "Unused" ? (
                     <div className="status u">Unused</div>
-                  ) : asset.status === "Damaged" ? (
+                  ) : data.status === "Damaged" ? (
                     <div className="status d">Damaged</div>
-                  ) : asset.status === "Out of Service" ? (
+                  ) : data.status === "Out of Service" ? (
                     <div className="status oos">Out of Service</div>
                   ) : (
                     <div className="status r">Retired</div>
                   )}
                 </td>
                 <td>
-                  {asset.username ? (
+                  {data.username ? (
                     <div className="user">
-                      <h4>{asset.username}</h4>
-                      <a href="#">{asset.useremail}</a>
+                      <h4>{data.username}</h4>
+                      <a href="#">{data.useremail}</a>
                     </div>
                   ) : (
                     <div className="user">
@@ -149,8 +149,8 @@ export default function TableUser({ asset,loading,onEdit}) {
                   )}
                 </td>
                 <td>
-                  {new Date(asset.dateadded).toLocaleDateString()} |{" "}
-                  {new Date(asset.dateadded).toLocaleTimeString()}
+                  {new Date(data.dateadded).toLocaleDateString()} |{" "}
+                  {new Date(data.dateadded).toLocaleTimeString()}
                 </td>
                 <td>
                   <button id="assign">Assign</button>
@@ -159,7 +159,7 @@ export default function TableUser({ asset,loading,onEdit}) {
                   <button id="revoke">Revoke</button>
                 </td>
                 <td>
-                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(asset)}></i>
+                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(data)}></i>
                 </td>
                 <td>
                   <i className="far fa-trash-alt" id="delete"></i>
