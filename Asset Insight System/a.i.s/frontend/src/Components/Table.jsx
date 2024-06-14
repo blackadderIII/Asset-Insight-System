@@ -100,7 +100,7 @@ export default function TableUser({ asset,loading,onEdit}) {
           <th>Phone No.</th>
           <th>Department</th>
           <th>Designation</th>
-          <th>User</th>
+          <th></th>
           <th>Date Added</th>
           <th></th>
           <th></th>
