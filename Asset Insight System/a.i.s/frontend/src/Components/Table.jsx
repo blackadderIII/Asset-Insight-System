@@ -2,7 +2,7 @@ import React, { createRef ,useState} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export default function Table({ asset,loading,onEdit}) {
+export  function AssetTable({ asset,loading,onEdit}) {
   const loadingRef = createRef();
  
   
