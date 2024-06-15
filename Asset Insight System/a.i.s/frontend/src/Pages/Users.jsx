@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { TitleComponent1 } from '../Components/TitleComponent';
-import Table from '../Components/Table';
+import {UserTable}from '../Components/Table';
 
 export default function Users() {
     const [moduleActive, setModuleActive] = useState([
