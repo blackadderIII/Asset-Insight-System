@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { TitleComponent1 } from '../Components/TitleComponent';
 import {UserTable}from '../Components/Table';
 
@@ -62,7 +62,7 @@ useEffect(() => {
         </div>
     </div>
 
-    <Table/>
+    <UserTable/>
 
 </section>
   )
