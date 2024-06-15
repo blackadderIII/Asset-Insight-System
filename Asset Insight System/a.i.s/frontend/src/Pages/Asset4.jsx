@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import '../css/Table.css'
-import Table from '../Components/Table';
+import {AssetTable} from '../Components/Table';
 import {TitleComponent1} from '../Components/TitleComponent';
 import { ModuleMNP } from '../Components/module';
 
@@ -74,7 +74,7 @@ useEffect(() => {
             </div>
         </div>
 
-        <Table asset={Ndevices} loading={loading} onEdit={handleEditClick}/>
+        <AssetTable asset={Ndevices} loading={loading} onEdit={handleEditClick}/>
 
         <ModuleMNP asset={"Network Devices"} modulestate={moduleActive} onClose={closeModule} assetEditState={moduleEdit}
         showEditModule={showEditModule}
