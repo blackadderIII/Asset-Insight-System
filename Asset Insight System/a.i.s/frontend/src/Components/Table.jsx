@@ -175,3 +175,89 @@ export function UserTable({ data,loading,onEdit}) {
  );
 }
 
+export function SupplierTable({ data,loading,onEdit}) {
+  const loadingRef = createRef();
+ 
+  
+  return (
+    <div class="third-row">
+      <table id="laptops">
+        <thead>
+          <th>Supplier</th>
+          <th>Phone No.</th>
+          <th>Location</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+
+        <tbody id="main-table">
+          {loading ? (
+            <div className="loading" ref={loadingRef}></div>
+          ) : data.length === 0 ? (
+            <div className="emptyIllustration">
+              <img src={emptyPng} alt="No Asset Found"/>
+              <p>There's nothing here yet</p>
+            </div>
+          ) : (
+            data.map((data) => (
+              <tr key={data.sn}>
+                <td>{data.sn}</td>
+                <td>{data.brand}</td>
+                <td>{data.model}</td>
+                <td>
+                  {data.status === "Assigned" ? (
+                    <div className="status a">Assigned</div>
+                  ) : data.status === "Unused" ? (
+                    <div className="status u">Unused</div>
+                  ) : data.status === "Damaged" ? (
+                    <div className="status d">Damaged</div>
+                  ) : data.status === "Out of Service" ? (
+                    <div className="status oos">Out of Service</div>
+                  ) : (
+                    <div className="status r">Retired</div>
+                  )}
+                </td>
+                <td>
+                  {data.username ? (
+                    <div className="user">
+                      <h4>{data.username}</h4>
+                      <a href="#">{data.useremail}</a>
+                    </div>
+                  ) : (
+                    <div className="user">
+                      <h4>N/A</h4>
+                      <a href="#">N/A</a>
+                    </div>
+                  )}
+                </td>
+                <td>
+                  {new Date(data.dateadded).toLocaleDateString()} |{" "}
+                  {new Date(data.dateadded).toLocaleTimeString()}
+                </td>
+                <td>
+                  <button id="assign">Assign</button>
+                </td>
+                <td>
+                  <button id="revoke">Revoke</button>
+                </td>
+                <td>
+                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(data)}></i>
+                </td>
+                <td>
+                  <i className="far fa-trash-alt" id="delete"></i>
+                </td>
+              </tr>
+            ))
+          )}
+        </tbody>
+
+        <tbody class="inactive" id="search-table"></tbody>
+      </table>
+    </div>
+ );
+}
