@@ -118,7 +118,7 @@ export function UserTable({ data,loading,onEdit}) {
             </div>
           ) : (
             data.map((data) => (
-              <tr key={data.sn}>
+              <tr key={data.email}>
                 <td>{data.sn}</td>
                 <td>{data.brand}</td>
                 <td>{data.model}</td>
