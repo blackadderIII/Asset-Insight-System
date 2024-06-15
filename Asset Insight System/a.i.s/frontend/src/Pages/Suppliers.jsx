@@ -1,6 +1,6 @@
 import React from 'react';
 import { TitleComponent1 } from '../Components/TitleComponent';
-import Table from '../Components/Table';
+import { SupplierTable } from '../Components/Table';
 
 export default function Suppliers() {
   return (
@@ -24,7 +24,7 @@ export default function Suppliers() {
         </div>
     </div>
 
-    <Table/>
+    <SupplierTable/>
 
 </section>
   )
