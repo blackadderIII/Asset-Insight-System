@@ -62,7 +62,7 @@ useEffect(() => {
         </div>
     </div>
 
-    <UserTable/>
+    <UserTable data={users} loading={loading} onEdit={handleEditClick}/>
 
 </section>
   )
