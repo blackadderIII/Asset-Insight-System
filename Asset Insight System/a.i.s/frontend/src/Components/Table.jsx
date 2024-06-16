@@ -119,7 +119,19 @@ export function UserTable({ data,loading,onEdit}) {
           ) : (
             data.map((data) => (
               <tr key={data.email}>
-                <td>{data.sn}</td>
+              <td>
+                  {data.username ? (
+                    <div className="user">
+                      <h4>{data.username}</h4>
+                      <a href="#">{data.useremail}</a>
+                    </div>
+                  ) : (
+                    <div className="user">
+                      <h4>N/A</h4>
+                      <a href="#">N/A</a>
+                    </div>
+                  )}
+                </td>
                 <td>{data.brand}</td>
                 <td>{data.model}</td>
                 <td>
@@ -135,19 +147,7 @@ export function UserTable({ data,loading,onEdit}) {
                     <div className="status r">Retired</div>
                   )}
                 </td>
-                <td>
-                  {data.username ? (
-                    <div className="user">
-                      <h4>{data.username}</h4>
-                      <a href="#">{data.useremail}</a>
-                    </div>
-                  ) : (
-                    <div className="user">
-                      <h4>N/A</h4>
-                      <a href="#">N/A</a>
-                    </div>
-                  )}
-                </td>
+                
                 <td>
                   {new Date(data.dateadded).toLocaleDateString()} |{" "}
                   {new Date(data.dateadded).toLocaleTimeString()}
