@@ -132,11 +132,9 @@ export function UserTable({ data,loading,onEdit}) {
                     </div>
                   )}
                 </td>
-                <td>if {data.phonenumber === null ? (phoneNumcell.innerHTML = 'N/A'):()} {
+                <td>if {data.phonenumber === null ? (phoneNumcell.innerHTML = 'N/A'):(phoneNumcell.innerHTML = data.phonenumber)} 
                 
-            } else {
-                phoneNumcell.innerHTML = data.phonenumber
-            }</td>
+            </td>
                 <td>{data.model}</td>
                 <td>
                   {data.status === "Assigned" ? (
