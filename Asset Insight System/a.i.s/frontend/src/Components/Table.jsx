@@ -140,17 +140,7 @@ export function UserTable({ data,loading,onEdit}) {
             </td>
                 <td>{data.department}</td>
                 <td>
-                  {data.status === "Assigned" ? (
-                    <div className="status a">Assigned</div>
-                  ) : data.status === "Unused" ? (
-                    <div className="status u">Unused</div>
-                  ) : data.status === "Damaged" ? (
-                    <div className="status d">Damaged</div>
-                  ) : data.status === "Out of Service" ? (
-                    <div className="status oos">Out of Service</div>
-                  ) : (
-                    <div className="status r">Retired</div>
-                  )}
+                 
                 </td>
                 
                 <td>
