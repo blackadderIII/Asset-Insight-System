@@ -140,7 +140,7 @@ export function UserTable({ data,loading,onEdit}) {
             </td>
                 <td>{data.department}</td>
                 <td>
-                 
+                {data.designation}
                 </td>
                 
                 <td>
