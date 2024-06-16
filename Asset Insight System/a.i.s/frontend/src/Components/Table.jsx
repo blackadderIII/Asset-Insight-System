@@ -1,4 +1,4 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useState ,useEffect} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
@@ -93,6 +93,17 @@ export function AssetTable({ asset, loading, onEdit }) {
 }
 export function UserTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
+
+  const {userasset,setuserAsset} = useState([]);
+  useEffect(()=>{
+    async function getUserAsset(data){
+      const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${data.email}`);
+      const userAssetData = await getUserAssetAPI.json();
+      setuserAsset(userAssetData);
+    }
+    getUserAsset(data)
+  },[])
+
 
   return (
     <div class="third-row">
