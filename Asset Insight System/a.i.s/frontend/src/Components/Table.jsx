@@ -136,10 +136,9 @@ export function UserTable({ data,loading,onEdit}) {
                       <h4>N/A</h4>
                     </div>):(<div className="phonenum">
                       <h4>{data.phonenumber}</h4>
-                    </div>)} 
-                
+                    </div>)}  
             </td>
-                <td>{data.model}</td>
+                <td>{data.department}</td>
                 <td>
                   {data.status === "Assigned" ? (
                     <div className="status a">Assigned</div>
