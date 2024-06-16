@@ -134,7 +134,7 @@ export function UserTable({ data,loading,onEdit}) {
                 </td>
                 <td>if {data.phonenumber === null ? (<div className="phonenum">
                       <h4>N/A</h4>
-                    </div>):(<div className="user">
+                    </div>):(<div className="phonenum">
                       <h4>{data.phonenumber}</h4>
                     </div>)} 
                 
