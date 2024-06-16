@@ -135,7 +135,6 @@ export function UserTable({ data, loading, onEdit }) {
                   )}
                 </td>
                 <td>
-                  if{" "}
                   {data.phonenumber === null ? (
                     <h4>N/A</h4>
                   ) : (
@@ -153,6 +152,18 @@ export function UserTable({ data, loading, onEdit }) {
                     <div class="asset">
                       <span>${data.laptops}</span>
                       <i class="fas fa-laptop"></i>
+                    </div>
+                  )}
+                </td>
+                <td>
+                  {data.phones < 1 ? (
+                    <div class="asset">
+                      <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                    </div>
+                  ) : (
+                    <div class="asset">
+                      <span>${data.phones}</span>
+                      <i class="fas fa-mobile-screen"></i>
                     </div>
                   )}
                 </td>
