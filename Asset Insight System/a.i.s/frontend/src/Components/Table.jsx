@@ -94,23 +94,16 @@ export function AssetTable({ asset, loading, onEdit }) {
 export function UserTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
 
-  const [userasset,setUserAsset] = useState([]);
-  useEffect(() => {
-    if (data.length > 0) {
-      const getUserAssets = async () => {
-        const userAssets = await Promise.all(
-          data.map(async (dataItem) => {
-            const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${dataItem.email}`);
-            const userAssetData = await getUserAssetAPI.json();
-            console.log(userAssetData)
-            return userAssetData;
-          })
-        );
-        setUserAsset(userAssets);
-      };
-      getUserAssets();
+  const [userasset,setuserAsset] = useState([]);
+  useEffect(()=>{
+    async function getUserAsset(dataItem){
+      const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${dataItem.email}`);
+      const userAssetData = await getUserAssetAPI.json();
+      console.log(userAssetData)
+      setuserAsset(userAssetData);
     }
-  }, [data]);
+    
+  },[])
 
   if (loading) {
     return <div className="loading" ref={loadingRef}></div>;
@@ -142,74 +135,81 @@ export function UserTable({ data, loading, onEdit }) {
         </thead>
 
         <tbody id="main-table">
-        {data.map((dataItem) => (
-            <tr key={dataItem.email}>
-              <td>
-                {dataItem.username ? (
-                  <div className="user">
-                    <h4>{dataItem.username}</h4>
-                    <a href="#">{dataItem.useremail}</a>
-                  </div>
-                ) : (
-                  <div className="user">
+        {loading ? (
+            <div className="loading" ref={loadingRef}></div>
+          ) : data.length === 0 ? (
+            <div className="emptyIllustration">
+              <img src={emptyPng} alt="No Asset Found" />
+              <p>There's nothing here yet</p>
+            </div>
+          ) : (
+            data.map((dataItem) => (
+              <tr key={dataItem.email}>
+                <td>
+                  {dataItem.username ? (
+                    <div className="user">
+                      <h4>{dataItem.username}</h4>
+                      <a href="#">{dataItem.useremail}</a>
+                    </div>
+                  ) : (
+                    <div className="user">
+                      <h4>N/A</h4>
+                      <a href="#">N/A</a>
+                    </div>
+                  )}
+                </td>
+                <td>
+                  {dataItem.phonenumber === null ? (
                     <h4>N/A</h4>
-                    <a href="#">N/A</a>
-                  </div>
-                )}
-              </td>
-              <td>
-                {dataItem.phonenumber === null ? (
-                  <h4>N/A</h4>
-                ) : (
-                  <h4>{dataItem.phonenumber}</h4>
-                )}
-              </td>
-              <td>{dataItem.department}</td>
-              <td>{dataItem.designation}</td>
-              <td>
-                {userasset.find((asset) => asset.email === dataItem.email).laptops <
-                  1 ? (
-                  <div class="asset">
-                    <i class="fas fa-laptop" id="empty-asset"></i>
-                  </div>
-                ) : (
-                  <div class="asset">
-                    <span>${dataItem.laptops}</span>
-                    <i class="fas fa-laptop"></i>
-                  </div>
-                )}
-              </td>
-              <td>
-                {userasset.find((asset) => asset.email === dataItem.email).phones <
-                  1 ? (
-                  <div class="asset">
-                    <i class="fas fa-mobile-screen" id="empty-asset"></i>
-                  </div>
-                ) : (
-                  <div class="asset">
-                    <span>${dataItem.phones}</span>
-                    <i class="fas fa-mobile-screen"></i>
-                  </div>
-                )}
-              </td>
-              <td>
-                <button id="assign">Assign</button>
-              </td>
-              <td>
-                <button id="revoke">Revoke</button>
-              </td>
-              <td>
-                <i
-                  className="far fa-edit"
-                  id="edit"
-                  onClick={() => onEdit(dataItem)}
-                ></i>
-              </td>
-              <td>
-                <i className="far fa-trash-alt" id="delete"></i>
-              </td>
-            </tr>
-          ))}
+                  ) : (
+                    <h4>{dataItem.phonenumber}</h4>
+                  )}
+                </td>
+                <td>{dataItem.department}</td>
+                <td>{dataItem.designation}</td>
+                <td > 
+                  {userasset.laptops < 1 ? (
+                    <div class="asset">
+                      <i class="fas fa-laptop" id="empty-asset"></i>
+                    </div>
+                  ) : (
+                    <div class="asset">
+                      <span>${dataItem.laptops}</span>
+                      <i class="fas fa-laptop"></i>
+                    </div>
+                  )}
+                </td>
+                <td>
+                  {userasset.phones < 1 ? (
+                    <div class="asset">
+                      <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                    </div>
+                  ) : (
+                    <div class="asset">
+                      <span>${dataItem.phones}</span>
+                      <i class="fas fa-mobile-screen"></i>
+                    </div>
+                  )}
+                </td>
+                <td>
+                  <button id="assign">Assign</button>
+                </td>
+                <td>
+                  <button id="revoke">Revoke</button>
+                </td>
+                <td>
+                  <i
+                    className="far fa-edit"
+                    id="edit"
+                    onClick={() => onEdit(dataItem)}
+                  ></i>
+                </td>
+                <td>
+                  <i className="far fa-trash-alt" id="delete"></i>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
 
         <tbody class="inactive" id="search-table"></tbody>
