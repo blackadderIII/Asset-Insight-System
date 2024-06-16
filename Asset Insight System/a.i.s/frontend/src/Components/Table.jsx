@@ -1,11 +1,10 @@
-import React, { createRef ,useState} from "react";
+import React, { createRef, useState } from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export  function AssetTable({ asset,loading,onEdit}) {
+export function AssetTable({ asset, loading, onEdit }) {
   const loadingRef = createRef();
- 
-  
+
   return (
     <div class="third-row">
       <table id="laptops">
@@ -27,7 +26,7 @@ export  function AssetTable({ asset,loading,onEdit}) {
             <div className="loading" ref={loadingRef}></div>
           ) : asset.length === 0 ? (
             <div className="emptyIllustration">
-              <img src={emptyPng} alt="No Asset Found"/>
+              <img src={emptyPng} alt="No Asset Found" />
               <p>There's nothing here yet</p>
             </div>
           ) : (
@@ -73,7 +72,11 @@ export  function AssetTable({ asset,loading,onEdit}) {
                   <button id="revoke">Revoke</button>
                 </td>
                 <td>
-                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(asset)}></i>
+                  <i
+                    className="far fa-edit"
+                    id="edit"
+                    onClick={() => onEdit(asset)}
+                  ></i>
                 </td>
                 <td>
                   <i className="far fa-trash-alt" id="delete"></i>
@@ -86,12 +89,11 @@ export  function AssetTable({ asset,loading,onEdit}) {
         <tbody class="inactive" id="search-table"></tbody>
       </table>
     </div>
- );
+  );
 }
-export function UserTable({ data,loading,onEdit}) {
+export function UserTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
- 
-  
+
   return (
     <div class="third-row">
       <table id="laptops">
@@ -113,13 +115,13 @@ export function UserTable({ data,loading,onEdit}) {
             <div className="loading" ref={loadingRef}></div>
           ) : data.length === 0 ? (
             <div className="emptyIllustration">
-              <img src={emptyPng} alt="No Asset Found"/>
+              <img src={emptyPng} alt="No Asset Found" />
               <p>There's nothing here yet</p>
             </div>
           ) : (
             data.map((data) => (
               <tr key={data.email}>
-              <td>
+                <td>
                   {data.username ? (
                     <div className="user">
                       <h4>{data.username}</h4>
@@ -132,20 +134,31 @@ export function UserTable({ data,loading,onEdit}) {
                     </div>
                   )}
                 </td>
-                <td>if {data.phonenumber === null ? (<div className="phonenum">
+                <td>
+                  if{" "}
+                  {data.phonenumber === null ? (
+                    <div className="phonenum">
                       <h4>N/A</h4>
-                    </div>):(<div className="phonenum">
+                    
+                  ) : (
+                    <div className="phonenum">
                       <h4>{data.phonenumber}</h4>
-                    </div>)}  
-            </td>
-                <td>{data.department}</td>
-                <td>
-                {data.designation}
+                    
+                  )}
                 </td>
-                
+                <td>{data.department}</td>
+                <td>{data.designation}</td>
                 <td>
-                  {new Date(data.dateadded).toLocaleDateString()} |{" "}
-                  {new Date(data.dateadded).toLocaleTimeString()}
+                  {data.laptops < 1 ? (
+                    <div class="asset">
+                      <i class="fas fa-laptop" id="empty-asset"></i>
+                    </div>
+                  ) : (
+                    <div class="asset">
+                      <span>${data.laptops}</span>
+                      <i class="fas fa-laptop"></i>
+                    </div>
+                  )}
                 </td>
                 <td>
                   <button id="assign">Assign</button>
@@ -154,7 +167,11 @@ export function UserTable({ data,loading,onEdit}) {
                   <button id="revoke">Revoke</button>
                 </td>
                 <td>
-                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(data)}></i>
+                  <i
+                    className="far fa-edit"
+                    id="edit"
+                    onClick={() => onEdit(data)}
+                  ></i>
                 </td>
                 <td>
                   <i className="far fa-trash-alt" id="delete"></i>
@@ -167,13 +184,12 @@ export function UserTable({ data,loading,onEdit}) {
         <tbody class="inactive" id="search-table"></tbody>
       </table>
     </div>
- );
+  );
 }
 
-export function SupplierTable({ data,loading,onEdit}) {
+export function SupplierTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
- 
-  
+
   return (
     <div class="third-row">
       <table id="laptops">
@@ -195,7 +211,7 @@ export function SupplierTable({ data,loading,onEdit}) {
             <div className="loading" ref={loadingRef}></div>
           ) : data.length === 0 ? (
             <div className="emptyIllustration">
-              <img src={emptyPng} alt="No Asset Found"/>
+              <img src={emptyPng} alt="No Asset Found" />
               <p>There's nothing here yet</p>
             </div>
           ) : (
@@ -241,7 +257,11 @@ export function SupplierTable({ data,loading,onEdit}) {
                   <button id="revoke">Revoke</button>
                 </td>
                 <td>
-                  <i className="far fa-edit" id="edit" onClick={()=>onEdit(data)}></i>
+                  <i
+                    className="far fa-edit"
+                    id="edit"
+                    onClick={() => onEdit(data)}
+                  ></i>
                 </td>
                 <td>
                   <i className="far fa-trash-alt" id="delete"></i>
@@ -254,5 +274,5 @@ export function SupplierTable({ data,loading,onEdit}) {
         <tbody class="inactive" id="search-table"></tbody>
       </table>
     </div>
- );
+  );
 }
