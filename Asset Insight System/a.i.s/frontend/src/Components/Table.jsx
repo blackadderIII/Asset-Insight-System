@@ -203,6 +203,7 @@ export function UserTable({ data, loading, onEdit }) {
                     </div>
                   )}
                 </td>
+                .
                 <td>
                   <button id="assign">Assign</button>
                 </td>
