@@ -192,6 +192,18 @@ export function UserTable({ data, loading, onEdit }) {
                   )}
                 </td>
                 <td>
+                  {userasset.phones < 1 ? (
+                    <div class="asset">
+                      <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                    </div>
+                  ) : (
+                    <div class="asset">
+                      <span>${dataItem.phones}</span>
+                      <i class="fas fa-mobile-screen"></i>
+                    </div>
+                  )}
+                </td>
+                <td>
                   <button id="assign">Assign</button>
                 </td>
                 <td>
