@@ -204,7 +204,7 @@ export function UserTable({ data, loading, onEdit }) {
                   )}
                 </td>
                 <td>
-                  {userasset.monitors < 1 ? (
+                  {userasset.miscs < 1 ? (
                     <div class="asset">
                       <i class="fas fa-mobile-screen" id="empty-asset"></i>
                     </div>
