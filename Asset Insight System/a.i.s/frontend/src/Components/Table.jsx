@@ -211,7 +211,7 @@ export function UserTable({ data, loading, onEdit }) {
                   ) : (
                     <div class="asset">
                       <span>${dataItem.miscs}</span>
-                      <i class="fas fa-mobile-screen"></i>
+                      <i class="fas fa-stars"></i>
                     </div>
                   )}
                 </td>
