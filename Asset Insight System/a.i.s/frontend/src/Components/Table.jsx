@@ -206,7 +206,7 @@ export function UserTable({ data, loading, onEdit }) {
                 <td>
                   {userasset.miscs < 1 ? (
                     <div class="asset">
-                      <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                      <i class="fas fa-stars" id="empty-asset"></i>
                     </div>
                   ) : (
                     <div class="asset">
