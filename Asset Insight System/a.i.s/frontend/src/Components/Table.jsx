@@ -375,7 +375,7 @@ export function UserTable({ data, loading, onEdit }) {
           <th>Designation</th>
           <th>Laptops</th>
           <th>Phones</th>
-          <th>Monitors</th>
+          <th></th>
           <th></th>
           <th></th>
           <th></th>
