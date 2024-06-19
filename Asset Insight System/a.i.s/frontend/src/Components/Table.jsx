@@ -92,156 +92,156 @@ export function AssetTable({ asset, loading, onEdit }) {
   );
 }
 
-export function UserTable({ data, loading, onEdit }) {
-  const loadingRef = createRef();
+// export function UserTable({ data, loading, onEdit }) {
+//   const loadingRef = createRef();
 
-  const [userasset,setuserAsset] = useState([]);
-  useEffect(()=>{
-    async function getUserAsset(dataItem){
-      const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${dataItem.email}`);
-      const userAssetData = await getUserAssetAPI.json();
-      console.log(userAssetData)
-      setuserAsset(userAssetData);
-    }
+//   const [userasset,setuserAsset] = useState([]);
+//   useEffect(()=>{
+//     async function getUserAsset(dataItem){
+//       const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${dataItem.email}`);
+//       const userAssetData = await getUserAssetAPI.json();
+//       console.log(userAssetData)
+//       setuserAsset(userAssetData);
+//     }
     
-  },[])
+//   },[])
 
-  if (loading) {
-    return <div className="loading" ref={loadingRef}></div>;
-  }
+//   if (loading) {
+//     return <div className="loading" ref={loadingRef}></div>;
+//   }
 
-  if (data.length === 0) {
-    return (
-      <div className="emptyIllustration">
-        <img src={emptyPng} alt="No Asset Found" />
-        <p>There's nothing here yet</p>
-      </div>
-    );
-  }
+//   if (data.length === 0) {
+//     return (
+//       <div className="emptyIllustration">
+//         <img src={emptyPng} alt="No Asset Found" />
+//         <p>There's nothing here yet</p>
+//       </div>
+//     );
+//   }
 
-  return (
-    <div class="third-row">
-      <table id="laptops">
-        <thead>
-          <th>User</th>
-          <th>Phone No.</th>
-          <th>Department</th>
-          <th>Designation</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </thead>
+//   return (
+//     <div class="third-row">
+//       <table id="laptops">
+//         <thead>
+//           <th>User</th>
+//           <th>Phone No.</th>
+//           <th>Department</th>
+//           <th>Designation</th>
+//           <th></th>
+//           <th></th>
+//           <th></th>
+//           <th></th>
+//           <th></th>
+//           <th></th>
+//         </thead>
 
-        <tbody id="main-table">
-        {loading ? (
-            <div className="loading" ref={loadingRef}></div>
-          ) : data.length === 0 ? (
-            <div className="emptyIllustration">
-              <img src={emptyPng} alt="No Asset Found" />
-              <p>There's nothing here yet</p>
-            </div>
-          ) : (
-            data.map((dataItem) => (
-              <tr key={dataItem.email}>
-                <td>
-                  {dataItem.username ? (
-                    <div className="user">
-                      <h4>{dataItem.username}</h4>
-                      <a href="#">{dataItem.useremail}</a>
-                    </div>
-                  ) : (
-                    <div className="user">
-                      <h4>N/A</h4>
-                      <a href="#">N/A</a>
-                    </div>
-                  )}
-                </td>
-                <td>
-                  {dataItem.phonenumber === null ? (
-                    <h4>N/A</h4>
-                  ) : (
-                    <h4>{dataItem.phonenumber}</h4>
-                  )}
-                </td>
-                <td>{dataItem.department}</td>
-                <td>{dataItem.designation}</td>
-                <td > 
-                  {userasset.laptops < 1 ? (
-                    <div class="asset">
-                      <i class="fas fa-laptop" id="empty-asset"></i>
-                    </div>
-                  ) : (
-                    <div class="asset">
-                      <span>${dataItem.laptops}</span>
-                      <i class="fas fa-laptop"></i>
-                    </div>
-                  )}
-                </td>
-                <td>
-                  {userasset.phones < 1 ? (
-                    <div class="asset">
-                      <i class="fas fa-mobile-screen" id="empty-asset"></i>
-                    </div>
-                  ) : (
-                    <div class="asset">
-                      <span>${dataItem.phones}</span>
-                      <i class="fas fa-mobile-screen"></i>
-                    </div>
-                  )}
-                </td>
-                <td>
-                  {userasset.monitors < 1 ? (
-                    <div class="asset">
-                      <i class="fas fa-mobile-screen" id="empty-asset"></i>
-                    </div>
-                  ) : (
-                    <div class="asset">
-                      <span>${dataItem.monitors}</span>
-                      <i class="fas fa-mobile-screen"></i>
-                    </div>
-                  )}
-                </td>
-                <td>
-                  {userasset.miscs < 1 ? (
-                    <div class="asset">
-                      <i class="fas fa-stars" id="empty-asset"></i>
-                    </div>
-                  ) : (
-                    <div class="asset">
-                      <span>${dataItem.miscs}</span>
-                      <i class="fas fa-stars"></i>
-                    </div>
-                  )}
-                </td>
-                <td>
-                  <button id="assign">Assign</button>
-                </td>
-                <td>
-                  <button id="revoke">Revoke</button>
-                </td>
-                <td>
-                  <i
-                    className="far fa-edit"
-                    id="edit"
-                    onClick={() => onEdit(dataItem)}
-                  ></i>
-                </td>
-                <td>
-                  <i className="far fa-trash-alt" id="delete"></i>
-                </td>
-              </tr>
-            ))
-          )}
-        </tbody>
+//         <tbody id="main-table">
+//         {loading ? (
+//             <div className="loading" ref={loadingRef}></div>
+//           ) : data.length === 0 ? (
+//             <div className="emptyIllustration">
+//               <img src={emptyPng} alt="No Asset Found" />
+//               <p>There's nothing here yet</p>
+//             </div>
+//           ) : (
+//             data.map((dataItem) => (
+//               <tr key={dataItem.email}>
+//                 <td>
+//                   {dataItem.username ? (
+//                     <div className="user">
+//                       <h4>{dataItem.username}</h4>
+//                       <a href="#">{dataItem.useremail}</a>
+//                     </div>
+//                   ) : (
+//                     <div className="user">
+//                       <h4>N/A</h4>
+//                       <a href="#">N/A</a>
+//                     </div>
+//                   )}
+//                 </td>
+//                 <td>
+//                   {dataItem.phonenumber === null ? (
+//                     <h4>N/A</h4>
+//                   ) : (
+//                     <h4>{dataItem.phonenumber}</h4>
+//                   )}
+//                 </td>
+//                 <td>{dataItem.department}</td>
+//                 <td>{dataItem.designation}</td>
+//                 <td > 
+//                   {userasset.laptops < 1 ? (
+//                     <div class="asset">
+//                       <i class="fas fa-laptop" id="empty-asset"></i>
+//                     </div>
+//                   ) : (
+//                     <div class="asset">
+//                       <span>${dataItem.laptops}</span>
+//                       <i class="fas fa-laptop"></i>
+//                     </div>
+//                   )}
+//                 </td>
+//                 <td>
+//                   {userasset.phones < 1 ? (
+//                     <div class="asset">
+//                       <i class="fas fa-mobile-screen" id="empty-asset"></i>
+//                     </div>
+//                   ) : (
+//                     <div class="asset">
+//                       <span>${dataItem.phones}</span>
+//                       <i class="fas fa-mobile-screen"></i>
+//                     </div>
+//                   )}
+//                 </td>
+//                 <td>
+//                   {userasset.monitors < 1 ? (
+//                     <div class="asset">
+//                       <i class="fas fa-mobile-screen" id="empty-asset"></i>
+//                     </div>
+//                   ) : (
+//                     <div class="asset">
+//                       <span>${dataItem.monitors}</span>
+//                       <i class="fas fa-mobile-screen"></i>
+//                     </div>
+//                   )}
+//                 </td>
+//                 <td>
+//                   {userasset.miscs < 1 ? (
+//                     <div class="asset">
+//                       <i class="fas fa-stars" id="empty-asset"></i>
+//                     </div>
+//                   ) : (
+//                     <div class="asset">
+//                       <span>${dataItem.miscs}</span>
+//                       <i class="fas fa-stars"></i>
+//                     </div>
+//                   )}
+//                 </td>
+//                 <td>
+//                   <button id="assign">Assign</button>
+//                 </td>
+//                 <td>
+//                   <button id="revoke">Revoke</button>
+//                 </td>
+//                 <td>
+//                   <i
+//                     className="far fa-edit"
+//                     id="edit"
+//                     onClick={() => onEdit(dataItem)}
+//                   ></i>
+//                 </td>
+//                 <td>
+//                   <i className="far fa-trash-alt" id="delete"></i>
+//                 </td>
+//               </tr>
+//             ))
+//           )}
+//         </tbody>
 
-        <tbody class="inactive" id="search-table"></tbody>
-      </table>
-    </div>
-  );
-}
+//         <tbody class="inactive" id="search-table"></tbody>
+//       </table>
+//     </div>
+//   );
+// }
 
 export function SupplierTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
@@ -325,6 +325,153 @@ export function SupplierTable({ data, loading, onEdit }) {
               </tr>
             ))
           )}
+        </tbody>
+
+        <tbody class="inactive" id="search-table"></tbody>
+      </table>
+    </div>
+  );
+}
+
+export function UserTable({ data, loading, onEdit }) {
+  const [userAssets, setUserAssets] = useState({});
+
+  useEffect(() => {
+    async function getUserAssets() {
+      const promises = data.map(async (dataItem) => {
+        const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${dataItem.email}`);
+        const userAssetData = await getUserAssetAPI.json();
+        return { [dataItem.email]: userAssetData };
+      });
+
+      const results = await Promise.all(promises);
+      const userAssetsObj = results.reduce((acc, curr) => ({...acc,...curr }), {});
+      setUserAssets(userAssetsObj);
+    }
+
+    getUserAssets();
+  }, [data]);
+
+  if (loading) {
+    return <div className="loading"></div>;
+  }
+
+  if (data.length === 0) {
+    return (
+      <div className="emptyIllustration">
+        <img src={emptyPng} alt="No Asset Found" />
+        <p>There's nothing here yet</p>
+      </div>
+    );
+  }
+
+  return (
+    <div class="third-row">
+      <table id="laptops">
+        <thead>
+          <th>User</th>
+          <th>Phone No.</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Laptops</th>
+          <th>Phones</th>
+          <th>Monitors</th>
+          <th>Miscs</th>
+          <th></th>
+          <th></th>
+        </thead>
+
+        <tbody id="main-table">
+          {data.map((dataItem) => (
+            <tr key={dataItem.email}>
+              <td>
+                {dataItem.username? (
+                  <div className="user">
+                    <h4>{dataItem.username}</h4>
+                    <a href="#">{dataItem.useremail}</a>
+                  </div>
+                ) : (
+                  <div className="user">
+                    <h4>N/A</h4>
+                    <a href="#">N/A</a>
+                  </div>
+                )}
+              </td>
+              <td>
+                {dataItem.phonenumber === null? (
+                  <h4>N/A</h4>
+                ) : (
+                  <h4>{dataItem.phonenumber}</h4>
+                )}
+              </td>
+              <td>{dataItem.department}</td>
+              <td>{dataItem.designation}</td>
+              <td>
+                {userAssets[dataItem.email] && userAssets[dataItem.email].laptops > 0? (
+                  <div class="asset">
+                    <span>{userAssets[dataItem.email].laptops}</span>
+                    <i class="fas fa-laptop"></i>
+                  </div>
+                ) : (
+                  <div class="asset">
+                    <i class="fas fa-laptop" id="empty-asset"></i>
+                  </div>
+                )}
+              </td>
+              <td>
+                {userAssets[dataItem.email] && userAssets[dataItem.email].phones > 0? (
+                  <div class="asset">
+                    <span>{userAssets[dataItem.email].phones}</span>
+                    <i class="fas fa-mobile-screen"></i>
+                  </div>
+                ) : (
+                  <div class="asset">
+                    <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                  </div>
+                )}
+              </td>
+              <td>
+                {userAssets[dataItem.email] && userAssets[dataItem.email].monitors > 0? (
+                  <div class="asset">
+                    <span>{userAssets[dataItem.email].monitors}</span>
+                    <i class="fas fa-mobile-screen"></i>
+                  </div>
+                ) : (
+                  <div class="asset">
+                    <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                  </div>
+                )}
+              </td>
+              <td>
+                {userAssets[dataItem.email] && userAssets[dataItem.email].miscs > 0? (
+                  <div class="asset">
+                    <span>{userAssets[dataItem.email].miscs}</span>
+                    <i class="fas fa-stars"></i>
+                  </div>
+                ) : (
+                  <div class="asset">
+                    <i class="fas fa-stars" id="empty-asset"></i>
+                  </div>
+                )}
+              </td>
+              <td>
+                <button id="assign">Assign</button>
+              </td>
+              <td>
+                <button id="revoke">Revoke</button>
+              </td>
+              <td>
+                <i
+                  className="far fa-edit"
+                  id="edit"
+                  onClick={() => onEdit(dataItem)}
+                ></i>
+              </td>
+              <td>
+                <i className="far fa-trash-alt" id="delete"></i>
+              </td>
+            </tr>
+          ))}
         </tbody>
 
         <tbody class="inactive" id="search-table"></tbody>
