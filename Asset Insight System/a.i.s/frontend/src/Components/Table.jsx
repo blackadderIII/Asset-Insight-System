@@ -91,6 +91,7 @@ export function AssetTable({ asset, loading, onEdit }) {
     </div>
   );
 }
+
 export function UserTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
 
