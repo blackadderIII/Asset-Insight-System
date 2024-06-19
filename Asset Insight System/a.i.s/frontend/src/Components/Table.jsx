@@ -434,7 +434,7 @@ export function UserTable({ data, loading, onEdit }) {
                 {userAssets[dataItem.email] && userAssets[dataItem.email].monitors > 0? (
                   <div class="asset">
                     <span>{userAssets[dataItem.email].monitors}</span>
-                    <i class="fas fa-mobile-screen"></i>
+                    <i class="fas fa-desktop"></i>
                   </div>
                 ) : (
                   <div class="asset">
