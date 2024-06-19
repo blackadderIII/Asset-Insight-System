@@ -454,10 +454,6 @@ export function UserTable({ data, loading, onEdit }) {
                   </div>
                 )}
               </td>
-              
-              <td>
-                <button id="revoke">Revoke</button>
-              </td>
               <td>
                 <i
                   className="far fa-edit"
