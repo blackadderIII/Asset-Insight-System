@@ -373,7 +373,7 @@ export function UserTable({ data, loading, onEdit }) {
           <th>Phone No.</th>
           <th>Department</th>
           <th>Designation</th>
-          <th>Laptops</th>
+          <th></th>
           <th></th>
           <th></th>
           <th></th>
