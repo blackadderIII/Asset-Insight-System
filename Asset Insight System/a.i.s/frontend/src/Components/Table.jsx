@@ -438,7 +438,7 @@ export function UserTable({ data, loading, onEdit }) {
                   </div>
                 ) : (
                   <div class="asset">
-                    <i class="fas fa-mobile-screen" id="empty-asset"></i>
+                    <i class="fas fa-desktop" id="empty-asset"></i>
                   </div>
                 )}
               </td>
