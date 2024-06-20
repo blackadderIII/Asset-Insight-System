@@ -103,19 +103,6 @@ export function AssetTable({ asset, loading, onEdit }) {
 //        
 
 
-//                 <td>
-//                   <i className="far fa-trash-alt" id="delete"></i>
-//                 </td>
-//               </tr>
-//             ))
-//           )}
-//         </tbody>
-
-//         <tbody class="inactive" id="search-table"></tbody>
-//       </table>
-//     </div>
-//   );
-// }
 
 export function SupplierTable({ data, loading, onEdit }) {
   const loadingRef = createRef();
