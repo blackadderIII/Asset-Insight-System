@@ -93,18 +93,7 @@ export function AssetTable({ asset, loading, onEdit }) {
 }
 
 // export function UserTable({ data, loading, onEdit }) {
-//   const loadingRef = createRef();
 
-//   const [userasset,setuserAsset] = useState([]);
-//   useEffect(()=>{
-//     async function getUserAsset(dataItem){
-//       const getUserAssetAPI = await fetch(`http://localhost:3300/getUserAsset/${dataItem.email}`);
-//       const userAssetData = await getUserAssetAPI.json();
-//       console.log(userAssetData)
-//       setuserAsset(userAssetData);
-//     }
-    
-//   },[])
 
 //   if (loading) {
 //     return <div className="loading" ref={loadingRef}></div>;
