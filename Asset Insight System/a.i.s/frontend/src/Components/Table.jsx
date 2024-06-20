@@ -95,18 +95,7 @@ export function AssetTable({ asset, loading, onEdit }) {
 // export function UserTable({ data, loading, onEdit }) {
 
 
-//   if (loading) {
-//     return <div className="loading" ref={loadingRef}></div>;
-//   }
 
-//   if (data.length === 0) {
-//     return (
-//       <div className="emptyIllustration">
-//         <img src={emptyPng} alt="No Asset Found" />
-//         <p>There's nothing here yet</p>
-//       </div>
-//     );
-//   }
 
 //   return (
 //     <div class="third-row">
