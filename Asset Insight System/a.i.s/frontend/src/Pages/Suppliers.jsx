@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { TitleComponent1 } from '../Components/TitleComponent';
 import { SupplierTable } from '../Components/Table';
-import { json } from 'express';
+
 
 export default function Suppliers() {
     const [suppliers,setSuppliers] = useState([]);
 
     useEffect(()=>{
-        const getSupplierData  =  await fetch 'http://localhost:3300/getSuppliers';
-        const response = await getSupplierData.json()
+        async function getSupplierData() {
 
-    }
+           const SupplierData =  fetch ('http://localhost:3300/getSuppliers');
+           const response = await SupplierData.json()
+           setSuppliers(response)
+        }
+    },
 
-
+    getSupplierData()
 ,[])
 
   return (
