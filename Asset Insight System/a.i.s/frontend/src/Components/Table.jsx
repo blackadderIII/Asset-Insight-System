@@ -103,16 +103,6 @@ export function AssetTable({ asset, loading, onEdit }) {
 //        
 
 
-//                   )}
-//                 </td>
-//                 <td>{dataItem.department}</td>
-//                 <td>{dataItem.designation}</td>
-//                 <td > 
-//                   {userasset.laptops < 1 ? (
-//                     <div class="asset">
-//                       <i class="fas fa-laptop" id="empty-asset"></i>
-//                     </div>
-//                   ) : (
 //                     <div class="asset">
 //                       <span>${dataItem.laptops}</span>
 //                       <i class="fas fa-laptop"></i>
