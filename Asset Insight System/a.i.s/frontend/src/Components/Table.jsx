@@ -104,19 +104,6 @@ export function AssetTable({ asset, loading, onEdit }) {
 
 
 //                 <td>
-//                   <button id="assign">Assign</button>
-//                 </td>
-//                 <td>
-//                   <button id="revoke">Revoke</button>
-//                 </td>
-//                 <td>
-//                   <i
-//                     className="far fa-edit"
-//                     id="edit"
-//                     onClick={() => onEdit(dataItem)}
-//                   ></i>
-//                 </td>
-//                 <td>
 //                   <i className="far fa-trash-alt" id="delete"></i>
 //                 </td>
 //               </tr>
