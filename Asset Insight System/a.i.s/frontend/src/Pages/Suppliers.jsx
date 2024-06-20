@@ -8,15 +8,12 @@ export default function Suppliers() {
 
     useEffect(()=>{
         async function getSupplierData() {
-
-           const SupplierData =  fetch ('http://localhost:3300/getSuppliers');
+           const SupplierData = await fetch ('http://localhost:3300/getSuppliers');
            const response = await SupplierData.json()
            setSuppliers(response)
         }
-    },
-
-    getSupplierData()
-,[])
+        getSupplierData()
+    },[])
 
   return (
     <section class="main">
