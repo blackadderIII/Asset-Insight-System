@@ -103,24 +103,6 @@ export function AssetTable({ asset, loading, onEdit }) {
 //        
 
 
-//                     <div class="asset">
-//                       <span>${dataItem.laptops}</span>
-//                       <i class="fas fa-laptop"></i>
-//                     </div>
-//                   )}
-//                 </td>
-//                 <td>
-//                   {userasset.phones < 1 ? (
-//                     <div class="asset">
-//                       <i class="fas fa-mobile-screen" id="empty-asset"></i>
-//                     </div>
-//                   ) : (
-//                     <div class="asset">
-//                       <span>${dataItem.phones}</span>
-//                       <i class="fas fa-mobile-screen"></i>
-//                     </div>
-//                   )}
-//                 </td>
 //                 <td>
 //                   {userasset.monitors < 1 ? (
 //                     <div class="asset">
