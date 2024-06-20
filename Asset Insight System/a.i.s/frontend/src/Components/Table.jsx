@@ -92,16 +92,6 @@ export function AssetTable({ asset, loading, onEdit }) {
   );
 }
 
-// export function UserTable({ data, loading, onEdit }) {
-
-
-
-
-//   return (
-//     <div class="third-row">
-//       <table id="laptops">
-//        
-
 
 
 export function SupplierTable({ data, loading, onEdit }) {
