@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TitleComponent1 } from '../Components/TitleComponent';
 import { SupplierTable } from '../Components/Table';
 
 export default function Suppliers() {
+    const [suppliers,setSuppliers] = useState([]);
+
+    useEffect(()=>{
+        const getSupplierData =
+
+
+    }
+
+
+,[])
+
   return (
     <section class="main">
     <TitleComponent1 title={'Suppliers'}/>
