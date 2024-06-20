@@ -100,18 +100,7 @@ export function AssetTable({ asset, loading, onEdit }) {
 //   return (
 //     <div class="third-row">
 //       <table id="laptops">
-//         <thead>
-//           <th>User</th>
-//           <th>Phone No.</th>
-//           <th>Department</th>
-//           <th>Designation</th>
-//           <th></th>
-//           <th></th>
-//           <th></th>
-//           <th></th>
-//           <th></th>
-//           <th></th>
-//         </thead>
+//        
 
 //         <tbody id="main-table">
 //         {loading ? (
