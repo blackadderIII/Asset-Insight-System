@@ -102,20 +102,7 @@ export function AssetTable({ asset, loading, onEdit }) {
 //       <table id="laptops">
 //        
 
-//      
-//                     </div>
-//                   ) : (
-//                     <div className="user">
-//                       <h4>N/A</h4>
-//                       <a href="#">N/A</a>
-//                     </div>
-//                   )}
-//                 </td>
-//                 <td>
-//                   {dataItem.phonenumber === null ? (
-//                     <h4>N/A</h4>
-//                   ) : (
-//                     <h4>{dataItem.phonenumber}</h4>
+
 //                   )}
 //                 </td>
 //                 <td>{dataItem.department}</td>
