@@ -36,7 +36,7 @@ export default function Suppliers() {
         </div>
     </div>
 
-    <SupplierTable/>
+    <SupplierTable data={suppliers}/>
 
 </section>
   )
