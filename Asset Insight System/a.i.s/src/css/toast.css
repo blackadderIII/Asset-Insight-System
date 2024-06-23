@@ -1,0 +1,79 @@
+:root {
+  --success-bg: #b7efb7;
+  --error-bg: #990000;
+  --error-txt: #ffffff;
+  --warn-bg: #ffbb00;
+  --warn-txt: #443400;
+}
+
+.toast {
+  position: absolute;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 10px;
+  top: -6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.toast.login {
+  position: absolute;
+  min-width: 300px;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 10px;
+  top: -4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.toast.active {
+  top: 7vh;
+}
+
+.toast.success {
+  background-color: var(--success-bg);
+}
+.toast.warn {
+  background-color: var(--warn-bg);
+}
+.toast.error {
+  background-color: var(--error-bg);
+}
+
+.toast i {
+  margin-right: 10px;
+}
+
+.toast.success i {
+  color: green;
+}
+.toast.warn i {
+  color: #866700;
+}
+.toast.error i {
+  color: var(--error-txt);
+}
+
+.toast p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.toast.success p {
+  color: green;
+}
+.toast.warn p {
+  color: var(--warn-txt);
+}
+.toast.error p {
+  color: var(--error-txt);
+}

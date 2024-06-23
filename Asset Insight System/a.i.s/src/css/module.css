@@ -1,0 +1,241 @@
+.module {
+  visibility: hidden;
+  position: absolute;
+  width: 450px;
+  height: calc(100vh - 4vh);
+  background: white;
+  top: 4vh;
+  right: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 20px;
+  transition: 0.2s;
+  z-index: 200;
+  transform: translateX(100%);
+  box-shadow: -10px 0px 25px -15px #0003;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: var(--blue);
+}
+
+.module.active {
+  visibility: visible;
+  transform: translateX(0%);
+}
+
+.module i.fa-x {
+  cursor: pointer;
+  color: crimson;
+}
+
+.module .status-field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.module .field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.module .status-field .status {
+  width: 100px;
+  border-radius: 10px;
+  padding: 7px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.module .status-field .status.a {
+  background-color: var(--assigned-h);
+  color: var(--assigned-l);
+}
+
+.module .status-field .status.d {
+  background-color: var(--damage-h);
+  color: var(--damage-l);
+}
+.module .status-field .status.r {
+  background-color: var(--retired-h);
+  color: var(--retired-l);
+}
+.module .status-field .status.oos {
+  background-color: var(--outofservice-h);
+  color: var(--outofservice-l);
+}
+.module .status-field .status.u {
+  background-color: var(--unused-h);
+  color: var(--unused-l);
+}
+
+.module .field label {
+  padding: 5px;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 2.5px;
+}
+
+.module .field input {
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  background-color: #0001;
+}
+
+.module .field select {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0001;
+  border: none;
+}
+
+.module .field select.users-dropdown {
+  color: #333;
+  background-color: transparent;
+  height: calc(100vh - 4vh - 250px);
+}
+
+.module .field select.users-dropdown:focus {
+  outline: none;
+}
+
+.module .field option {
+  background-color: var(--white);
+  padding: 10px;
+}
+
+.module .field select.users-dropdown option {
+  background-color: transparent;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.module .field select.users-dropdown option:hover {
+  background: var(--blue-h);
+}
+
+.module .field textarea {
+  width: 100%;
+  padding: 10px;
+  resize: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #0001;
+  margin-bottom: 20px;
+}
+
+.module .field input:focus,
+.module .field textarea:focus,
+.module .field select:focus {
+  outline: 2px solid var(--blue);
+}
+
+.module .button-module {
+  color: var(--white);
+  height: auto;
+}
+
+.module button {
+  background: var(--blue);
+  border: none;
+  color: #fff;
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 5px;
+  position: relative;
+  bottom: 10px;
+}
+
+.module button:hover {
+  background: var(--blue-hover);
+}
+
+/* dark mode */
+
+body.dark .module {
+  background: var(--black-e);
+}
+
+body.dark .module .field h2,
+body.dark .module .status-field h4 {
+  color: white;
+}
+
+body.dark .module .field label {
+  color: var(--blue);
+}
+
+body.dark .module .field input {
+  color: white;
+  background-color: #ddd6;
+}
+
+body.dark .module .field textarea {
+  color: white;
+  background-color: #ddd3;
+}
+
+body.dark .module .field select {
+  color: white;
+  background-color: #ddd3;
+}
+
+body.dark .module .field select.users-dropdown {
+  color: white;
+  background-color: transparent;
+  height: calc(100vh - 4vh - 250px);
+}
+
+body.dark .module .field select.users-dropdown:focus {
+  outline: none;
+}
+
+body.dark .module .field option {
+  background-color: var(--black);
+  padding: 10px;
+}
+
+body.dark .module .field select.users-dropdown option {
+  background-color: transparent;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+body.dark .module .field select.users-dropdown option:hover {
+  background: var(--blue-h);
+}
+
+body.dark .module .status-field .status.a {
+  background-color: var(--assigned-h);
+  color: var(--assigned-d);
+}
+
+body.dark .module .status-field .status.d {
+  background-color: var(--damage-h);
+  color: var(--damage-d);
+}
+
+body.dark .module .status-field .status.u {
+  background-color: var(--unused-h);
+  color: var(--unused-d);
+}
+
+body.dark .module .status-field .status.r {
+  background-color: var(--retired-h);
+  color: var(--retired-d);
+}
+
+body.dark .module .status-field .status.oos {
+  background-color: var(--outofservice-h);
+  color: var(--outofservice-d);
+}
