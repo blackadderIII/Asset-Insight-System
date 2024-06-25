@@ -644,7 +644,7 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
         </div>
       </div>
 
-      {/* Edit Laptop Asset Category */}
+      {/* Edit Asset Category */}
       <div
         className={`module ${modulestate === "edit-active" ? "active" : ""}`}
         id="module"
