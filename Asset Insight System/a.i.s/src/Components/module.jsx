@@ -748,27 +748,6 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
       />
     </div>
 
-    <div class="field">
-      <label for="ram">RAM Size</label>
-      <input
-        type="text"
-        name="ram"
-        id="edit-ram-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.ram}
-      />
-    </div>
-
-    <div class="field">
-      <label for="hardDrive">Hard Drive Capacity</label>
-      <input
-        type="text"
-        name="hardDrive"
-        id="edit-rom-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.rom}
-      />
-    </div>
 
     <div class="field">
       <label for="supplier">Supplied By</label>
