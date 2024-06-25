@@ -308,7 +308,7 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
   };
   return (
     <div>
-      {/* Add Laptop */}
+      {/* Add Phone */}
       <div
         className={`module ${modulestate === "add-active" ? "active" : ""}`}
         id="module"
@@ -388,7 +388,7 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
         </div>
       </div>
 
-      {/* Edit Laptop Asset Category */}
+      {/* Edit Phone Asset Category */}
       <div
         className={`module ${modulestate === "edit-active" ? "active" : ""}`}
         id="module"
@@ -431,11 +431,11 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-    <div class="field">
+     <div class="field">
       <h2>Edit {asset} Information</h2>
-    </div>
+      </div>
 
-    <div class="status-field">
+     <div class="status-field">
       <h4 id="SN-Display">{assetEditState.sn}</h4>
       <div class="status" id="laptop-status">
         {assetEditState.status === "Assigned" ? (
@@ -848,6 +848,7 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
     </div>
   );
 }
+
 export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
     onClose();
