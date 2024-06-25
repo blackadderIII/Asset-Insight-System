@@ -142,7 +142,6 @@ export function SupplierTable({ data, loading, onEdit }) {
                 
                 
                 
-                
 
                 <td>
                   <i
