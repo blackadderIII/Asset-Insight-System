@@ -621,25 +621,6 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
           />
         </div>
 
-        <div class="field">
-          <label for="ram">RAM Size</label>
-          <input
-            type="text"
-            name="ram"
-            id="ram-module"
-            placeholder={`Enter the ${asset}'s RAM spec`}
-          />
-        </div>
-
-        <div class="field">
-          <label for="hardDrive">Phone Space Capacity</label>
-          <input
-            type="text"
-            name="hardDrive"
-            id="hardDrive-module"
-            placeholder={`Enter the ${asset}'s Storage Capacity`}
-          />
-        </div>
 
         <div class="field">
           <label for="supplier">Supplied By</label>
