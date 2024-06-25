@@ -141,10 +141,7 @@ export function SupplierTable({ data, loading, onEdit }) {
                 <td>{data.location}</td>
                 
                 
-                <td>
-                  {new Date(data.dateadded).toLocaleDateString()} |{" "}
-                  {new Date(data.dateadded).toLocaleTimeString()}
-                </td>
+                
                 <td>
                   <button id="assign">Assign</button>
                 </td>
