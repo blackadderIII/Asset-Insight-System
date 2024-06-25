@@ -141,7 +141,6 @@ export function SupplierTable({ data, loading, onEdit }) {
                 <td>{data.location}</td>
                 
                 
-                
 
                 <td>
                   <i
