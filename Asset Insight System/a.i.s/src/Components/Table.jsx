@@ -123,28 +123,12 @@ export function SupplierTable({ data, loading, onEdit }) {
             </div>
           ) : (
             data.map((data) => (
-              <tr key={data.sn}>
-                <td>{data.sn}</td>
-                <td>{data.brand}</td>
-                <td>{data.model}</td>
-                <td>
-                  {data.status === "Assigned" ? (
-                    <div className="status a">Assigned</div>
-                  ) : data.status === "Unused" ? (
-                    <div className="status u">Unused</div>
-                  ) : data.status === "Damaged" ? (
-                    <div className="status d">Damaged</div>
-                  ) : data.status === "Out of Service" ? (
-                    <div className="status oos">Out of Service</div>
-                  ) : (
-                    <div className="status r">Retired</div>
-                  )}
-                </td>
-                <td>
-                  {data.username ? (
+              <tr key={data.email}>
+              <td>
+                  {data.supplier ? (
                     <div className="user">
-                      <h4>{data.username}</h4>
-                      <a href="#">{data.useremail}</a>
+                      <h4>{data.supplier}</h4>
+                      <a href="#">{data.email}</a>
                     </div>
                   ) : (
                     <div className="user">
@@ -153,6 +137,10 @@ export function SupplierTable({ data, loading, onEdit }) {
                     </div>
                   )}
                 </td>
+                <td>{data.phonenumber}</td>
+                <td>{data.location}</td>
+                
+                
                 <td>
                   {new Date(data.dateadded).toLocaleDateString()} |{" "}
                   {new Date(data.dateadded).toLocaleTimeString()}
