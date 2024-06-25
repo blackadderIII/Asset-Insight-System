@@ -427,7 +427,7 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
         </div>
       </div>
 
-      {/* edit phones*/}
+      {/* edit MNP*/}
       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
@@ -683,7 +683,7 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
         </div>
       </div>
 
-      {/* edit phones*/}
+      {/* edit MNP*/}
       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
