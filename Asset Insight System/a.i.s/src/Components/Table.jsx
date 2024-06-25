@@ -140,7 +140,6 @@ export function SupplierTable({ data, loading, onEdit }) {
                 <td>{data.phonenumber}</td>
                 <td>{data.location}</td>
                 
-                
 
                 <td>
                   <i
