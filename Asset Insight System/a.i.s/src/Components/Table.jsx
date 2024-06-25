@@ -142,9 +142,7 @@ export function SupplierTable({ data, loading, onEdit }) {
                 
                 
                 
-                <td>
-                  <button id="assign">Assign</button>
-                </td>
+                
                 <td>
                   <button id="revoke">Revoke</button>
                 </td>
