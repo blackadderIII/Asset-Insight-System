@@ -143,9 +143,7 @@ export function SupplierTable({ data, loading, onEdit }) {
                 
                 
                 
-                <td>
-                  <button id="revoke">Revoke</button>
-                </td>
+
                 <td>
                   <i
                     className="far fa-edit"
