@@ -245,7 +245,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
         name="supplier"
         id="supplier-module"
         placeholder="Enter the laptop's Supplier name."
-        value={assetEditState.suppliername}
+        value={assetEditState.suppliername === null ?  (null) : (assetEditState.suppliername)}
       />
     </div>
 
