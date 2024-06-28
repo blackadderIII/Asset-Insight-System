@@ -41,6 +41,7 @@ function Asset1() {
   const [showEditModule, setShowEditModule] = useState(false);
   const closeEditModule = () =>{
     setShowEditModule(null)
+    
   }
 
 const handleEditClick = (laptop) => {
