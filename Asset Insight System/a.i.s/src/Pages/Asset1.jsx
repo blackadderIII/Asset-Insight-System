@@ -45,6 +45,7 @@ function Asset1() {
 
 const handleEditClick = (laptop) => {
   setShowEditModule(true);
+  console.log(laptop)
   setModuleEdit(laptop);
 };
   return (
