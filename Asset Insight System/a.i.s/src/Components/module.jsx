@@ -10,6 +10,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     closeEditModule();
   };
 
+  const user = localStorage.getItem("username");
 
   //------------------------------------------------------ 
     const [sn,setSn] = useState(null)
@@ -37,13 +38,23 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
                 processor: processor,
                 ram: ram,
                 rom: rom,
-                comment: comment
-  
+                comment: comment,
+                addedby: user
           })
   
         })
-        
+
         const response = await addLaptopAPI.json()
+
+        if (response.message === "Error Executing Query") {
+          errorT("An error occured. please try again later.");
+          return;
+        }
+    
+        if (response.message === "Error adding laptop") {
+          errorT("An error occured. please try again later.");
+          return;
+        }
 
     }
   
