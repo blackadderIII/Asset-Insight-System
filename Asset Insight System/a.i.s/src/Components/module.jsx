@@ -9,6 +9,8 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
   const handleEditClose = () => {
     closeEditModule();
   };
+
+
   //------------------------------------------------------ 
     const [sn,setSn] = useState(null)
     const [brand,setBrand] = useState(null)
@@ -17,9 +19,11 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     const [ram,setRam] = useState(null)
     const [rom,setRom] = useState(null)
     const [comment,setComment] = useState(null)
+
   // -----------------------------------------------------
   
     async function addLaptop(){
+
       const addLaptopAPI = await fetch('http://localhost:3300/addLaptop',
         {
           method : 'POST',
@@ -29,15 +33,28 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
           body: JSON.stringify({
                 sn: sn,
                 brand: brand,
+                model: model,
+                processor: processor,
+                ram: ram,
+                rom: rom,
+                comment: comment
   
           })
   
         })
     }
   
-
-  
-
+  //----------------------------------------------------- 
+    let serialNumber
+    function openModule() {
+    const min = 10000;
+    const max = 99999;
+     serialNumber = `AISL-${
+      Math.floor(Math.random() * (max - min + 1)) + min
+    }`;
+    // getSuppliers();
+    setSn(serialNumber);
+  }
 
   return (
     <div>
@@ -54,7 +71,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
 
         <div class="field">
           <label for="SN">*Serial Number</label>
-          <input type="text" name="SN" id="SN-module" readonly required onChange={(e)=>{setSn(e)}} />
+          <input type="text" name="SN" id="SN-module" readonly required onChange={()=> openModule} value= {serialNumber} />
         </div>
 
         <div class="field">
