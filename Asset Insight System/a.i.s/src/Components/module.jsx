@@ -110,6 +110,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             name="hardDrive"
             id="hardDrive-module"
             placeholder={`Enter the ${asset}'s Storage Capacity`}
+            onChange={(e)=>setRom(e.target.value)}
           />
         </div>
 
