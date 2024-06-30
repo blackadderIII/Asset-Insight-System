@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect,useState} from "react";
 import "../css/module.css";
 
 export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
@@ -8,6 +8,8 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
   const handleEditClose = () => {
     closeEditModule();
   };
+
+
   return (
     <div>
       {/* Add Laptop */}
