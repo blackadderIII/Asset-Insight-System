@@ -16,6 +16,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     const [processor,setProcessor] = useState(null)
     const [ram,setRam] = useState(null)
     const [rom,setRom] = useState(null)
+    const [comment,setComment] = useState(null)
   // -----------------------------------------------------
   useEffect(() =>{
     async function addLaptop(){
@@ -126,7 +127,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
 
         <div class="field">
           <label for="comment">Comment</label>
-          <textarea name="comment" id="comment-module" rows="5"></textarea>
+          <textarea name="comment" id="comment-module" rows="5" ></textarea>
         </div>
 
         <div class="button-module">
