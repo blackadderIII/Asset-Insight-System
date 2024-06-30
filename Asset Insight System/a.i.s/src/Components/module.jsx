@@ -13,6 +13,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     const [sn,setSn] = useEffect(null)
     const [brand,setBrand] = useEffect(null)
     const [model,setModel] = useEffect(null)
+    const [processor,setProcessor] = useEffect(null)
   // -----------------------------------------------------
   useEffect(() =>{
     async function addLaptop(){
@@ -74,6 +75,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             id="model-module"
             placeholder={`Enter the ${asset}'s model`}
             required
+            onChange={(e) => setModel(e.target.value)}
           />
         </div>
 
