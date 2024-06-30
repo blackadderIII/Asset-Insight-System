@@ -42,8 +42,9 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
           })
   
         })
-        const response = await addLaptopAPI.json()
         
+        const response = await addLaptopAPI.json()
+
     }
   
   //----------------------------------------------------- 
