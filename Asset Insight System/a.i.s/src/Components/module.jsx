@@ -10,10 +10,11 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     closeEditModule();
   };
   //------------------------------------------------------ 
-    const [sn,setSn] = useEffect(null)
-    const [brand,setBrand] = useEffect(null)
-    const [model,setModel] = useEffect(null)
-    const [processor,setProcessor] = useEffect(null)
+    const [sn,setSn] = useState(null)
+    const [brand,setBrand] = useState(null)
+    const [model,setModel] = useState(null)
+    const [processor,setProcessor] = useState(null)
+    const [ram,setRam] = useState(null)
   // -----------------------------------------------------
   useEffect(() =>{
     async function addLaptop(){
@@ -86,6 +87,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             name="processor"
             id="processor-module"
             placeholder={`Enter the ${asset}'s processor spec`}
+            onChange={(e)=> setProcessor(e.target.value)}
           />
         </div>
 
@@ -96,6 +98,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             name="ram"
             id="ram-module"
             placeholder={`Enter the ${asset}'s RAM spec`}
+            onChange={(e)=>setRam(e.target.value)}
           />
         </div>
 
