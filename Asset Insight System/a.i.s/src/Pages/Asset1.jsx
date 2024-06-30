@@ -7,9 +7,17 @@ import "../css/loading.css"
 
 function Asset1() {
   const [moduleActive, setModuleActive] = useState(null);
+  const [sn,setSn] = useState(null)
 
   const openModule = (state) => {
     setModuleActive(state);
+    const min = 10000;
+  const max = 99999;
+  const serialNumber = `AISL-${
+    Math.floor(Math.random() * (max - min + 1)) + min
+  }`;
+  // getSuppliers();
+  setSn(serialNumber);
   };
 
   const closeModule = () => {
@@ -46,9 +54,12 @@ function Asset1() {
 
 const handleEditClick = (laptop) => {
   setShowEditModule(true);
-  console.log(laptop)
   setModuleEdit(laptop);
 };
+
+
+
+
   return (
     <>
       <section class="main">
@@ -83,6 +94,7 @@ const handleEditClick = (laptop) => {
       <ModuleLaptop
         asset={"Laptop"}
         modulestate={moduleActive}
+        serialNumber={sn}
         onClose={closeModule}
         assetEditState={moduleEdit}
         showEditModule={showEditModule}
