@@ -42,6 +42,8 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
           })
   
         })
+        const response = await addLaptopAPI.json()
+        
     }
   
   //----------------------------------------------------- 
@@ -49,7 +51,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     function openModule() {
     const min = 10000;
     const max = 99999;
-     serialNumber = `AISL-${
+    serialNumber = `AISL-${
       Math.floor(Math.random() * (max - min + 1)) + min
     }`;
     // getSuppliers();
