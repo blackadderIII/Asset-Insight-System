@@ -15,6 +15,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     const [model,setModel] = useState(null)
     const [processor,setProcessor] = useState(null)
     const [ram,setRam] = useState(null)
+    const [rom,setRom] = useState(null)
   // -----------------------------------------------------
   useEffect(() =>{
     async function addLaptop(){
