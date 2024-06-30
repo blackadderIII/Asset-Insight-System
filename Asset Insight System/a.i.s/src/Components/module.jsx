@@ -1,6 +1,7 @@
 import React ,{useEffect,useState} from "react";
 import "../css/module.css";
 
+
 export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
     onClose();
@@ -8,6 +9,29 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
   const handleEditClose = () => {
     closeEditModule();
   };
+  //------------------------------------------------------ 
+    const [brand,setBrand] = useEffect(null)
+  // -----------------------------------------------------
+  useEffect(() =>{
+    async function addLaptop(){
+      const addLaptopAPI = await fetch('http://localhost:3300/addLaptop',
+        {
+          method : 'POST',
+          headers : {
+            'Content-type':'application/json'
+          },
+          body: JSON.stringify({
+  
+  
+          })
+  
+        })
+    }
+  
+  },[]
+  )
+
+  
 
 
   return (
@@ -36,6 +60,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             id="brand-module"
             placeholder="eg. HP"
             required
+            onChange={(e) => setBrand(e.target.value)}
           />
         </div>
 

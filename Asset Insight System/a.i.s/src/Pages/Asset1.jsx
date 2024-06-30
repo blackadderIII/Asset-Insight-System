@@ -21,7 +21,8 @@ function Asset1() {
   const [error, setError] = useState(null);
 //   const loadingRef = useRef(null);
 
-  useEffect(() => {
+  useEffect(() => 
+    {
     async function getLaptops() {
       try {
         const response = await fetch(`http://localhost:3300/getlaptops`);
