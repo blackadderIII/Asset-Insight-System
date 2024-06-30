@@ -87,6 +87,7 @@ const handleEditClick = (laptop) => {
         assetEditState={moduleEdit}
         showEditModule={showEditModule}
         closeEditModule={closeEditModule}
+        // refresh={getLaptops()}
       />
       
     </>
