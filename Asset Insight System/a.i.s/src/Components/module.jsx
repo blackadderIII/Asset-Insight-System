@@ -10,7 +10,9 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     closeEditModule();
   };
   //------------------------------------------------------ 
+    const [sn,setSn] = useEffect(null)
     const [brand,setBrand] = useEffect(null)
+    const [model,setModel] = useEffect(null)
   // -----------------------------------------------------
   useEffect(() =>{
     async function addLaptop(){
@@ -49,7 +51,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
 
         <div class="field">
           <label for="SN">*Serial Number</label>
-          <input type="text" name="SN" id="SN-module" readonly required />
+          <input type="text" name="SN" id="SN-module" readonly required onChange={(e)=>{setSn(e)}} />
         </div>
 
         <div class="field">
