@@ -18,7 +18,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     const [rom,setRom] = useState(null)
     const [comment,setComment] = useState(null)
   // -----------------------------------------------------
-  useEffect(() =>{
+  
     async function addLaptop(){
       const addLaptopAPI = await fetch('http://localhost:3300/addLaptop',
         {
@@ -27,15 +27,14 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             'Content-type':'application/json'
           },
           body: JSON.stringify({
-  
+                sn: sn,
+                brand: brand,
   
           })
   
         })
     }
   
-  },[]
-  )
 
   
 
@@ -127,11 +126,11 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
 
         <div class="field">
           <label for="comment">Comment</label>
-          <textarea name="comment" id="comment-module" rows="5" ></textarea>
+          <textarea name="comment" id="comment-module" rows="5" onChange={(e) => setComment(e.target.value)} ></textarea>
         </div>
 
         <div class="button-module">
-          <button id="addLaptop" onclick="addLaptop()">
+          <button id="addLaptop" onClick={()=>{addLaptop}}>
             Add
           </button>
         </div>
