@@ -2,7 +2,7 @@ import React ,{useEffect,useState} from "react";
 import "../css/module.css";
 
 
-export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
+export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
     onClose();
   };
@@ -13,7 +13,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
   const user = localStorage.getItem("username");
 
   //------------------------------------------------------ 
-    const [sn,setSn] = useState(null)
+   
     const [brand,setBrand] = useState(null)
     const [model,setModel] = useState(null)
     const [processor,setProcessor] = useState(null)
@@ -32,7 +32,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
             'Content-type':'application/json'
           },
           body: JSON.stringify({
-                sn: sn,
+                sn: serialNumber,
                 brand: brand,
                 model: model,
                 processor: processor,
@@ -59,23 +59,13 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
     }
   
   //----------------------------------------------------- 
-    let serialNumber
-    function openModule() {
-    const min = 10000;
-    const max = 99999;
-    serialNumber = `AISL-${
-      Math.floor(Math.random() * (max - min + 1)) + min
-    }`;
-    // getSuppliers();
-    setSn(serialNumber);
-  }
-
+    
   return (
     <div>
       {/* Add Laptop */}
       <div
         className={`module ${modulestate === "add-active" ? "active" : ""}`}
-        id="module"
+        id="module" 
       >
         <i class="fas fa-x" onClick={() => handleClose()}></i>
 
@@ -85,7 +75,7 @@ export function ModuleLaptop({ asset, modulestate, onClose, assetEditState,showE
 
         <div class="field">
           <label for="SN">*Serial Number</label>
-          <input type="text" name="SN" id="SN-module" readonly required onChange={()=> openModule} value= {serialNumber} />
+          <input type="text" name="SN" id="SN-module" readonly required value= {serialNumber} />
         </div>
 
         <div class="field">
