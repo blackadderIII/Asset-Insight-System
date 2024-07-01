@@ -70,7 +70,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
         setRam(null)
         setRom(null)
         setComment(null)
-        modulestate = ''
+        handleClose()
     }
   
   //----------------------------------------------------- 
