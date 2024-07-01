@@ -1,4 +1,4 @@
-import React ,{useEffect,useState} from "react";
+import React ,{createRef,useEffect,useState} from "react";
 import "../css/module.css";
 
 
@@ -159,12 +159,14 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
         </div>
 
         <div class="button-module">
-          {loading ? (<div className="loading" ref={loadingRef}></div>):(<button id="addLaptop" onClick={()=>{addLaptop()}}>
+          {loading ? (<button id="addLaptop" onClick={()=>{addLaptop()}}>
+          <div className="loading-mini"></div>
+          </button>):(<button id="addLaptop" onClick={()=>{addLaptop()}}>
             Add
           </button>)}
         </div>
       </div>
-
+      
       {/* Edit Laptop Asset Category */}
       <div
         className={`module ${modulestate === "edit-active" ? "active" : ""}`}
