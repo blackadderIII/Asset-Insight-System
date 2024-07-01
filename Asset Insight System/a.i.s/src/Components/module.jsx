@@ -25,7 +25,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
   // -----------------------------------------------------
   
     async function addLaptop(){
-
+      setLoading(true)
       const addLaptopAPI = await fetch('http://localhost:3300/addLaptop',
         {
           method : 'POST',
@@ -51,14 +51,18 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
 
         if (response.message === "Error Executing Query") {
           errorT("An error occured. please try again later.");
+          setLoading(false)
           return;
         }
     
         if (response.message === "Error adding laptop") {
           errorT("An error occured. please try again later.");
+          setLoading(false)
           return;
         }
 
+
+        setLoading(false)
     }
   
   //----------------------------------------------------- 
