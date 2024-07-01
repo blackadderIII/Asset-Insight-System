@@ -13,6 +13,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
   const user = localStorage.getItem("username");
 
   //------------------------------------------------------ 
+    const [loading,setLoading] = useState(false)
    
     const [brand,setBrand] = useState(null)
     const [model,setModel] = useState(null)
