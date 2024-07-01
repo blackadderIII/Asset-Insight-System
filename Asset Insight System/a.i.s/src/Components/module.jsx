@@ -40,10 +40,12 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
                 rom: rom,
                 comment: comment,
                 addedby: user
-          })
-  
-        })
-
+          }
+        )
+          
+        }
+      )
+        
         const response = await addLaptopAPI.json()
 
         if (response.message === "Error Executing Query") {
@@ -151,7 +153,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
         </div>
 
         <div class="button-module">
-          <button id="addLaptop" onClick={()=>{addLaptop}}>
+          <button id="addLaptop" onClick={()=>{addLaptop()}}>
             Add
           </button>
         </div>
