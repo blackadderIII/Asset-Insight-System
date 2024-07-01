@@ -64,6 +64,8 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
 
 
         setLoading(false)
+        
+        
     }
   
   //----------------------------------------------------- 
