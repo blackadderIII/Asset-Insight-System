@@ -10,10 +10,10 @@ function Dashboard() {
     setActiveTab(tab === activeTab? null : tab);
   };
 
-  const name = "Samuel";
+  const user = localStorage.getItem("username");
   return (
       <section className="mainDash">
-        <TitleComponent2 title={`Hello ${name} 👋🏽`}/>
+        <TitleComponent2 title={`Hello ${user} 👋🏽`}/>
 
         <div className="second-row">
           <div className="singleStats">
