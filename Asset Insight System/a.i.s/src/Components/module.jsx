@@ -13,6 +13,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
   const user = localStorage.getItem("username");
 
   //------------------------------------------------------ 
+    const loadingRef = createRef();
     const [loading,setLoading] = useState(false)
    
     const [brand,setBrand] = useState(null)
@@ -158,9 +159,9 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
         </div>
 
         <div class="button-module">
-          <button id="addLaptop" onClick={()=>{addLaptop()}}>
+          {loading ? (<div className="loading" ref={loadingRef}></div>):(<button id="addLaptop" onClick={()=>{addLaptop()}}>
             Add
-          </button>
+          </button>)}
         </div>
       </div>
 
