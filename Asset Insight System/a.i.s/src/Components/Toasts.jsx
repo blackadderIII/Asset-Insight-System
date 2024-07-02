@@ -40,17 +40,17 @@ function Toasts() {
 
   return (
     <div>
-      <div className={`toast success ${successMessage ? "active" : ""}`} id="toast-success">
+      <div className={`toast success ${successMessage ? "active" : ""}`}>
         <i className="fas fa-check-circle"></i>
         <p>{successMessage}</p>
       </div>
 
-      <div className="toast warn" id="toast-warn">
+      <div className={`toast warn ${warnMessage ? "active":""}`} >
         <i className="fas fa-warning"></i>
-        <p id="toast-warn-message">Failed to reach servers</p>
+        <p>{warnMessage}</p>
       </div>
 
-      <div className="toast error" id="toast-error">
+      <div className={`toast error ${errorMessage ? "active":""}`}>
         <i className="fas fa-times-circle"></i>
         <p id="toast-error-message">Success adding laptop</p>
       </div>
