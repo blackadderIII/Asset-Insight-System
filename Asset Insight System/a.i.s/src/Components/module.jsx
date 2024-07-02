@@ -72,7 +72,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
         setRom(null)
         setComment(null)
         handleClose()
-        
+        successT("Laptop added successfully!")
         
     }
   
