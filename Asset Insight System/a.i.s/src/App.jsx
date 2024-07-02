@@ -6,6 +6,7 @@ import Toasts from "./Components/Toasts";
 import Titlebar from "./Components/Titlebar";
 import { useState, useEffect } from "react";
 import { ThemeContext } from "./utils/themeContext";
+import { ToastProvider } from "./utils/toastContext";
 
 function App() {
   // Theme Toggle Function
@@ -34,10 +35,12 @@ function App() {
       <main>
         <Titlebar />
         <Navbar toggleTheme={() => toggleTheme()}/>
+        <ToastProvider>
         <Toasts />
         <section className="render-space">
           <Outlet />
         </section>
+        </ToastProvider>
       </main>
     </ThemeContext.Provider>
   );
