@@ -65,13 +65,13 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
 
 
         setLoading(false)
-        setBrand(null)
-        setModel(null)
-        setProcessor(null)
-        setRam(null)
-        setRom(null)
-        setComment(null)
         handleClose()
+        setBrand('')
+        setModel('')
+        setProcessor('')
+        setRam('')
+        setRom('')
+        setComment('')
         successT("Laptop added successfully!")
         
     }
