@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/toast.css";
 
 function Toasts() {
-  const successToast = document.getElementById("toast-success");
-  const successMessage = document.getElementById("toast-success-message");
-  const warnToast = document.getElementById("toast-warn");
-  const warnMessage = document.getElementById("toast-warn-message");
-  const errorToast = document.getElementById("toast-error");
-  const errorMessage = document.getElementById("toast-error-message");
+
+    const[errorMessage,setErrorMessage]= useState("");
+    const[successMessage,setSuccessMessage]= useState("");
+    const[warnMessage,setWarnMessage]= useState("");
+ 
 
   const successT = (message) => {
     successToast.classList.add("active");
