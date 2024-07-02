@@ -9,39 +9,33 @@ function Toasts() {
  
 
   const successT = (message) => {
-    successToast.classList.add("active");
-    successMessage.innerHTML = message;
-    setTimeout(() => successToast.classList.remove("active"), 4000);
-    setTimeout(() => (successMessage.innerHTML = ""), 4100);
+    setSuccessMessage(message)
+    // setTimeout(() => successToast.classList.remove("active"), 4000);
+    setTimeout(() => setSuccessMessage(""), 4100);
   };
 
   const successTPermanent = (message) => {
-    successToast.classList.add("active");
-    successMessage.innerHTML = message;
+    setSuccessMessage(message)
   };
 
   const warnT = (message) => {
-    warnToast.classList.add("active");
-    warnMessage.innerHTML = message;
-    setTimeout(() => warnToast.classList.remove("active"), 4000);
-    setTimeout(() => (warnMessage.innerHTML = ""), 4100);
+    setWarnMessage(message)
+    // setTimeout(() => warnToast.classList.remove("active"), 4000);
+    setTimeout(() => setWarnMessage(""), 4100);
   };
 
   const warnTPermanent = (message) => {
-    warnToast.classList.add("active");
-    warnMessage.innerHTML = message;
+    setWarnMessage(message)
   };
 
   const errorT = (message) => {
-    errorToast.classList.add("active");
-    errorMessage.innerHTML = message;
-    setTimeout(() => errorToast.classList.remove("active"), 4000);
-    setTimeout(() => (errorMessage.innerHTML = ""), 4100);
+    setErrorMessage(message)
+    // setTimeout(() => errorToast.classList.remove("active"), 4000);
+    setTimeout(() => setErrorMessage(""), 4100);
   };
 
   const errorTPermanent = (message) => {
-    errorToast.classList.add("active");
-    errorMessage.innerHTML = message;
+    setErrorMessage(message)
   };
 
   return (
