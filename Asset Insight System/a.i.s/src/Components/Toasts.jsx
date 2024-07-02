@@ -40,9 +40,9 @@ function Toasts() {
 
   return (
     <div>
-      <div className="toast success" id="toast-success">
+      <div className={`toast success ${successMessage ? "active" : ""}`} id="toast-success">
         <i className="fas fa-check-circle"></i>
-        <p id="toast-success-message">Success adding laptop</p>
+        <p>{successMessage}</p>
       </div>
 
       <div className="toast warn" id="toast-warn">
