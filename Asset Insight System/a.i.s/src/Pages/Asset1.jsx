@@ -3,6 +3,7 @@ import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
 import { AssetTable } from "../Components/Table";
+import { getLaptops } from "../lib/moduleLaptop";
 import "../css/loading.css"
 
 function Asset1() {
@@ -29,22 +30,12 @@ function Asset1() {
   const [error, setError] = useState(null);
 //   const loadingRef = useRef(null);
 
-  // useEffect(() => 
-  //   {
-    async function getLaptops() {
-      try {
-        const response = await fetch(`http://localhost:3300/getlaptops`);
-        const data = await response.json();
-        setLaptops(data);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    }
-    getLaptops();
-    
-  // }, []);
+  useEffect(() => {
+    getLaptops().then((data)=>{
+      setLaptops(data);
+      setLoading(false);
+    });
+  }, [getLaptops]);
 
   const [moduleEdit,setModuleEdit] = useState([]);
 
