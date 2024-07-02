@@ -35,7 +35,7 @@ function Asset1() {
       setLaptops(data);
       setLoading(false);
     });
-  }, []);
+  }, [laptops]);
 
   const [moduleEdit,setModuleEdit] = useState([]);
 
