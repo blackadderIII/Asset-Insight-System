@@ -1,6 +1,7 @@
 import React ,{createRef,useEffect,useState} from "react";
 import "../css/module.css";
-import getLaptops from '../Pages/Asset1'
+import "../lib/moduleLaptop"
+import { getLaptops } from "../lib/moduleLaptop";
 
 export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
@@ -71,7 +72,8 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
         setRom(null)
         setComment(null)
         handleClose()
-        getLaptops
+        getLaptops()
+        
     }
   
   //----------------------------------------------------- 
