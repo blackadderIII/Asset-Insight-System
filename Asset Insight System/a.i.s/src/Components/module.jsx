@@ -1,7 +1,8 @@
-import React ,{createRef,useEffect,useState} from "react";
+import React ,{createRef,useEffect,useState,useContext} from "react";
 import "../css/module.css";
 import "../lib/moduleLaptop"
-import { getLaptops } from "../lib/moduleLaptop";
+import { ToastContext } from "../utils/toastContext";
+
 
 export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEditState,showEditModule,closeEditModule }) {
   const handleClose = () => {
@@ -10,6 +11,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
   const handleEditClose = () => {
     closeEditModule();
   };
+  const { errorT,successT,warnT } = useContext(ToastContext);
 
   const user = localStorage.getItem("username");
 
