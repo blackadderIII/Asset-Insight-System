@@ -1,91 +1,97 @@
-import React ,{createRef,useEffect,useState,useContext} from "react";
+import React, { createRef, useEffect, useState, useContext } from "react";
 import "../css/module.css";
-import "../lib/moduleLaptop"
+import "../lib/moduleLaptop";
 import { ToastContext } from "../utils/toastContext";
 
-
-export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEditState,showEditModule,closeEditModule }) {
+export function ModuleLaptop({
+  asset,
+  modulestate,
+  serialNumber,
+  onClose,
+  assetEditState,
+  showEditModule,
+  closeEditModule,
+}) {
   const handleClose = () => {
     onClose();
   };
   const handleEditClose = () => {
     closeEditModule();
   };
-  const { errorT,successT,warnT } = useContext(ToastContext);
+  const { errorT, successT, warnT } = useContext(ToastContext);
 
   const user = localStorage.getItem("username");
 
-  //------------------------------------------------------ 
-    const loadingRef = createRef();
-    const [loading,setLoading] = useState(false)
-   
-    const [brand,setBrand] = useState(null)
-    const [model,setModel] = useState(null)
-    const [processor,setProcessor] = useState(null)
-    const [ram,setRam] = useState(null)
-    const [rom,setRom] = useState(null)
-    const [comment,setComment] = useState(null)
+  //------------------------------------------------------
+  const loadingRef = createRef();
+  const [loading, setLoading] = useState(false);
+
+  const [brand, setBrand] = useState(null);
+  const [model, setModel] = useState(null);
+  const [processor, setProcessor] = useState(null);
+  const [ram, setRam] = useState(null);
+  const [rom, setRom] = useState(null);
+  const [comment, setComment] = useState(null);
 
   // -----------------------------------------------------
-  
-    async function addLaptop(){
-      setLoading(true)
-      const addLaptopAPI = await fetch('http://localhost:3300/addLaptop',
-        {
-          method : 'POST',
-          headers : {
-            'Content-type':'application/json'
-          },
-          body: JSON.stringify({
-                sn: serialNumber,
-                brand: brand,
-                model: model,
-                processor: processor,
-                ram: ram,
-                rom: rom,
-                comment: comment,
-                addedby: user
-          }
-        )
-          
-        }
-      )
-        
-        const response = await addLaptopAPI.json()
 
-        if (response.message === "Error Executing Query") {
-          errorT("An error occured. please try again later.");
-          setLoading(false)
-          return;
-        }
-    
-        if (response.message === "Error adding laptop") {
-          errorT("An error occured. please try again later.");
-          setLoading(false)
-          return;
-        }
+  async function addLaptop() {
+    setLoading(true);
+    try {
+      const addLaptopAPI = await fetch("http://localhost:3300/addLaptop", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          sn: serialNumber,
+          brand: brand,
+          model: model,
+          processor: processor,
+          ram: ram,
+          rom: rom,
+          comment: comment,
+          addedby: user,
+        }),
+      });
 
+      const response = await addLaptopAPI.json();
 
-        setLoading(false)
-        handleClose()
-        setBrand('')
-        setModel('')
-        setProcessor('')
-        setRam('')
-        setRom('')
-        setComment('')
-        successT("Laptop added successfully!")
-        
+      if (response.message === "Error Executing Query") {
+        errorT("An error occured. please try again later.");
+        setLoading(false);
+        return;
+      }
+
+      if (response.message === "Error adding laptop") {
+        errorT("An error occured. please try again later.");
+        setLoading(false);
+        return;
+      }
+
+      setLoading(false);
+      handleClose();
+      setBrand("");
+      setModel("");
+      setProcessor("");
+      setRam("");
+      setRom("");
+      setComment("");
+      successT("Laptop added successfully!");
+    } catch (error) {
+      errorT("An error occured. please try again later.");
+      setLoading(false)
     }
-  
-  //----------------------------------------------------- 
-    
+  }
+
+  //-----------------------------------------------------
+
   return (
     <div>
       {/* Add Laptop */}
       <div
         className={`module ${modulestate === "add-active" ? "active" : ""}`}
-        id="module" 
+        id="module"
       >
         <i class="fas fa-x" onClick={() => handleClose()}></i>
 
@@ -95,7 +101,14 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
 
         <div class="field">
           <label for="SN">*Serial Number</label>
-          <input type="text" name="SN" id="SN-module" readonly required value= {serialNumber} />
+          <input
+            type="text"
+            name="SN"
+            id="SN-module"
+            readonly
+            required
+            value={serialNumber}
+          />
         </div>
 
         <div class="field">
@@ -129,7 +142,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
             name="processor"
             id="processor-module"
             placeholder={`Enter the ${asset}'s processor spec`}
-            onChange={(e)=> setProcessor(e.target.value)}
+            onChange={(e) => setProcessor(e.target.value)}
           />
         </div>
 
@@ -140,7 +153,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
             name="ram"
             id="ram-module"
             placeholder={`Enter the ${asset}'s RAM spec`}
-            onChange={(e)=>setRam(e.target.value)}
+            onChange={(e) => setRam(e.target.value)}
           />
         </div>
 
@@ -151,7 +164,7 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
             name="hardDrive"
             id="hardDrive-module"
             placeholder={`Enter the ${asset}'s Storage Capacity`}
-            onChange={(e)=>setRom(e.target.value)}
+            onChange={(e) => setRom(e.target.value)}
           />
         </div>
 
@@ -167,18 +180,37 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
 
         <div class="field">
           <label for="comment">Comment</label>
-          <textarea name="comment" id="comment-module" rows="5" onChange={(e) => setComment(e.target.value)} ></textarea>
+          <textarea
+            name="comment"
+            id="comment-module"
+            rows="5"
+            onChange={(e) => setComment(e.target.value)}
+          ></textarea>
         </div>
 
         <div class="button-module">
-          {loading ? (<button id="addLaptop" onClick={()=>{addLaptop()}}>
-          <div className="loading-mini"></div>
-          </button>):(<button id="addLaptop" onClick={()=>{addLaptop()}}>
-            Add
-          </button>)}
+          {loading ? (
+            <button
+              id="addLaptop"
+              onClick={() => {
+                addLaptop();
+              }}
+            >
+              <div className="loading-mini"></div>
+            </button>
+          ) : (
+            <button
+              id="addLaptop"
+              onClick={() => {
+                addLaptop();
+              }}
+            >
+              Add
+            </button>
+          )}
         </div>
       </div>
-      
+
       {/* Edit Laptop Asset Category */}
       <div
         className={`module ${modulestate === "edit-active" ? "active" : ""}`}
@@ -219,132 +251,142 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
       </div>
 
       {/* edit laptops*/}
-      
-       <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
-       <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-    <div class="field">
-      <h2>Edit {asset} Information</h2>
-    </div>
+      <div
+        className={`module ${showEditModule ? "active" : ""}`}
+        id="editModule"
+      >
+        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-    <div class="status-field">
-      <h4 id="SN-Display">{assetEditState.sn}</h4>
-      <div class="status" id="laptop-status">
-        {assetEditState.status === "Assigned" ? (
-          <div className="status a">Assigned</div>
-        ) : assetEditState.status === "Unused" ? (
-          <div className="status u">Unused</div>
-        ) : assetEditState.status === "Damaged" ? (
-          <div className="status d">Damaged</div>
-        ) : assetEditState.status === "Out of Service" ? (
-          <div className="status oos">Out of Service</div>
-        ) : (
-          <div className="status r">Retired</div>
-        )}
+        <div class="field">
+          <h2>Edit {asset} Information</h2>
+        </div>
+
+        <div class="status-field">
+          <h4 id="SN-Display">{assetEditState.sn}</h4>
+          <div class="status" id="laptop-status">
+            {assetEditState.status === "Assigned" ? (
+              <div className="status a">Assigned</div>
+            ) : assetEditState.status === "Unused" ? (
+              <div className="status u">Unused</div>
+            ) : assetEditState.status === "Damaged" ? (
+              <div className="status d">Damaged</div>
+            ) : assetEditState.status === "Out of Service" ? (
+              <div className="status oos">Out of Service</div>
+            ) : (
+              <div className="status r">Retired</div>
+            )}
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select
+            name="status"
+            id="edit-status-module"
+            value={assetEditState.status}
+          >
+            <option value="" disabled selected hidden>
+              Select a Status
+            </option>
+            <option value="Assigned" hidden disabled>
+              Assigned
+            </option>
+            <option value="Unused">Unused</option>
+            <option value="Retired">Retired</option>
+            <option value="Damaged">Damaged</option>
+            <option value="Out of Service">Out of Service</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="brand">*Brand</label>
+          <input
+            type="text"
+            name="brand"
+            id="edit-brand-module"
+            placeholder="eg. HP"
+            required
+            value={assetEditState.brand}
+          />
+        </div>
+
+        <div class="field">
+          <label for="model">*Model</label>
+          <input
+            type="text"
+            name="model"
+            id="edit-model-module"
+            placeholder="Enter the laptop's model"
+            required
+            value={assetEditState.model}
+          />
+        </div>
+
+        <div class="field">
+          <label for="processor">Processor</label>
+          <input
+            type="text"
+            name="processor"
+            id="edit-processor-module"
+            placeholder="Enter the laptop's processor spec"
+            value={assetEditState.processor}
+          />
+        </div>
+
+        <div class="field">
+          <label for="ram">RAM Size</label>
+          <input
+            type="text"
+            name="ram"
+            id="edit-ram-module"
+            placeholder="Enter the laptop's RAM spec"
+            value={assetEditState.ram}
+          />
+        </div>
+
+        <div class="field">
+          <label for="hardDrive">Hard Drive Capacity</label>
+          <input
+            type="text"
+            name="hardDrive"
+            id="edit-rom-module"
+            placeholder="Enter the laptop's RAM spec"
+            value={assetEditState.rom}
+          />
+        </div>
+
+        <div class="field">
+          <label for="supplier">Supplied By</label>
+          <input
+            type="text"
+            name="supplier"
+            id="supplier-module"
+            placeholder="Enter the laptop's Supplier name."
+            value={
+              assetEditState.suppliername === null
+                ? ""
+                : assetEditState.suppliername
+            }
+          />
+        </div>
+
+        <div class="field">
+          <label for="comment">Comment</label>
+          <textarea
+            name="comment"
+            id="edit-comment-module"
+            rows="5"
+            value={assetEditState.comment}
+          />
+        </div>
+
+        <div class="button-module">
+          <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
+            Save
+          </button>
+        </div>
       </div>
-    </div>
-
-    <div class="field">
-      <label for="status">Status</label>
-      <select name="status" id="edit-status-module" value={assetEditState.status}>
-        <option value="" disabled selected hidden>
-          Select a Status
-        </option>
-        <option value="Assigned" hidden disabled>
-          Assigned
-        </option>
-        <option value="Unused">Unused</option>
-        <option value="Retired">Retired</option>
-        <option value="Damaged">Damaged</option>
-        <option value="Out of Service">Out of Service</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="brand">*Brand</label>
-      <input
-        type="text"
-        name="brand"
-        id="edit-brand-module"
-        placeholder="eg. HP"
-        required
-        value={assetEditState.brand}
-      />
-    </div>
-
-    <div class="field">
-      <label for="model">*Model</label>
-      <input
-        type="text"
-        name="model"
-        id="edit-model-module"
-        placeholder="Enter the laptop's model"
-        required
-        value={assetEditState.model}
-      />
-    </div>
-
-    <div class="field">
-      <label for="processor">Processor</label>
-      <input
-        type="text"
-        name="processor"
-        id="edit-processor-module"
-        placeholder="Enter the laptop's processor spec"
-        value={assetEditState.processor}
-      />
-    </div>
-
-    <div class="field">
-      <label for="ram">RAM Size</label>
-      <input
-        type="text"
-        name="ram"
-        id="edit-ram-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.ram}
-      />
-    </div>
-
-    <div class="field">
-      <label for="hardDrive">Hard Drive Capacity</label>
-      <input
-        type="text"
-        name="hardDrive"
-        id="edit-rom-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.rom}
-      />
-    </div>
-
-    <div class="field">
-      <label for="supplier">Supplied By</label>
-      <input
-        type="text"
-        name="supplier"
-        id="supplier-module"
-        placeholder="Enter the laptop's Supplier name."
-        value={(assetEditState.suppliername === null ? (''):
-        (assetEditState.suppliername))}
-      />
-    </div>
-
-    <div class="field">
-      <label for="comment">Comment</label>
-      <textarea
-        name="comment"
-        id="edit-comment-module"
-        rows="5"
-        value={assetEditState.comment}
-      />
-    </div>
-
-    <div class="button-module">
-      <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
-        Save
-      </button>
-    </div>
-  </div>
 
       {/* Assign Asset */}
       <div class="module" id="assignModule">
@@ -378,8 +420,14 @@ export function ModuleLaptop({ asset, modulestate,serialNumber, onClose, assetEd
   );
 }
 
-export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) 
-{
+export function ModulePhone({
+  asset,
+  modulestate,
+  onClose,
+  assetEditState,
+  showEditModule,
+  closeEditModule,
+}) {
   const handleClose = () => {
     onClose();
   };
@@ -508,119 +556,126 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
       </div>
 
       {/* edit MNP*/}
-      <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
-       <i class="fas fa-x" onClick={() => handleEditClose()}></i>
+      <div
+        className={`module ${showEditModule ? "active" : ""}`}
+        id="editModule"
+      >
+        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-     <div class="field">
-      <h2>Edit {asset} Information</h2>
+        <div class="field">
+          <h2>Edit {asset} Information</h2>
+        </div>
+
+        <div class="status-field">
+          <h4 id="SN-Display">{assetEditState.sn}</h4>
+          <div class="status" id="laptop-status">
+            {assetEditState.status === "Assigned" ? (
+              <div className="status a">Assigned</div>
+            ) : assetEditState.status === "Unused" ? (
+              <div className="status u">Unused</div>
+            ) : assetEditState.status === "Damaged" ? (
+              <div className="status d">Damaged</div>
+            ) : assetEditState.status === "Out of Service" ? (
+              <div className="status oos">Out of Service</div>
+            ) : (
+              <div className="status r">Retired</div>
+            )}
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select
+            name="status"
+            id="edit-status-module"
+            value={assetEditState.status}
+          >
+            <option value="" disabled selected hidden>
+              Select a Status
+            </option>
+            <option value="Assigned" hidden disabled>
+              Assigned
+            </option>
+            <option value="Unused">Unused</option>
+            <option value="Retired">Retired</option>
+            <option value="Damaged">Damaged</option>
+            <option value="Out of Service">Out of Service</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="brand">*Brand</label>
+          <input
+            type="text"
+            name="brand"
+            id="edit-brand-module"
+            placeholder="eg. HP"
+            required
+            value={assetEditState.brand}
+          />
+        </div>
+
+        <div class="field">
+          <label for="model">*Model</label>
+          <input
+            type="text"
+            name="model"
+            id="edit-model-module"
+            placeholder="Enter the laptop's model"
+            required
+            value={assetEditState.model}
+          />
+        </div>
+
+        <div class="field">
+          <label for="ram">RAM Size</label>
+          <input
+            type="text"
+            name="ram"
+            id="edit-ram-module"
+            placeholder="Enter the laptop's RAM spec"
+            value={assetEditState.ram}
+          />
+        </div>
+
+        <div class="field">
+          <label for="hardDrive">Hard Drive Capacity</label>
+          <input
+            type="text"
+            name="hardDrive"
+            id="edit-rom-module"
+            placeholder="Enter the laptop's RAM spec"
+            value={assetEditState.rom}
+          />
+        </div>
+
+        <div class="field">
+          <label for="supplier">Supplied By</label>
+          <input
+            type="text"
+            name="supplier"
+            id="supplier-module"
+            placeholder="Enter the laptop's Supplier name."
+            value={assetEditState.supplier}
+          />
+        </div>
+
+        <div class="field">
+          <label for="comment">Comment</label>
+          <textarea
+            name="comment"
+            id="edit-comment-module"
+            rows="5"
+            value={assetEditState.comment}
+          />
+        </div>
+
+        <div class="button-module">
+          <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
+            Save
+          </button>
+        </div>
       </div>
-
-     <div class="status-field">
-      <h4 id="SN-Display">{assetEditState.sn}</h4>
-      <div class="status" id="laptop-status">
-        {assetEditState.status === "Assigned" ? (
-          <div className="status a">Assigned</div>
-        ) : assetEditState.status === "Unused" ? (
-          <div className="status u">Unused</div>
-        ) : assetEditState.status === "Damaged" ? (
-          <div className="status d">Damaged</div>
-        ) : assetEditState.status === "Out of Service" ? (
-          <div className="status oos">Out of Service</div>
-        ) : (
-          <div className="status r">Retired</div>
-        )}
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="status">Status</label>
-      <select name="status" id="edit-status-module" value={assetEditState.status}>
-        <option value="" disabled selected hidden>
-          Select a Status
-        </option>
-        <option value="Assigned" hidden disabled>
-          Assigned
-        </option>
-        <option value="Unused">Unused</option>
-        <option value="Retired">Retired</option>
-        <option value="Damaged">Damaged</option>
-        <option value="Out of Service">Out of Service</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="brand">*Brand</label>
-      <input
-        type="text"
-        name="brand"
-        id="edit-brand-module"
-        placeholder="eg. HP"
-        required
-        value={assetEditState.brand}
-      />
-    </div>
-
-    <div class="field">
-      <label for="model">*Model</label>
-      <input
-        type="text"
-        name="model"
-        id="edit-model-module"
-        placeholder="Enter the laptop's model"
-        required
-        value={assetEditState.model}
-      />
-    </div>
-
-    <div class="field">
-      <label for="ram">RAM Size</label>
-      <input
-        type="text"
-        name="ram"
-        id="edit-ram-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.ram}
-      />
-    </div>
-
-    <div class="field">
-      <label for="hardDrive">Hard Drive Capacity</label>
-      <input
-        type="text"
-        name="hardDrive"
-        id="edit-rom-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.rom}
-      />
-    </div>
-
-    <div class="field">
-      <label for="supplier">Supplied By</label>
-      <input
-        type="text"
-        name="supplier"
-        id="supplier-module"
-        placeholder="Enter the laptop's Supplier name."
-        value={assetEditState.supplier}
-      />
-    </div>
-
-    <div class="field">
-      <label for="comment">Comment</label>
-      <textarea
-        name="comment"
-        id="edit-comment-module"
-        rows="5"
-        value={assetEditState.comment}
-      />
-    </div>
-
-    <div class="button-module">
-      <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
-        Save
-      </button>
-    </div>
-  </div>
 
       {/* Assign Asset */}
       <div class="module" id="assignModule">
@@ -654,7 +709,14 @@ export function ModulePhone({ asset, modulestate, onClose, assetEditState,showEd
   );
 }
 
-export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
+export function ModuleMNP({
+  asset,
+  modulestate,
+  onClose,
+  assetEditState,
+  showEditModule,
+  closeEditModule,
+}) {
   const handleClose = () => {
     onClose();
   };
@@ -700,7 +762,6 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
             required
           />
         </div>
-
 
         <div class="field">
           <label for="supplier">Supplied By</label>
@@ -764,98 +825,104 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
       </div>
 
       {/* edit MNP*/}
-      <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
-       <i class="fas fa-x" onClick={() => handleEditClose()}></i>
+      <div
+        className={`module ${showEditModule ? "active" : ""}`}
+        id="editModule"
+      >
+        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-    <div class="field">
-      <h2>Edit {asset} Information</h2>
-    </div>
+        <div class="field">
+          <h2>Edit {asset} Information</h2>
+        </div>
 
-    <div class="status-field">
-      <h4 id="SN-Display">{assetEditState.sn}</h4>
-      <div class="status" id="laptop-status">
-        {assetEditState.status === "Assigned" ? (
-          <div className="status a">Assigned</div>
-        ) : assetEditState.status === "Unused" ? (
-          <div className="status u">Unused</div>
-        ) : assetEditState.status === "Damaged" ? (
-          <div className="status d">Damaged</div>
-        ) : assetEditState.status === "Out of Service" ? (
-          <div className="status oos">Out of Service</div>
-        ) : (
-          <div className="status r">Retired</div>
-        )}
+        <div class="status-field">
+          <h4 id="SN-Display">{assetEditState.sn}</h4>
+          <div class="status" id="laptop-status">
+            {assetEditState.status === "Assigned" ? (
+              <div className="status a">Assigned</div>
+            ) : assetEditState.status === "Unused" ? (
+              <div className="status u">Unused</div>
+            ) : assetEditState.status === "Damaged" ? (
+              <div className="status d">Damaged</div>
+            ) : assetEditState.status === "Out of Service" ? (
+              <div className="status oos">Out of Service</div>
+            ) : (
+              <div className="status r">Retired</div>
+            )}
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select
+            name="status"
+            id="edit-status-module"
+            value={assetEditState.status}
+          >
+            <option value="" disabled selected hidden>
+              Select a Status
+            </option>
+            <option value="Assigned" hidden disabled>
+              Assigned
+            </option>
+            <option value="Unused">Unused</option>
+            <option value="Retired">Retired</option>
+            <option value="Damaged">Damaged</option>
+            <option value="Out of Service">Out of Service</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="brand">*Brand</label>
+          <input
+            type="text"
+            name="brand"
+            id="edit-brand-module"
+            placeholder="eg. HP"
+            required
+            value={assetEditState.brand}
+          />
+        </div>
+
+        <div class="field">
+          <label for="model">*Model</label>
+          <input
+            type="text"
+            name="model"
+            id="edit-model-module"
+            placeholder="Enter the laptop's model"
+            required
+            value={assetEditState.model}
+          />
+        </div>
+
+        <div class="field">
+          <label for="supplier">Supplied By</label>
+          <input
+            type="text"
+            name="supplier"
+            id="supplier-module"
+            placeholder="Enter the laptop's Supplier name."
+            value={assetEditState.supplier}
+          />
+        </div>
+
+        <div class="field">
+          <label for="comment">Comment</label>
+          <textarea
+            name="comment"
+            id="edit-comment-module"
+            rows="5"
+            value={assetEditState.comment}
+          />
+        </div>
+
+        <div class="button-module">
+          <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
+            Save
+          </button>
+        </div>
       </div>
-    </div>
-
-    <div class="field">
-      <label for="status">Status</label>
-      <select name="status" id="edit-status-module" value={assetEditState.status}>
-        <option value="" disabled selected hidden>
-          Select a Status
-        </option>
-        <option value="Assigned" hidden disabled>
-          Assigned
-        </option>
-        <option value="Unused">Unused</option>
-        <option value="Retired">Retired</option>
-        <option value="Damaged">Damaged</option>
-        <option value="Out of Service">Out of Service</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="brand">*Brand</label>
-      <input
-        type="text"
-        name="brand"
-        id="edit-brand-module"
-        placeholder="eg. HP"
-        required
-        value={assetEditState.brand}
-      />
-    </div>
-
-    <div class="field">
-      <label for="model">*Model</label>
-      <input
-        type="text"
-        name="model"
-        id="edit-model-module"
-        placeholder="Enter the laptop's model"
-        required
-        value={assetEditState.model}
-      />
-    </div>
-
-
-    <div class="field">
-      <label for="supplier">Supplied By</label>
-      <input
-        type="text"
-        name="supplier"
-        id="supplier-module"
-        placeholder="Enter the laptop's Supplier name."
-        value={assetEditState.supplier}
-      />
-    </div>
-
-    <div class="field">
-      <label for="comment">Comment</label>
-      <textarea
-        name="comment"
-        id="edit-comment-module"
-        rows="5"
-        value={assetEditState.comment}
-      />
-    </div>
-
-    <div class="button-module">
-      <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
-        Save
-      </button>
-    </div>
-  </div>
 
       {/* Assign Asset */}
       <div class="module" id="assignModule">
@@ -889,7 +956,14 @@ export function ModuleMNP({ asset, modulestate, onClose, assetEditState,showEdit
   );
 }
 
-export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEditModule,closeEditModule }) {
+export function ModuleUsers({
+  asset,
+  modulestate,
+  onClose,
+  assetEditState,
+  showEditModule,
+  closeEditModule,
+}) {
   const handleClose = () => {
     onClose();
   };
@@ -978,124 +1052,127 @@ export function ModuleUsers({ asset, modulestate, onClose, assetEditState,showEd
         </div>
       </div>
 
-      
-
       {/* edit Users*/}
-      <div className={`module ${showEditModule ? "active" : ""}`} id="editModule">
-       <i class="fas fa-x" onClick={() => handleEditClose()}></i>
+      <div
+        className={`module ${showEditModule ? "active" : ""}`}
+        id="editModule"
+      >
+        <i class="fas fa-x" onClick={() => handleEditClose()}></i>
 
-    <div class="field">
-      <h2>Edit {asset} Information</h2>
-    </div>
+        <div class="field">
+          <h2>Edit {asset} Information</h2>
+        </div>
 
-    <div class="status-field">
-      <h4 id="SN-Display">{assetEditState.sn}</h4>
-      <div class="status" id="laptop-status">
-        {assetEditState.status === "Assigned" ? (
-          <div className="status a">Assigned</div>
-        ) : assetEditState.status === "Unused" ? (
-          <div className="status u">Unused</div>
-        ) : assetEditState.status === "Damaged" ? (
-          <div className="status d">Damaged</div>
-        ) : assetEditState.status === "Out of Service" ? (
-          <div className="status oos">Out of Service</div>
-        ) : (
-          <div className="status r">Retired</div>
-        )}
+        <div class="status-field">
+          <h4 id="SN-Display">{assetEditState.sn}</h4>
+          <div class="status" id="laptop-status">
+            {assetEditState.status === "Assigned" ? (
+              <div className="status a">Assigned</div>
+            ) : assetEditState.status === "Unused" ? (
+              <div className="status u">Unused</div>
+            ) : assetEditState.status === "Damaged" ? (
+              <div className="status d">Damaged</div>
+            ) : assetEditState.status === "Out of Service" ? (
+              <div className="status oos">Out of Service</div>
+            ) : (
+              <div className="status r">Retired</div>
+            )}
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select
+            name="status"
+            id="edit-status-module"
+            value={assetEditState.status}
+          >
+            <option value="" disabled selected hidden>
+              Select a Status
+            </option>
+            <option value="Assigned" hidden disabled>
+              Assigned
+            </option>
+            <option value="Unused">Unused</option>
+            <option value="Retired">Retired</option>
+            <option value="Damaged">Damaged</option>
+            <option value="Out of Service">Out of Service</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="brand">*Brand</label>
+          <input
+            type="text"
+            name="brand"
+            id="edit-brand-module"
+            placeholder="eg. HP"
+            required
+            value={assetEditState.brand}
+          />
+        </div>
+
+        <div class="field">
+          <label for="model">*Model</label>
+          <input
+            type="text"
+            name="model"
+            id="edit-model-module"
+            placeholder="Enter the laptop's model"
+            required
+            value={assetEditState.model}
+          />
+        </div>
+
+        <div class="field">
+          <label for="ram">RAM Size</label>
+          <input
+            type="text"
+            name="ram"
+            id="edit-ram-module"
+            placeholder="Enter the laptop's RAM spec"
+            value={assetEditState.ram}
+          />
+        </div>
+
+        <div class="field">
+          <label for="hardDrive">Hard Drive Capacity</label>
+          <input
+            type="text"
+            name="hardDrive"
+            id="edit-rom-module"
+            placeholder="Enter the laptop's RAM spec"
+            value={assetEditState.rom}
+          />
+        </div>
+
+        <div class="field">
+          <label for="supplier">Supplied By</label>
+          <input
+            type="text"
+            name="supplier"
+            id="supplier-module"
+            placeholder="Enter the laptop's Supplier name."
+            value={assetEditState.supplier}
+          />
+        </div>
+
+        <div class="field">
+          <label for="comment">Comment</label>
+          <textarea
+            name="comment"
+            id="edit-comment-module"
+            rows="5"
+            value={assetEditState.comment}
+          />
+        </div>
+
+        <div class="button-module">
+          <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
+            Save
+          </button>
+        </div>
       </div>
-    </div>
-
-    <div class="field">
-      <label for="status">Status</label>
-      <select name="status" id="edit-status-module" value={assetEditState.status}>
-        <option value="" disabled selected hidden>
-          Select a Status
-        </option>
-        <option value="Assigned" hidden disabled>
-          Assigned
-        </option>
-        <option value="Unused">Unused</option>
-        <option value="Retired">Retired</option>
-        <option value="Damaged">Damaged</option>
-        <option value="Out of Service">Out of Service</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="brand">*Brand</label>
-      <input
-        type="text"
-        name="brand"
-        id="edit-brand-module"
-        placeholder="eg. HP"
-        required
-        value={assetEditState.brand}
-      />
-    </div>
-
-    <div class="field">
-      <label for="model">*Model</label>
-      <input
-        type="text"
-        name="model"
-        id="edit-model-module"
-        placeholder="Enter the laptop's model"
-        required
-        value={assetEditState.model}
-      />
-    </div>
-
-    <div class="field">
-      <label for="ram">RAM Size</label>
-      <input
-        type="text"
-        name="ram"
-        id="edit-ram-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.ram}
-      />
-    </div>
-
-    <div class="field">
-      <label for="hardDrive">Hard Drive Capacity</label>
-      <input
-        type="text"
-        name="hardDrive"
-        id="edit-rom-module"
-        placeholder="Enter the laptop's RAM spec"
-        value={assetEditState.rom}
-      />
-    </div>
-
-    <div class="field">
-      <label for="supplier">Supplied By</label>
-      <input
-        type="text"
-        name="supplier"
-        id="supplier-module"
-        placeholder="Enter the laptop's Supplier name."
-        value={assetEditState.supplier}
-      />
-    </div>
-
-    <div class="field">
-      <label for="comment">Comment</label>
-      <textarea
-        name="comment"
-        id="edit-comment-module"
-        rows="5"
-        value={assetEditState.comment}
-      />
-    </div>
-
-    <div class="button-module">
-      <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
-        Save
-      </button>
-    </div>
-  </div>
-
-    
     </div>
   );
 }
