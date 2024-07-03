@@ -9,17 +9,17 @@ const ToastProvider = ({ children }) => {
 
   const errorT = (message) => {
     setErrorMessage(message);
-    setTimeout(() => setErrorMessage(""), 4000);
+    setTimeout(() => setErrorMessage(""), 4100);
   };
 
   const successT = (message) => {
     setSuccessMessage(message);
-    setTimeout(() => setSuccessMessage(""), 4000);
+    setTimeout(() => setSuccessMessage(""), 4100);
   };
 
   const warnT = (message) => {
     setWarnMessage(message);
-    setTimeout(() => setWarnMessage(""), 4000);
+    setTimeout(() => setWarnMessage(""), 4100);
   };
 
   const successTPermanent = (message) =>{
