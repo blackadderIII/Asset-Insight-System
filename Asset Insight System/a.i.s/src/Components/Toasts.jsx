@@ -7,8 +7,6 @@ import { ToastContext } from "../utils/toastContext";
 
 
 function Toasts() {
-
-
     
     const { errorMessage, successMessage, warnMessage } = useContext(ToastContext);
 
