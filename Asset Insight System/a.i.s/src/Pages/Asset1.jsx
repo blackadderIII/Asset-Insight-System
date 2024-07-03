@@ -34,7 +34,9 @@ function Asset1() {
     getLaptops().then((data)=>{
       setLaptops(data);
       setLoading(false);
-    });
+    },
+    setTimeout(()=> setLoading(false),3000)
+  );
   }, [laptops]);
 
   const [moduleEdit,setModuleEdit] = useState([]);
