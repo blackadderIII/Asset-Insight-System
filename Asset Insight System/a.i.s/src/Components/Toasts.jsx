@@ -26,7 +26,7 @@ function Toasts() {
 
       <div className={`toast error ${errorMessage !=="" ? "active":""}`}>
         <i className="fas fa-times-circle"></i>
-        <p id="toast-error-message">Success adding laptop</p>
+        <p id="toast-error-message">{errorMessage}</p>
       </div>
     </div>
   );
