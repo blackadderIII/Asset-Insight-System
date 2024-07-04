@@ -203,7 +203,7 @@ export function UserTable({ data, loading, onEdit }) {
             <div className="loading" ref={loadingRef}></div>
           ) : data.length === 0 ? (
             <div className="emptyIllustration">
-              <img src={emptyPng} alt="No Asset Found" />
+              <img src={emptyPng} alt="No Users Found" />
               <p>There's nothing here yet</p>
             </div>
           ) : (data.map((dataItem) => (
