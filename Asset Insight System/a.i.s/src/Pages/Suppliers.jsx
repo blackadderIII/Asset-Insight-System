@@ -6,7 +6,10 @@ import { SupplierTable } from '../Components/Table';
 export default function Suppliers() {
     const [suppliers,setSuppliers] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+    
     const [moduleEdit, setModuleEdit] = useState([]);
+
     const [showEditModule, setShowEditModule] = useState(false);
     const handleEditClick = (user) => {
       setShowEditModule(true);
