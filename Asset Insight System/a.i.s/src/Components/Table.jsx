@@ -180,18 +180,7 @@ export function UserTable({ data, loading, onEdit }) {
     getUserAssets();
   }, [data]);
 
-  if (loading) {
-    return <div className="loading"></div>;
-  }
-
-  if (data.length === 0) {
-    return (
-      <div className="emptyIllustration">
-        <img src={emptyPng} alt="No Asset Found" />
-        <p>There's nothing here yet</p>
-      </div>
-    );
-  }
+  const loadingRef = createRef();
 
   return (
     <div class="third-row">
@@ -210,7 +199,14 @@ export function UserTable({ data, loading, onEdit }) {
         </thead>
 
         <tbody id="main-table">
-          {data.map((dataItem) => (
+        {loading ? (
+            <div className="loading" ref={loadingRef}></div>
+          ) : data.length === 0 ? (
+            <div className="emptyIllustration">
+              <img src={emptyPng} alt="No Asset Found" />
+              <p>There's nothing here yet</p>
+            </div>
+          ) : (data.map((dataItem) => (
             <tr key={dataItem.email}>
               <td>
                 {dataItem.username? (
@@ -293,7 +289,8 @@ export function UserTable({ data, loading, onEdit }) {
                 <i className="far fa-trash-alt" id="delete"></i>
               </td>
             </tr>
-          ))}
+          )))
+          }
         </tbody>
 
         <tbody class="inactive" id="search-table"></tbody>
