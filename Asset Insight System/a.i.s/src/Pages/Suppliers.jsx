@@ -7,13 +7,13 @@ export default function Suppliers() {
     const [suppliers,setSuppliers] = useState([]);
 
     const [loading, setLoading] = useState(true);
-    
+
     const [moduleEdit, setModuleEdit] = useState([]);
 
     const [showEditModule, setShowEditModule] = useState(false);
-    const handleEditClick = (user) => {
+    const handleEditClick = (supplier) => {
       setShowEditModule(true);
-      setModuleEdit(user);
+      setModuleEdit(supplier);
     };
 
     useEffect(()=>{
