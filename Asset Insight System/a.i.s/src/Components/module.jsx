@@ -1176,6 +1176,7 @@ export function ModuleUsers({
     </div>
   );
 }
+
 export function ModuleSuppliers({
   asset,
   modulestate,
