@@ -1284,7 +1284,7 @@ export function ModuleSuppliers({
           <h2>Edit {asset} Information</h2>
         </div>
 
-        <div class="status-field">
+        {/* <div class="status-field">
           <h4 id="SN-Display">{assetEditState.sn}</h4>
           <div class="status" id="laptop-status">
             {assetEditState.status === "Assigned" ? (
@@ -1299,9 +1299,9 @@ export function ModuleSuppliers({
               <div className="status r">Retired</div>
             )}
           </div>
-        </div>
+        </div> */}
 
-        <div class="field">
+        {/* <div class="field">
           <label for="status">Status</label>
           <select
             name="status"
@@ -1319,7 +1319,7 @@ export function ModuleSuppliers({
             <option value="Damaged">Damaged</option>
             <option value="Out of Service">Out of Service</option>
           </select>
-        </div>
+        </div> */}
 
         <div class="field">
           <label for="brand">*Brand</label>
