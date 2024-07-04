@@ -45,7 +45,7 @@ export default function Suppliers() {
         </div>
     </div>
 
-    <SupplierTable data={suppliers}/>
+    <SupplierTable data={suppliers} loading={loading} onEdit={handleEditClick}/>
 
 </section>
   )
