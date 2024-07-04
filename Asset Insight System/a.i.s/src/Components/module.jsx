@@ -1322,14 +1322,13 @@ export function ModuleSuppliers({
         </div> */}
 
         <div class="field">
-          <label for="brand">*Brand</label>
+          <label for="supplier">*Supplier Name</label>
           <input
             type="text"
-            name="brand"
-            id="edit-brand-module"
+            name="suppliername"
             placeholder="eg. HP"
             required
-            value={assetEditState.brand}
+            value={assetEditState.suppliername}
           />
         </div>
 
