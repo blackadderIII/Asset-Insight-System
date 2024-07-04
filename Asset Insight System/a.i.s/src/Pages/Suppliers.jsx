@@ -12,6 +12,7 @@ export default function Suppliers() {
            const response = await SupplierData.json()
         
            setSuppliers(response)
+           setLoading(false);
         }
         getSupplierData()
     },[])
