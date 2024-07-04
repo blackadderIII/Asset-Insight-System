@@ -10,6 +10,7 @@ export default function Suppliers() {
         async function getSupplierData() {
            const SupplierData = await fetch ('http://localhost:3300/getSuppliers');
            const response = await SupplierData.json()
+        
            setSuppliers(response)
         }
         getSupplierData()
