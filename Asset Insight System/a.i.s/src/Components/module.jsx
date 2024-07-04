@@ -1176,7 +1176,7 @@ export function ModuleUsers({
     </div>
   );
 }
-export function ModuleUsers({
+export function ModuleSuppliers({
   asset,
   modulestate,
   onClose,
