@@ -6,6 +6,13 @@ import { SupplierTable } from '../Components/Table';
 export default function Suppliers() {
     const [suppliers,setSuppliers] = useState([]);
 
+    const [moduleEdit, setModuleEdit] = useState([]);
+    const [showEditModule, setShowEditModule] = useState(false);
+    const handleEditClick = (user) => {
+      setShowEditModule(true);
+      setModuleEdit(user);
+    };
+
     useEffect(()=>{
         async function getSupplierData() {
            const SupplierData = await fetch ('http://localhost:3300/getSuppliers');
