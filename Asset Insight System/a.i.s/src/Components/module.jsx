@@ -1241,7 +1241,6 @@ export function ModuleSuppliers({
             name="phonenumber"
             placeholder="Enter Supplier 
             phonenumber"
-            value={assetEditState.phonenumber}
           />
         </div>
 
