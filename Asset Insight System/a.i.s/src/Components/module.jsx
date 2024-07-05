@@ -1237,10 +1237,7 @@ export function ModuleSuppliers({
 
       
 
-        <div class="field">
-          <label for="comment">Comment</label>
-          <textarea name="comment" id="comment-module" rows="5"></textarea>
-        </div>
+        
 
         <div class="button-module">
           <button id="addLaptop" onclick="addLaptop()">
