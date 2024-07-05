@@ -1214,12 +1214,11 @@ export function ModuleSuppliers({
         </div>
 
         <div class="field">
-          <label for="model">*Model</label>
+          <label for="supplieremail">*Supplier Email</label>
           <input
             type="text"
-            name="model"
-            id="model-module"
-            placeholder={`Enter the ${asset}'s model`}
+            name="supplieremail"
+            placeholder="Enter Supplier Email"
             required
           />
         </div>
