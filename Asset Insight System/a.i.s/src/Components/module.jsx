@@ -1235,15 +1235,7 @@ export function ModuleSuppliers({
 
       
 
-        <div class="field">
-          <label for="supplier">Supplied By</label>
-          <input
-            type="text"
-            name="supplier"
-            id="supplier-module"
-            placeholder={`Enter the ${asset}'s Supplier name.`}
-          />
-        </div>
+      
 
         <div class="field">
           <label for="comment">Comment</label>
