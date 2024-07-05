@@ -1193,7 +1193,7 @@ export function ModuleSuppliers({
   };
   return (
     <div>
-      {/* Add Users */}
+      {/* Add Supplier */}
       <div
         className={`module ${modulestate === "add-active" ? "active" : ""}`}
         id="module"
@@ -1273,7 +1273,7 @@ export function ModuleSuppliers({
         </div>
       </div>
 
-      {/* edit Users*/}
+      {/* edit Supplier*/}
       <div
         className={`module ${showEditModule ? "active" : ""}`}
         id="editModule"
