@@ -1203,19 +1203,12 @@ export function ModuleSuppliers({
         <div class="field">
           <h2>Add {asset}</h2>
         </div>
-
         <div class="field">
-          <label for="SN">*Serial Number</label>
-          <input type="text" name="SN" id="SN-module" readonly required />
-        </div>
-
-        <div class="field">
-          <label for="brand">*Brand</label>
+          <label for="supplier">*Supplier Name</label>
           <input
             type="text"
-            name="brand"
-            id="brand-module"
-            placeholder="eg. HP"
+            name="suppliername"
+            placeholder="eg. Compu Ghana"
             required
           />
         </div>
