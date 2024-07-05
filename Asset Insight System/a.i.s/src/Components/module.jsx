@@ -1224,12 +1224,13 @@ export function ModuleSuppliers({
         </div>
 
         <div class="field">
-          <label for="ram">RAM Size</label>
+          <label for="location">Location</label>
           <input
             type="text"
-            name="ram"
-            id="ram-module"
-            placeholder={`Enter the ${asset}'s RAM spec`}
+            name="location"
+            placeholder="Enter Supplier 
+            location"
+            value={assetEditState.location}
           />
         </div>
 
