@@ -1234,10 +1234,16 @@ export function ModuleSuppliers({
         </div>
 
       
-
-      
-
-        
+        <div class="field">
+          <label for="phonenumber">Phone Number</label>
+          <input
+            type="text"
+            name="phonenumber"
+            placeholder="Enter Supplier 
+            phonenumber"
+            value={assetEditState.phonenumber}
+          />
+        </div>
 
         <div class="button-module">
           <button id="addLaptop" onclick="addLaptop()">
