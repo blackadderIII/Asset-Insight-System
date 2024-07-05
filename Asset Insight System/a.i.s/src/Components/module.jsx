@@ -1326,66 +1326,45 @@ export function ModuleSuppliers({
           <input
             type="text"
             name="suppliername"
-            placeholder="eg. HP"
+            placeholder="eg. Compu Ghana"
             required
-            value={assetEditState.suppliername}
-          />
-        </div>
-
-        <div class="field">
-          <label for="model">*Model</label>
-          <input
-            type="text"
-            name="model"
-            id="edit-model-module"
-            placeholder="Enter the laptop's model"
-            required
-            value={assetEditState.model}
-          />
-        </div>
-
-        <div class="field">
-          <label for="ram">RAM Size</label>
-          <input
-            type="text"
-            name="ram"
-            id="edit-ram-module"
-            placeholder="Enter the laptop's RAM spec"
-            value={assetEditState.ram}
-          />
-        </div>
-
-        <div class="field">
-          <label for="hardDrive">Hard Drive Capacity</label>
-          <input
-            type="text"
-            name="hardDrive"
-            id="edit-rom-module"
-            placeholder="Enter the laptop's RAM spec"
-            value={assetEditState.rom}
-          />
-        </div>
-
-        <div class="field">
-          <label for="supplier">Supplied By</label>
-          <input
-            type="text"
-            name="supplier"
-            id="supplier-module"
-            placeholder="Enter the laptop's Supplier name."
             value={assetEditState.supplier}
           />
         </div>
 
         <div class="field">
-          <label for="comment">Comment</label>
-          <textarea
-            name="comment"
-            id="edit-comment-module"
-            rows="5"
-            value={assetEditState.comment}
+          <label for="supplieremail">*Supplier Email</label>
+          <input
+            type="text"
+            name="supplieremail"
+            placeholder="Enter Supplier Email"
+            required
+            value={assetEditState.email}
           />
         </div>
+
+        <div class="field">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            name="location"
+            placeholder="Enter Supplier 
+            location"
+            value={assetEditState.location}
+          />
+        </div>
+
+        <div class="field">
+          <label for="phonenumber">Phone Number</label>
+          <input
+            type="text"
+            name="phonenumber"
+            placeholder="Enter Supplier 
+            phonenumber"
+            value={assetEditState.phonenumber}
+          />
+        </div>
+
 
         <div class="button-module">
           <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
