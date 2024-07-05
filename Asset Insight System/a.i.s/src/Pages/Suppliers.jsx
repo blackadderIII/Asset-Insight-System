@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { TitleComponent1 } from '../Components/TitleComponent';
 import { SupplierTable } from '../Components/Table';
+import { ModuleSuppliers } from '../Components/module';
 
 
 export default function Suppliers() {
-    const [suppliers,setSuppliers] = useState([]);
-
+    
     const [loading, setLoading] = useState(true);
 
-    const [moduleEdit, setModuleEdit] = useState([]);
+    const [moduleActive, setModuleActive] = useState([
+        null,
+        "add-active",
+      ]);
+      const openModule = (state) => {
+        setModuleActive(state === moduleActive ? null : state);
+      };
 
+      const closeEditModule = () =>{
+        setShowEditModule(null)
+      }
+
+    const closeModule = () => {
+    setModuleActive(null);
+  };
+    
+    const [moduleEdit, setModuleEdit] = useState([]);
+    
     const [showEditModule, setShowEditModule] = useState(false);
     const handleEditClick = (supplier) => {
-      setShowEditModule(true);
-      setModuleEdit(supplier);
+        setShowEditModule(true);
+        setModuleEdit(supplier);
     };
-
+    
+    const [suppliers,setSuppliers] = useState([]);
     useEffect(()=>{
         async function getSupplierData() {
            const SupplierData = await fetch ('http://localhost:3300/getSuppliers');
@@ -49,6 +66,17 @@ export default function Suppliers() {
     </div>
 
     <SupplierTable data={suppliers} loading={loading} onEdit={handleEditClick}/>
+
+
+    <ModuleSuppliers
+        asset={"Supplier"}
+        modulestate={moduleActive}
+        onClose={closeModule}
+        assetEditState={moduleEdit}
+        showEditModule={showEditModule}
+        closeEditModule={closeEditModule}
+        // refresh={getLaptops()}
+      />
 
 </section>
   )
