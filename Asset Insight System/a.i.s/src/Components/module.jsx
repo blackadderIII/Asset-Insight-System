@@ -1230,7 +1230,6 @@ export function ModuleSuppliers({
             name="location"
             placeholder="Enter Supplier 
             location"
-            value={assetEditState.location}
           />
         </div>
 
