@@ -1233,15 +1233,7 @@ export function ModuleSuppliers({
           />
         </div>
 
-        <div class="field">
-          <label for="hardDrive">Phone Space Capacity</label>
-          <input
-            type="text"
-            name="hardDrive"
-            id="hardDrive-module"
-            placeholder={`Enter the ${asset}'s Storage Capacity`}
-          />
-        </div>
+      
 
         <div class="field">
           <label for="supplier">Supplied By</label>
