@@ -62,6 +62,19 @@ const handleDeleteClick = (laptop) => {
 };
 
 
+async function deleteLaptop(sn) {
+try {
+   const deleteLaptopAPI = await fetch (`http://localhost:3300/deleteLaptop/${sn}`)
+
+   const response = await deleteLaptopAPI.json()
+
+   
+} catch (error) {
+  
+}
+
+}
+
 
 
   return (
