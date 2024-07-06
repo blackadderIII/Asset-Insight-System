@@ -2,7 +2,7 @@ import React, { createRef, useState ,useEffect} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export function AssetTable({ asset, loading, onEdit }) {
+export function AssetTable({ asset, loading, onEdit,onDelete }) {
   const loadingRef = createRef();
 
   return (
