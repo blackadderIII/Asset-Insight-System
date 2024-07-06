@@ -27,7 +27,7 @@ function Asset1() {
 
   const [laptops, setLaptops] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+
 //   const loadingRef = useRef(null);
 
   useEffect(() => {
