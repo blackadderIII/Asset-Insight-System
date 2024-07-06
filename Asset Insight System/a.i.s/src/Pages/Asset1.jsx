@@ -81,7 +81,7 @@ const handleEditClick = (laptop) => {
         </div>
 
          
-          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick}/>
+          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={}/>
         
       </section>
 
