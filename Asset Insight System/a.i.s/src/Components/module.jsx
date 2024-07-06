@@ -1228,8 +1228,7 @@ export function ModuleSuppliers({
           <input
             type="text"
             name="location"
-            placeholder="Enter Supplier 
-            location"
+            placeholder="Enter Supplier location"
           />
         </div>
 
@@ -1239,8 +1238,7 @@ export function ModuleSuppliers({
           <input
             type="text"
             name="phonenumber"
-            placeholder="Enter Supplier 
-            phonenumber"
+            placeholder="Enter Supplier phonenumber"
           />
         </div>
 
