@@ -1,12 +1,15 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect,useContext} from "react";
 import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
 import { AssetTable } from "../Components/Table";
 import { getLaptops } from "../lib/moduleLaptop";
+import { ToastContext } from "../utils/toastContext";
 import "../css/loading.css"
 
 function Asset1() {
+
+  const {errorT,successT,warnT} = useContext(ToastContext)
   const [moduleActive, setModuleActive] = useState(null);
   const [sn,setSn] = useState(null)
 
@@ -76,7 +79,9 @@ try {
     return;
   }
 } catch (error) {
-  
+  console.log("There was an error deleting this laptop", error);
+  errorT("Can't reach servers. Please try again later");
+  return;
 }
 
 }
