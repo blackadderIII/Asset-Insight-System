@@ -3,7 +3,7 @@ import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
 import { AssetTable } from "../Components/Table";
-import { getLaptops } from "../lib/moduleLaptop";
+import { getLaptops,deleteLaptop} from "../lib/moduleLaptop";
 import { ToastContext } from "../utils/toastContext";
 import "../css/loading.css"
 
