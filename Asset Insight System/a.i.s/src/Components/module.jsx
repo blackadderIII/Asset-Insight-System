@@ -84,6 +84,56 @@ export function ModuleLaptop({
     }
   }
 
+
+
+  async function saveLaptop() {
+    setLoading(true);
+    try {
+      const addLaptopAPI = await fetch("http://localhost:3300/saveLaptop", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          sn: serialNumber,
+          brand: brand,
+          model: model,
+          processor: processor,
+          ram: ram,
+          rom: rom,
+          comment: comment,
+          addedby: user,
+        }),
+      });
+
+      const response = await addLaptopAPI.json();
+
+      if (response.message === "Error Executing Query") {
+        errorT("An error occured. please try again later.");
+        setLoading(false);
+        return;
+      }
+
+      if (response.message === "Error adding laptop") {
+        errorT("An error occured. please try again later.");
+        setLoading(false);
+        return;
+      }
+
+      setLoading(false);
+      handleClose();
+      setBrand("");
+      setModel("");
+      setProcessor("");
+      setRam("");
+      setRom("");
+      setComment("");
+      successT("Laptop added successfully!");
+    } catch (error) {
+      errorT("An error occured. please try again later.");
+      setLoading(false)
+    }
+  }
   //-----------------------------------------------------
 
   return (
@@ -308,6 +358,7 @@ export function ModuleLaptop({
             placeholder="eg. HP"
             required
             value={assetEditState.brand}
+            onChange={(e) => setBrand(e.target.value)}
           />
         </div>
 
