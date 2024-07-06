@@ -68,7 +68,13 @@ try {
 
    const response = await deleteLaptopAPI.json()
 
-   
+   if (
+    response.message === "Error executing query" ||
+    response.message === "Empty"
+  ) {
+    errorT("An error occured. Please try again later");
+    return;
+  }
 } catch (error) {
   
 }
