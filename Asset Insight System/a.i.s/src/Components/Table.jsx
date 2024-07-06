@@ -79,7 +79,7 @@ export function AssetTable({ asset, loading, onEdit }) {
                   ></i>
                 </td>
                 <td>
-                  <i className="far fa-trash-alt" id="delete"></i>
+                  <i className="far fa-trash-alt" id="delete" onClick={()=>onDelete(asset)}></i>
                 </td>
               </tr>
             ))
