@@ -50,7 +50,7 @@ export default function Suppliers() {
 
     <div class="second-row">
         <div class="buttons">
-            <div class="add-button" onclick="openModule()">
+            <div class="add-button" onClick={()=>openModule("add-active")}>
                 <i class="fal fa-add"></i>
                 <h5>Add</h5>
             </div>
