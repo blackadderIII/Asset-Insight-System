@@ -51,6 +51,16 @@ const handleEditClick = (laptop) => {
   setModuleEdit(laptop);
 };
 
+const handleDeleteClick = (laptop) => {
+  const confrimDelete = window.confirm("Do you want to delete this laptop?");
+
+  if (confrimDelete) {
+    deleteLaptop(laptop.sn);
+    successT("Laptop Deleted Successfully");
+    return;
+  }
+};
+
 
 
 
@@ -81,7 +91,7 @@ const handleEditClick = (laptop) => {
         </div>
 
          
-          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={}/>
+          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick}/>
         
       </section>
 
