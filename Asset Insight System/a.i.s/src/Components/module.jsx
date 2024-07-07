@@ -134,7 +134,6 @@ export function ModuleLaptop({
 
       setLoading(false);
       handleClose();
-      setRom("");
       setComment("");
       successT("Laptop added successfully!");
     } catch (error) {
