@@ -83,6 +83,18 @@ export function ModuleLaptop({
       setLoading(false)
     }
   }
+// -----------------------------------------------------
+  const[laptopInfo,setLaptopInfo]= useState({
+    sn:'',
+    brand: '',
+    model:'',
+    processor: '',
+    ram: '',
+    rom: '',
+    comment: '',
+  })
+
+  setLaptopInfo(assetEditState)
 
 
 // ----------------------------------------------------
