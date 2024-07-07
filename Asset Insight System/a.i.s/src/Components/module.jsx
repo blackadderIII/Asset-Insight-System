@@ -96,6 +96,26 @@ export function ModuleLaptop({
 
   setLaptopInfo(assetEditState)
 
+  const setNewBrand = (brand) =>  {
+    setLaptopInfo({ ...laptopInfo, brand });
+  }
+  const setNewModel = (model) =>  {
+    setLaptopInfo({ ...laptopInfo, model });
+  }
+  const setNewProcessor = (processor) =>  {
+    setLaptopInfo({ ...laptopInfo, processor });
+  }
+  const setNewRam = (ram) =>  {
+    setLaptopInfo({ ...laptopInfo, ram });
+  }
+  const setNewRom = (rom) =>  {
+    setLaptopInfo({ ...laptopInfo, rom });
+  }
+  const setNewComment = (comment) =>  {
+    setLaptopInfo({ ...laptopInfo, comment });
+  }
+  
+
 
 // ----------------------------------------------------
   async function saveLaptopInfo(assetEditState) {
@@ -363,8 +383,8 @@ export function ModuleLaptop({
             id="edit-brand-module"
             placeholder="eg. HP"
             required
-            value={assetEditState.brand}
-            onChange={(e) => setBrand(e.target.value)}
+            value={laptopInfo.brand}
+            onChange={(e) => setNewBrand(e.target.value)}
           />
         </div>
 
