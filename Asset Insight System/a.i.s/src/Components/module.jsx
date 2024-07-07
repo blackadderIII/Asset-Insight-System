@@ -86,7 +86,7 @@ export function ModuleLaptop({
 
 
 
-  async function saveLaptop() {
+  async function saveLaptopInfo(assetEditState) {
     setLoading(true);
     try {
       const addLaptopAPI = await fetch("http://localhost:3300/saveLaptop", {
@@ -95,7 +95,7 @@ export function ModuleLaptop({
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          sn: serialNumber,
+          sn: assetEditState.sn,
           brand: brand,
           model: model,
           processor: processor,
@@ -371,6 +371,7 @@ export function ModuleLaptop({
             placeholder="Enter the laptop's model"
             required
             value={assetEditState.model}
+            onChange={(e) => setModel(e.target.value)}
           />
         </div>
 
@@ -382,6 +383,7 @@ export function ModuleLaptop({
             id="edit-processor-module"
             placeholder="Enter the laptop's processor spec"
             value={assetEditState.processor}
+            onChange={(e) => setProcessor(e.target.value)}
           />
         </div>
 
@@ -393,6 +395,7 @@ export function ModuleLaptop({
             id="edit-ram-module"
             placeholder="Enter the laptop's RAM spec"
             value={assetEditState.ram}
+            onChange={(e) => setRom(e.target.value)}
           />
         </div>
 
@@ -404,6 +407,7 @@ export function ModuleLaptop({
             id="edit-rom-module"
             placeholder="Enter the laptop's RAM spec"
             value={assetEditState.rom}
+            onChange={(e) => setRam(e.target.value)}
           />
         </div>
 
@@ -429,11 +433,12 @@ export function ModuleLaptop({
             id="edit-comment-module"
             rows="5"
             value={assetEditState.comment}
+            onChange={(e) => setComment(e.target.value)}
           />
         </div>
 
         <div class="button-module">
-          <button id="saveLaptopBtn" onclick="saveLaptopInfo()">
+          <button id="saveLaptopBtn" onClick={()=>saveLaptopInfo(assetEditState)}>
             Save
           </button>
         </div>
