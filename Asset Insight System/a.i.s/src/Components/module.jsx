@@ -134,7 +134,6 @@ export function ModuleLaptop({
 
       setLoading(false);
       handleClose();
-      setProcessor("");
       setRam("");
       setRom("");
       setComment("");
