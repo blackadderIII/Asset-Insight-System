@@ -134,7 +134,7 @@ export function ModuleLaptop({
 
       setLoading(false);
       handleClose();
-      successT("Laptop added successfully!");
+      successT("Laptop Info. saved successfully!");
     } catch (error) {
       errorT("An error occured. please try again later.");
       setLoading(false)
