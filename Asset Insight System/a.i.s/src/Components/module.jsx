@@ -85,7 +85,7 @@ export function ModuleLaptop({
   }
 
 
-
+// ----------------------------------------------------
   async function saveLaptopInfo(assetEditState) {
     setLoading(true);
     try {
