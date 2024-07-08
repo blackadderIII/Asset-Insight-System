@@ -86,6 +86,7 @@ export function ModuleLaptop({
 // -----------------------------------------------------
   const[laptopInfo,setLaptopInfo]= useState({
     sn:'',
+    status:'',
     brand: '',
     model:'',
     processor: '',
@@ -94,7 +95,9 @@ export function ModuleLaptop({
     comment: '',
   })
 
+ useEffect(()=>{
   setLaptopInfo(assetEditState)
+ },[assetEditState])
 
   const setNewBrand = (brand) =>  {
     setLaptopInfo({ ...laptopInfo, brand });
@@ -118,7 +121,7 @@ export function ModuleLaptop({
 
 
 // ----------------------------------------------------
-  async function saveLaptopInfo(assetEditState) {
+  async function saveLaptopInfo(laptopInfo) {
     setLoading(true);
     try {
       const addLaptopAPI = await fetch("http://localhost:3300/saveLaptop", {
@@ -127,13 +130,14 @@ export function ModuleLaptop({
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          sn: assetEditState.sn,
-          brand: brand,
-          model: model,
-          processor: processor,
-          ram: ram,
-          rom: rom,
-          comment: comment,
+          sn: laptopInfo.sn,
+          status:laptopInfo.status,
+          brand: laptopInfo.brand,
+          model: laptopInfo.model,
+          processor: laptopInfo.processor,
+          ram: laptopInfo.ram,
+          rom: laptopInfo.rom,
+          comment: laptopInfo.comment,
           addedby: user,
         }),
       });
@@ -153,7 +157,7 @@ export function ModuleLaptop({
       }
 
       setLoading(false);
-      handleClose();
+      handleEditClose();
       successT("Laptop Info. saved successfully!");
     } catch (error) {
       errorT("An error occured. please try again later.");
@@ -339,15 +343,15 @@ export function ModuleLaptop({
         </div>
 
         <div class="status-field">
-          <h4 id="SN-Display">{assetEditState.sn}</h4>
+          <h4 id="SN-Display">{laptopInfo.sn}</h4>
           <div class="status" id="laptop-status">
-            {assetEditState.status === "Assigned" ? (
+            {laptopInfo.status === "Assigned" ? (
               <div className="status a">Assigned</div>
-            ) : assetEditState.status === "Unused" ? (
+            ) : laptopInfo.status === "Unused" ? (
               <div className="status u">Unused</div>
-            ) : assetEditState.status === "Damaged" ? (
+            ) : laptopInfo.status === "Damaged" ? (
               <div className="status d">Damaged</div>
-            ) : assetEditState.status === "Out of Service" ? (
+            ) : laptopInfo.status === "Out of Service" ? (
               <div className="status oos">Out of Service</div>
             ) : (
               <div className="status r">Retired</div>
@@ -360,7 +364,7 @@ export function ModuleLaptop({
           <select
             name="status"
             id="edit-status-module"
-            value={assetEditState.status}
+            value={laptopInfo.status}
           >
             <option value="" disabled selected hidden>
               Select a Status
@@ -396,8 +400,8 @@ export function ModuleLaptop({
             id="edit-model-module"
             placeholder="Enter the laptop's model"
             required
-            value={assetEditState.model}
-            onChange={(e) => setModel(e.target.value)}
+            value={laptopInfo.model}
+            onChange={(e) => setNewModel(e.target.value)}
           />
         </div>
 
@@ -408,8 +412,8 @@ export function ModuleLaptop({
             name="processor"
             id="edit-processor-module"
             placeholder="Enter the laptop's processor spec"
-            value={assetEditState.processor}
-            onChange={(e) => setProcessor(e.target.value)}
+            value={laptopInfo.processor}
+            onChange={(e) => setNewProcessor(e.target.value)}
           />
         </div>
 
@@ -420,8 +424,8 @@ export function ModuleLaptop({
             name="ram"
             id="edit-ram-module"
             placeholder="Enter the laptop's RAM spec"
-            value={assetEditState.ram}
-            onChange={(e) => setRom(e.target.value)}
+            value={laptopInfo.ram}
+            onChange={(e) => setNewRom(e.target.value)}
           />
         </div>
 
@@ -432,8 +436,8 @@ export function ModuleLaptop({
             name="hardDrive"
             id="edit-rom-module"
             placeholder="Enter the laptop's RAM spec"
-            value={assetEditState.rom}
-            onChange={(e) => setRam(e.target.value)}
+            value={laptopInfo.rom}
+            onChange={(e) => setNewRam(e.target.value)}
           />
         </div>
 
@@ -445,9 +449,9 @@ export function ModuleLaptop({
             id="supplier-module"
             placeholder="Enter the laptop's Supplier name."
             value={
-              assetEditState.suppliername === null
+              laptopInfo.suppliername === null
                 ? ""
-                : assetEditState.suppliername
+                : laptopInfo.suppliername
             }
           />
         </div>
@@ -458,15 +462,24 @@ export function ModuleLaptop({
             name="comment"
             id="edit-comment-module"
             rows="5"
-            value={assetEditState.comment}
-            onChange={(e) => setComment(e.target.value)}
+            value={laptopInfo.comment}
+            onChange={(e) => setNewComment(e.target.value)}
           />
         </div>
 
         <div class="button-module">
-          <button id="saveLaptopBtn" onClick={()=>saveLaptopInfo(assetEditState)}>
+        {loading ? (
+            <button
+              id="saveLaptopBtn"
+              onClick={() => {
+                addLaptop();
+              }}
+            >
+              <div className="loading-mini"></div>
+            </button>
+          ) : (<button id="saveLaptopBtn" onClick={()=>saveLaptopInfo(laptopInfo)}>
             Save
-          </button>
+          </button>)}
         </div>
       </div>
 
