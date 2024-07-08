@@ -142,7 +142,7 @@ export function ModuleLaptop({
         }),
       });
 
-      const response = await addLaptopAPI.json();
+      const response = await saveLaptopAPI.json();
 
       if (response.message === "Error Executing Query") {
         errorT("An error occured. please try again later.");
