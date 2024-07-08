@@ -66,7 +66,7 @@ export function AssetTable({ asset, loading, onEdit,onDelete }) {
                   {new Date(asset.dateadded).toLocaleTimeString()}
                 </td>
                 <td>
-                  <button id="assign">Assign</button>
+                  <button id="assign" onClick={() => onAssign(asset)} >Assign</button>
                 </td>
                 <td>
                   <button id="revoke">Revoke</button>
