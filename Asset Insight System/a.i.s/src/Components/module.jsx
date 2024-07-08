@@ -124,7 +124,7 @@ export function ModuleLaptop({
   async function saveLaptopInfo(laptopInfo) {
     setLoading(true);
     try {
-      const addLaptopAPI = await fetch("http://localhost:3300/saveLaptop", {
+      const saveLaptopAPI = await fetch("http://localhost:3300/saveLaptop", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
