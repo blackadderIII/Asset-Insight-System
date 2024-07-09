@@ -521,7 +521,7 @@ export function ModuleLaptop({
         </div>
 
         <div class="button-module">
-          <button id="assignLaptopBtn" onclick="assignLaptop()">
+          <button id="assignLaptopBtn" onClick="assignLaptop()">
             Assign
           </button>
         </div>
