@@ -34,5 +34,33 @@ export const getLaptops = async () => {
     }
 
 
+    // get users from DB
+    export async function getUsers() {
+  try {
+    const fetchUsers = await fetch("http://localhost:3300/getUsers");
+    const response = await fetchUsers.json();
+
+    if (response.message === "Error executing query") {
+      errorT("An error occured. Please try again later");
+      return;
+    }
+
+
+    return response
+    // response.forEach((user) => {
+    //   const userOption = document.createElement("option");
+    //   userOption.innerHTML = user.username;
+    //   userOption.value = user.email;
+    //   userOption.setAttribute("username", user.username);
+
+    //   usersDropDown.appendChild(userOption);
+    // });
+  } catch (error) {
+    console.log("error fetch users", error);
+    errorT("Can't reach servers. Please try again later");
+    return;
+  }
+}
+
 
 
