@@ -3,7 +3,7 @@ import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
 import { AssetTable } from "../Components/Table";
-import { getLaptops,deleteLaptop} from "../lib/moduleLaptop";
+import { getLaptops,deleteLaptop,getUsers} from "../lib/moduleLaptop";
 import { ToastContext } from "../utils/toastContext";
 import "../css/loading.css"
 
@@ -45,6 +45,9 @@ function Asset1() {
   const [moduleEdit,setModuleEdit] = useState([]);
 
   const [showEditModule, setShowEditModule] = useState(false);
+
+  
+
   const closeEditModule = () =>{
     setShowEditModule(null)
   }
@@ -63,6 +66,23 @@ const handleDeleteClick = (laptop) => {
     return;
   }
 };
+
+const [showAssignModule, setShowAssignModule] = useState(false);
+const [userList, setUserList] = useState([]);
+
+const closeAssignModule = () =>{
+  setShowAssignModule(false)
+}
+
+const openAssignModule = (laptop) => {
+  setSn(laptop.sn);
+  setShowAssignModule(true);
+  getUsers().then((response)=>{
+    setUserList(response);
+  });
+}
+
+
 
 
   return (
@@ -92,7 +112,7 @@ const handleDeleteClick = (laptop) => {
         </div>
 
          
-          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick}/>
+          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick} onAssign = {openAssignModule}/>
         
       </section>
 
@@ -104,6 +124,9 @@ const handleDeleteClick = (laptop) => {
         assetEditState={moduleEdit}
         showEditModule={showEditModule}
         closeEditModule={closeEditModule}
+        showAssignModule={showAssignModule}
+        userList={userList}
+        closeAssignModule={closeAssignModule}
       />
       
     </>
