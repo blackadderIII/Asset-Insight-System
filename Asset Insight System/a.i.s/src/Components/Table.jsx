@@ -2,8 +2,11 @@ import React, { createRef, useState ,useEffect} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export function AssetTable({ asset, loading, onEdit,onDelete }) {
+export function AssetTable({ asset, loading, onEdit,onDelete,onAssign }) {
   const loadingRef = createRef();
+
+
+
 
   return (
     <div class="third-row">
