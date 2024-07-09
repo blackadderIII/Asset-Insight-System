@@ -11,6 +11,9 @@ export function ModuleLaptop({
   assetEditState,
   showEditModule,
   closeEditModule,
+  showAssignModule,
+  userList,
+  closeAssignModule
 }) {
   const handleClose = () => {
     onClose();
@@ -18,6 +21,13 @@ export function ModuleLaptop({
   const handleEditClose = () => {
     closeEditModule();
   };
+
+  const handleAssignClose = () => {
+    closeAssignModule();
+  };
+
+
+
   const { errorT, successT, warnT } = useContext(ToastContext);
 
   const user = localStorage.getItem("username");
@@ -484,8 +494,8 @@ export function ModuleLaptop({
       </div>
 
       {/* Assign Asset */}
-      <div class="module" id="assignModule">
-        <i class="fas fa-x" onclick="closeAssignModule()"></i>
+      <div class={`module ${showAssignModule ? "active" : ""} `} id="assignModule">
+        <i class="fas fa-x" onClick={() => handleAssignClose()}></i>
 
         <div class="field">
           <h2>Assign {asset}</h2>
@@ -502,7 +512,12 @@ export function ModuleLaptop({
             <option value="" disabled selected hidden>
               Select a User
             </option>
+            {userList.map((user)=>
+            (<option key={user.email} value={user.email}>
+              {user.username}
+            </option>))}
           </select>
+
         </div>
 
         <div class="button-module">
