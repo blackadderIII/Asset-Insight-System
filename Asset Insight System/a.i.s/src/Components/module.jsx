@@ -176,6 +176,45 @@ export function ModuleLaptop({
   }
   //-----------------------------------------------------
 
+// save assigned Laptop
+async function assignLaptop() {
+  const username = usersDropDown.getAttribute("username");
+
+  assignLaptopBtn.innerHTML = '<div class="loading-mini"></div>';
+
+  try {
+    const assign = await fetch("http://localhost:3300/assign", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        sn: serialNumber,
+        username: username,
+        useremail: usersDropDown.value,
+      }),
+    });
+    const response = await assign.json();
+
+    if (response.message === "Error executing query") {
+      errorT("An error occured. Please try again later");
+      return;
+    }
+
+    successT("Laptop assigned successfully");
+    closeAssignModule();
+    getLaptops();
+    setTimeout(() => location.reload(), 1000);
+    return;
+  } catch (error) {
+    console.log("Error assigning laptop", error);
+    errorT("Can't reach servers. Please try again later");
+    return;
+  }
+}
+
+
+
   return (
     <div>
       {/* Add Laptop */}
