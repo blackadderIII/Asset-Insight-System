@@ -180,7 +180,7 @@ export function ModuleLaptop({
 async function assignLaptop() {
   const username = usersDropDown.getAttribute("username");
 
-  assignLaptopBtn.innerHTML = '<div class="loading-mini"></div>';
+ setLoading(true)
 
   try {
     const assign = await fetch("http://localhost:3300/assign", {
@@ -202,8 +202,7 @@ async function assignLaptop() {
     }
 
     successT("Laptop assigned successfully");
-    closeAssignModule();
-    getLaptops();
+    handleAssignClose()
     setTimeout(() => location.reload(), 1000);
     return;
   } catch (error) {
