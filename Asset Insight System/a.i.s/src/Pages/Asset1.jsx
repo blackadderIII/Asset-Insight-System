@@ -102,7 +102,7 @@ const openAssignModule = (laptop) => {
             </div>
             <div class="add-button" onclick="exportLaptops()">
               <i class="fal fa-file-export"></i>
-              <h5>Export.</h5>
+              <h5>Export</h5>
             </div>
           </div>
           <div class="field">
