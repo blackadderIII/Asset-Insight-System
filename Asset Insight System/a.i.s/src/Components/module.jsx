@@ -543,7 +543,7 @@ async function assignLaptop() {
           <label for="status">Users</label>
           <select
             name="status"
-            class="users-dropdown"
+            className="users-dropdown"
             id="users-dropdown"
             multiple
           >
@@ -559,8 +559,8 @@ async function assignLaptop() {
         </div>
 
         <div class="button-module">
-          <button id="assignLaptopBtn" onClick={assignLaptop()}>
-            Assign
+          <button id="assignLaptopBtn" onClick={()=>assignLaptop()}>
+            {loading ? <div className="loading"></div> : "Assign"}
           </button>
         </div>
       </div>
