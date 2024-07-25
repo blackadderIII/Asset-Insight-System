@@ -40,7 +40,7 @@ function Asset1() {
     },
     setTimeout(()=> setLoading(false),3000)
   );
-  }, [laptops]);
+  }, []);
 
   const [moduleEdit,setModuleEdit] = useState([]);
 

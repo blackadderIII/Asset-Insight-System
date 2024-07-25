@@ -88,3 +88,28 @@ export async function exportLaptops() {
     return;
   }
 }
+
+// save revoke Laptop
+export async function revokeLaptop(sn) {
+  const username = usersDropDown.getAttribute("username");
+
+  try {
+    const assign = await fetch(`http://localhost:3300/revoke/${sn}`);
+    const response = await assign.json();
+
+    if (response.message === "Error executing query") {
+      errorT("An error occured. Please try again later");
+      return;
+    }
+
+    successT("Laptop revoked successfully");
+    closeAssignModule();
+    getLaptops();
+    setTimeout(() => location.reload(), 1000);
+    return;
+  } catch (error) {
+    console.log("Error revoking laptop", error);
+    errorT("Can't reach servers. Please try again later");
+    return;
+  }
+}
