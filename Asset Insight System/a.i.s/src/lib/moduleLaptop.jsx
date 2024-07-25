@@ -63,7 +63,7 @@ export const getLaptops = async () => {
 }
 
 
-
+// export laptops info
 export async function exportLaptops() {
   try {
     const getExportLaptops = await fetch("http://localhost:3300/exportLaptops");
