@@ -64,3 +64,27 @@ export const getLaptops = async () => {
 
 
 
+export async function exportLaptops() {
+  try {
+    const getExportLaptops = await fetch("http://localhost:3300/exportLaptops");
+    const response = getExportLaptops;
+
+    if (response === "error executing query") {
+      errorT("An error occured. Please try again later");
+      return;
+    }
+
+    if (response === "nothing to export") {
+      warnT("Empty list, nothing to export");
+      return;
+    }
+
+    location.href = "http://localhost:3300/exportLaptops";
+    successT("Laptops exported successfully");
+    return;
+  } catch (error) {
+    console.log("an error occured", error);
+    errorT("Can't reach servers now. Please try again later");
+    return;
+  }
+}
