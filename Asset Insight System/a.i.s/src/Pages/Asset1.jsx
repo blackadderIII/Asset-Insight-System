@@ -3,7 +3,7 @@ import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
 import { AssetTable } from "../Components/Table";
-import { getLaptops,deleteLaptop,getUsers} from "../lib/moduleLaptop";
+import { getLaptops,deleteLaptop,getUsers,exportLaptops} from "../lib/moduleLaptop";
 import { ToastContext } from "../utils/toastContext";
 import "../css/loading.css"
 
@@ -100,7 +100,7 @@ const openAssignModule = (laptop) => {
               <i class="fal fa-edit"></i>
               <h5>Edit</h5>
             </div>
-            <div class="add-button" onclick="exportLaptops()">
+            <div class="add-button" onClick={() => exportLaptops()}>
               <i class="fal fa-file-export"></i>
               <h5>Export</h5>
             </div>
