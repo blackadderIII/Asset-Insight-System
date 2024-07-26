@@ -415,7 +415,8 @@ async function assignLaptop() {
             name="status"
             id="edit-status-module"
             value={laptopInfo.status}
-            onChange={(e)=>{}}
+            onChange={(e)=>{const selectedStatus = e.target.options[e.target.selectedIndex]
+              setNewStatus(selectedStatus.value)}}
           >
             <option value="" disabled selected hidden>
               Select a Status
