@@ -191,8 +191,8 @@ async function assignLaptop() {
       },
       body: JSON.stringify({
         sn: serialNumber,
-        username: assignedUser,
-        useremail: usersDropDown.value,
+        username: assignedUser.text,
+        useremail: assignedUser.value,
       }),
     });
     const response = await assign.json();
