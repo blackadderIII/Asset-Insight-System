@@ -42,6 +42,7 @@ export function ModuleLaptop({
   const [ram, setRam] = useState(null);
   const [rom, setRom] = useState(null);
   const [comment, setComment] = useState(null);
+  const [assignedUser,setAssignedUser] = useState(null)
 
   // -----------------------------------------------------
 
@@ -178,7 +179,7 @@ export function ModuleLaptop({
 
 // save assigned Laptop
 async function assignLaptop() {
-  const username = usersDropDown.getAttribute("username");
+  
 
  setLoading(true)
 
@@ -190,7 +191,7 @@ async function assignLaptop() {
       },
       body: JSON.stringify({
         sn: serialNumber,
-        username: username,
+        username: assignedUser,
         useremail: usersDropDown.value,
       }),
     });
@@ -546,6 +547,8 @@ async function assignLaptop() {
             className="users-dropdown"
             id="users-dropdown"
             multiple
+            onChange={(e)=> {const selectedOption = e.target.options[e.target.selectedIndex];
+              setAssignedUser({ value: selectedOption.value, text: selectedOption.text })}}
           >
             <option value="" disabled selected hidden>
               Select a User
