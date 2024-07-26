@@ -180,6 +180,7 @@ export function ModuleLaptop({
 // save assigned Laptop
 async function assignLaptop() {
   try {
+    setLoading(true)
     const assign = await fetch("http://localhost:3300/assign", {
       method: "POST",
       headers: {
@@ -197,7 +198,7 @@ async function assignLaptop() {
       errorT("An error occured. Please try again later");
       return;
     }
-    
+
     successT("Laptop assigned successfully");
     handleAssignClose()
     setTimeout(() => location.reload(), 1000);
