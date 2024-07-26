@@ -88,6 +88,7 @@ export function ModuleLaptop({
       setRam("");
       setRom("");
       setComment("");
+      setTimeout(() => location.reload(), 1000);
       successT("Laptop added successfully!");
     } catch (error) {
       errorT("An error occured. please try again later.");
