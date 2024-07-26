@@ -198,7 +198,7 @@ async function assignLaptop() {
       errorT("An error occured. Please try again later");
       return;
     }
-    setLoading(true)
+    setLoading(fales)
     successT("Laptop assigned successfully");
     handleAssignClose()
     setTimeout(() => location.reload(), 1000);
