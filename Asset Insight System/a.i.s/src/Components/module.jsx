@@ -42,7 +42,7 @@ export function ModuleLaptop({
   const [ram, setRam] = useState(null);
   const [rom, setRom] = useState(null);
   const [comment, setComment] = useState(null);
-  const [assignedUser,setAssignedUser] = useState(null)
+  const [assignedUser, setAssignedUser] = useState({ value: null, text: null });
 
   // -----------------------------------------------------
 
