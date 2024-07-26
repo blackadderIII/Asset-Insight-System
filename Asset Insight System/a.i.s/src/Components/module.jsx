@@ -205,6 +205,7 @@ async function assignLaptop() {
     return;
   } catch (error) {
     console.log("Error assigning laptop", error);
+    setLoading(false)
     errorT("Can't reach servers. Please try again later");
     return;
   }
