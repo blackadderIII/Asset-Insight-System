@@ -172,6 +172,7 @@ export function ModuleLaptop({
 
       setLoading(false);
       handleEditClose();
+      setTimeout(() => location.reload(), 1000);
       successT("Laptop Info. saved successfully!");
     } catch (error) {
       errorT("An error occured. please try again later.");
