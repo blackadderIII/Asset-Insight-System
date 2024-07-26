@@ -412,6 +412,7 @@ async function assignLaptop() {
             name="status"
             id="edit-status-module"
             value={laptopInfo.status}
+            onChange={(e)=>{}}
           >
             <option value="" disabled selected hidden>
               Select a Status
@@ -561,7 +562,7 @@ async function assignLaptop() {
 
         <div class="button-module">
           <button id="assignLaptopBtn" onClick={()=>assignLaptop()}>
-            {loading ? <div className="loading"></div> : "Assign"}
+            {loading ? <div className="loading-mini"></div> : "Assign"}
           </button>
         </div>
       </div>
