@@ -111,7 +111,7 @@ export function ModuleLaptop({
  },[assetEditState])
 
  const setNewStatus = (status) =>{
-  
+  setLaptopInfo({...laptopInfo,status})
  }
   const setNewBrand = (brand) =>  {
     setLaptopInfo({ ...laptopInfo, brand });
