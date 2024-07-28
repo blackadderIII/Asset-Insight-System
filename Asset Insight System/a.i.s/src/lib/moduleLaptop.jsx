@@ -99,9 +99,10 @@ export async function revokeLaptop(sn) {
       errorT("An error occured. Please try again later");
       return;
     }
-
-    successT("Laptop revoked successfully");
-    closeAssignModule();
+    // successT("Laptop revoked successfully");
+    // closeAssignModule();
+    // getLaptops();
+    // setTimeout(() => location.reload(), 1000);
     return;
   } catch (error) {
     console.log("Error revoking laptop", error);
