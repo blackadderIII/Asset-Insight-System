@@ -102,8 +102,6 @@ export async function revokeLaptop(sn) {
 
     successT("Laptop revoked successfully");
     closeAssignModule();
-    getLaptops();
-    setTimeout(() => location.reload(), 1000);
     return;
   } catch (error) {
     console.log("Error revoking laptop", error);

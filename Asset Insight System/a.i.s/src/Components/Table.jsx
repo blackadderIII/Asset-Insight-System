@@ -2,7 +2,7 @@ import React, { createRef, useState ,useEffect} from "react";
 import "../css/Table.css";
 import emptyPng from "../Assets/icons/empty.png";
 
-export function AssetTable({ asset, loading, onEdit,onDelete,onAssign }) {
+export function AssetTable({ asset, loading, onEdit,onDelete,onAssign,onRevoke }) {
   const loadingRef = createRef();
 
 
@@ -72,7 +72,7 @@ export function AssetTable({ asset, loading, onEdit,onDelete,onAssign }) {
                   <button id="assign" onClick={() => onAssign(asset)} >Assign</button>
                 </td>
                 <td>
-                  <button id="revoke">Revoke</button>
+                  <button id="revoke" onClick={()=>{onRevoke(asset)}}>Revoke</button>
                 </td>
                 <td>
                   <i

@@ -86,6 +86,8 @@ const openAssignModule = (laptop) => {
 const handleRevoke = (laptop) =>{
       setSn(laptop.sn);
       revokeLaptop(sn)
+      successT("Laptop revoked successfully");
+      setTimeout(() => location.reload(), 1000);
       return
 }
 
