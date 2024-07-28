@@ -33,7 +33,6 @@ export function ModuleLaptop({
   const user = localStorage.getItem("username");
 
   //------------------------------------------------------
-  const loadingRef = createRef();
   const [loading, setLoading] = useState(false);
 
   const [brand, setBrand] = useState(null);
