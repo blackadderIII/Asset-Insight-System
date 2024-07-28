@@ -215,7 +215,9 @@ async function assignLaptop() {
   }
 }
 
-
+// ---------------------------------------------------------
+const [minThresh,setMinThresh] = useState([])
+const [maxThresh,setMaxThresh] = useState([])
 
   return (
     <div>
@@ -355,7 +357,7 @@ async function assignLaptop() {
 
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
-          <input type="text" name="minT" id="minThresh-module" required />
+          <input type="text" name="minT" id="minThresh-module" value={minThresh} required onChange={(e)=>setMinThresh(e.target.value)}/>
         </div>
 
         <div class="field">
@@ -367,11 +369,6 @@ async function assignLaptop() {
             placeholder=""
             required
           />
-        </div>
-
-        <div class="field">
-          <label for="comment">Comment</label>
-          <textarea name="comment" id="comment-module" rows="5"></textarea>
         </div>
 
         <div class="button-module">
