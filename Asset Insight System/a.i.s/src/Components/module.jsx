@@ -357,7 +357,8 @@ const [maxThresh,setMaxThresh] = useState([])
 
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
-          <input type="text" name="minT" id="minThresh-module" value={minThresh} required onChange={(e)=>setMinThresh(e.target.value)}/>
+          <input type="text" name="minT" id="minThresh-module"
+          placeholder="Enter Maximum Threshold Value" value={minThresh} required onChange={(e)=>setMinThresh(e.target.value)}/>
         </div>
 
         <div class="field">
@@ -366,7 +367,7 @@ const [maxThresh,setMaxThresh] = useState([])
             type="text"
             name="maxT"
             id="maxThresh-module"
-            placeholder=""
+            placeholder="Enter Maximum Threshold Value"
             required
           />
         </div>
