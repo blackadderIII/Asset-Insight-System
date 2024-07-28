@@ -113,7 +113,7 @@ const openAssignModule = (laptop) => {
         </div>
 
          
-          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick} onAssign = {openAssignModule}/>
+          <AssetTable asset={laptops} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick} onAssign = {openAssignModule} onRevoke = {}/>
         
       </section>
 
