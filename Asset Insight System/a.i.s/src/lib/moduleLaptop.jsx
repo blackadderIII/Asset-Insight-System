@@ -91,8 +91,6 @@ export async function exportLaptops() {
 
 // save revoke Laptop
 export async function revokeLaptop(sn) {
-  
-
   try {
     const assign = await fetch(`http://localhost:3300/revoke/${sn}`);
     const response = await assign.json();
