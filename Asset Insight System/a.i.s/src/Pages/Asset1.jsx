@@ -24,6 +24,10 @@ function Asset1() {
   setSn(serialNumber);
   };
 
+  const openEDITModule = (state) => {
+    setModuleActive(state);
+  };
+  
   const closeModule = () => {
     setModuleActive(null);
   };
@@ -103,7 +107,7 @@ const handleRevoke = (laptop) =>{
               <i class="fal fa-add"></i>
               <h5>Add</h5>
             </div>
-            <div class="add-button" onClick={() => openModule("edit-active")}>
+            <div class="add-button" onClick={() => openEDITModule("edit-active")}>
               <i class="fal fa-edit"></i>
               <h5>Edit</h5>
             </div>
