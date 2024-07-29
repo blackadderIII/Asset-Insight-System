@@ -179,7 +179,9 @@ export function ModuleLaptop({
       setLoading(false)
     }
   }
-  //-----------------------------------------------------
+
+
+//-----------------------------------------------------
 
 // save assigned Laptop
 async function assignLaptop() {
@@ -216,8 +218,30 @@ async function assignLaptop() {
 }
 
 // ---------------------------------------------------------
+
 const [minThresh,setMinThresh] = useState([])
 const [maxThresh,setMaxThresh] = useState([])
+
+const [threshInfo,setThreshInfo] = useState({
+  category:'',
+  minimumthreshold: '',
+  maximumthreshold: ''
+})
+
+async function getThresh() {
+  const getThreshAPI = await fetch(
+    `http://localhost:3300/getThresh/Laptop`
+  );
+  const response = await getThreshAPI.json();
+
+ setThreshInfo(response)
+ return
+}
+
+  if(modulestate === "edit-active" ){
+    getThresh()
+  }
+
 
   return (
     <div>
@@ -358,7 +382,7 @@ const [maxThresh,setMaxThresh] = useState([])
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
           <input type="text" name="minT" id="minThresh-module"
-          placeholder="Enter Maximum Threshold Value" value={minThresh} required onChange={(e)=>setMinThresh(e.target.value)}/>
+          placeholder="Enter Minimum Threshold Value" value={threshInfo.minimumthreshold} required onChange={(e)=>setMinThresh(e.target.value)}/>
         </div>
 
         <div class="field">
@@ -369,6 +393,8 @@ const [maxThresh,setMaxThresh] = useState([])
             id="maxThresh-module"
             placeholder="Enter Maximum Threshold Value"
             required
+            value={threshInfo.maximumthreshold}
+            onChange={(e)=>{setMaxThresh(e.target.value)}}
           />
         </div>
 
