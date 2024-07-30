@@ -228,15 +228,6 @@ const [threshInfo,setThreshInfo] = useState({
   maximumthreshold: ''
 })
 
-async function getThresh() {
-  const getThreshAPI = await fetch(
-    `http://localhost:3300/getThresh/Laptop`
-  );
-  const response = await getThreshAPI.json();
-
- setThreshInfo(response)
- return
-}
 
 
 
