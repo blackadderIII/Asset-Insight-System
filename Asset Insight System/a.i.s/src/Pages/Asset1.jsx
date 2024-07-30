@@ -24,9 +24,19 @@ function Asset1() {
   setSn(serialNumber);
   };
 
+
+  const [threshInfo,setThreshInfo] = useState({
+    category:'',
+    minimumthreshold: '',
+    maximumthreshold: ''
+  })
+
+
   const openEDITModule = (state) => {
     setModuleActive(state);
-    getThresh()
+    getThresh().then((data)=>{
+      setThreshInfo(data);
+    })
   };
   
   const closeModule = () => {
