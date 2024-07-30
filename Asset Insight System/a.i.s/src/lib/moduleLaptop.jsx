@@ -110,3 +110,12 @@ export async function revokeLaptop(sn) {
     return;
   }
 }
+
+export async function getThresh() {
+  const getThreshAPI = await fetch(
+    `http://localhost:3300/getThresh/Laptop`
+  );
+  const response = await getThreshAPI.json();
+
+ return response
+}
