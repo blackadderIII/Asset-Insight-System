@@ -259,7 +259,7 @@ function Dashboard() {
                 <th>Added By</th>
               </thead>
               <tbody className="tbody" id="recent-table">
-                <div className="loading-mini-b" id="loading"></div>
+                <div className="loading-mini-b"></div>
               </tbody>
             </table>
           </div>
