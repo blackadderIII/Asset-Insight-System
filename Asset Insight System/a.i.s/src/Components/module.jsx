@@ -238,9 +238,6 @@ async function getThresh() {
  return
 }
 
-  if(modulestate === "edit-active" ){
-    getThresh()
-  }
 
 
   return (
