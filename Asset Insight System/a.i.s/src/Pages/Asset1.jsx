@@ -3,7 +3,7 @@ import "../css/Table.css";
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModuleLaptop } from "../Components/module";
 import { AssetTable } from "../Components/Table";
-import { getLaptops,deleteLaptop,getUsers,exportLaptops,revokeLaptop} from "../lib/moduleLaptop";
+import { getLaptops,deleteLaptop,getUsers,exportLaptops,revokeLaptop,getThresh} from "../lib/moduleLaptop";
 import { ToastContext } from "../utils/toastContext";
 import "../css/loading.css"
 
@@ -26,6 +26,7 @@ function Asset1() {
 
   const openEDITModule = (state) => {
     setModuleActive(state);
+    getThresh()
   };
   
   const closeModule = () => {
