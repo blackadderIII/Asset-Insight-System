@@ -13,7 +13,8 @@ export function ModuleLaptop({
   closeEditModule,
   showAssignModule,
   userList,
-  closeAssignModule
+  closeAssignModule,
+  threshInfo
 }) {
   const handleClose = () => {
     onClose();
