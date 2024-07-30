@@ -222,14 +222,6 @@ async function assignLaptop() {
 const [minThresh,setMinThresh] = useState([])
 const [maxThresh,setMaxThresh] = useState([])
 
-const [threshInfo,setThreshInfo] = useState({
-  category:'',
-  minimumthreshold: '',
-  maximumthreshold: ''
-})
-
-
-
 
   return (
     <div>
