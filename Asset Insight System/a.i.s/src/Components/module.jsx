@@ -220,8 +220,46 @@ async function assignLaptop() {
 
 // ---------------------------------------------------------
 
-const [minThresh,setMinThresh] = useState([])
-const [maxThresh,setMaxThresh] = useState([])
+
+const [newThreshInfo,setNewThreshInfo] =useState({
+  category:'',
+  minimumthreshold:'',
+  maximumthreshold:''
+})
+
+useEffect(()=>{
+  setNewThreshInfo(threshInfo)
+},[threshInfo])
+
+const setNewMinThresh = (minThresh) =>{
+  setNewThreshInfo(...newThreshInfo,minThresh)
+}
+const setNewMaxThresh = (maxThresh) =>{
+  setNewThreshInfo(...newThreshInfo,maxThresh)
+}
+
+
+const saveThresh = async () =>{
+      const saveThreshAPI = await fetch('http://localhost:3300/saveThresh',{
+        method: "POST",
+        headers:{
+          "Content-type":"application/json"
+        },
+        body:JSON.stringify({
+          category:'Laptop',
+          minThresh:minThresh,
+          maxThresh:maxThresh
+        }
+        )
+      })
+      const response = await saveThreshAPI.json()
+
+      if (response.message==="Error saving threshold"){
+        errorT("Error saving threshold")
+      }
+    
+      successT("Threshold Values Saved")
+}
 
 
   return (
@@ -363,7 +401,7 @@ const [maxThresh,setMaxThresh] = useState([])
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
           <input type="text" name="minT" id="minThresh-module"
-          placeholder="Enter Minimum Threshold Value" value={threshInfo.minimumthreshold} required onChange={(e)=>setMinThresh(e.target.value)}/>
+          placeholder="Enter Minimum Threshold Value" value={newThreshInfo.minimumthreshold} required onChange={(e)=>setNewMinThresh(e.target.value)}/>
         </div>
 
         <div class="field">
@@ -374,13 +412,13 @@ const [maxThresh,setMaxThresh] = useState([])
             id="maxThresh-module"
             placeholder="Enter Maximum Threshold Value"
             required
-            value={threshInfo.maximumthreshold}
-            onChange={(e)=>{setMaxThresh(e.target.value)}}
+            value={newThreshInfo.maximumthreshold}
+            onChange={(e)=>{setNewMaxThresh(e.target.value)}}
           />
         </div>
 
         <div class="button-module">
-          <button id="addLaptop" onclick="addLaptop()">
+          <button id="addLaptop" onClick={()=>saveThresh()}>
             Add
           </button>
         </div>
