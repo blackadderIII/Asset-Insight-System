@@ -235,7 +235,7 @@ const setNewMinThresh = (minimumthreshold) =>{
   setNewThreshInfo({...newThreshInfo,minimumthreshold})
 }
 const setNewMaxThresh = (maximumthreshold) =>{
-  setNewThreshInfo(...newThreshInfo,maximumthreshold)
+  setNewThreshInfo({...newThreshInfo,maximumthreshold})
 }
 
 
