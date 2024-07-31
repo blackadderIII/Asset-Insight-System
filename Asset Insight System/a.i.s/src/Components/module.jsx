@@ -246,9 +246,9 @@ const saveThresh = async () =>{
           "Content-type":"application/json"
         },
         body:JSON.stringify({
-          category:'Laptop',
-          minThresh:minThresh,
-          maxThresh:maxThresh
+          category: newThresh.category,
+          minThresh:newThresh.minimumthreshold,
+          maxThresh: newThresh.maximumthreshold
         }
         )
       })
