@@ -1521,9 +1521,9 @@ app.get("/getThresh/:category",(req,res)=>{
 //save threshold 
 app.post("/saveThresh",(req,res)=>{
   const {category,minThresh,maxThresh} = req.body;
-  const query = `UPDATE thresholdasset SET category =?,minimumthreshold=?,maximumthreshold=? WHERE category = ?`
+  const query = `UPDATE thresholdasset SET minimumthreshold=?,maximumthreshold=? WHERE category = ?`
 
-  conn.query(query,[category,minThresh,maxThresh,category],(err,info)=>{
+  conn.query(query,[minThresh,maxThresh,category],(err,info)=>{
       if(err){
           console.log(err)
           return res.json({message:'Error Executing Query'})
