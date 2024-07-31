@@ -232,7 +232,7 @@ useEffect(()=>{
 },[threshInfo])
 
 const setNewMinThresh = (minThresh) =>{
-  setNewThreshInfo(...newThreshInfo,minThresh)
+  setNewThreshInfo({...newThreshInfo,minThresh})
 }
 const setNewMaxThresh = (maxThresh) =>{
   setNewThreshInfo(...newThreshInfo,maxThresh)
