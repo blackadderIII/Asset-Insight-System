@@ -35,7 +35,7 @@ function Asset1() {
   const openEDITModule = (state) => {
     setModuleActive(state);
     getThresh().then((data)=>{
-      setThreshInfo(data);
+      setThreshInfo(data[0]);
     })
   };
   
