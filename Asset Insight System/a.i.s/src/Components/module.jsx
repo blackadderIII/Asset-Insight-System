@@ -221,21 +221,21 @@ async function assignLaptop() {
 // ---------------------------------------------------------
 
 
-const [newThreshInfo,setNewThreshInfo] =useState({
+const [newThresh,setnewThresh] =useState({
   category:'',
   minimumthreshold:'',
   maximumthreshold:''
 })
 
 useEffect(()=>{
-  setNewThreshInfo(threshInfo)
+  setnewThresh(threshInfo)
 },[threshInfo])
 
 const setNewMinThresh = (minimumthreshold) =>{
-  setNewThreshInfo({...newThreshInfo,minimumthreshold})
+  setnewThresh({...newThresh,minimumthreshold})
 }
 const setNewMaxThresh = (maximumthreshold) =>{
-  setNewThreshInfo({...newThreshInfo,maximumthreshold})
+  setnewThresh({...newThresh,maximumthreshold})
 }
 
 
@@ -401,7 +401,7 @@ const saveThresh = async () =>{
         <div class="field">
           <label for="MinThresh">Input Minimum Threshold Value</label>
           <input type="text" name="minT" id="minThresh-module"
-          placeholder="Enter Minimum Threshold Value" value={newThreshInfo.minimumthreshold} required onChange={(e)=>setNewMinThresh(e.target.value)}/>
+          placeholder="Enter Minimum Threshold Value" value={newThresh.minimumthreshold} required onChange={(e)=>setNewMinThresh(e.target.value)}/>
         </div>
 
         <div class="field">
@@ -412,7 +412,7 @@ const saveThresh = async () =>{
             id="maxThresh-module"
             placeholder="Enter Maximum Threshold Value"
             required
-            value={newThreshInfo.maximumthreshold}
+            value={newThresh.maximumthreshold}
             onChange={(e)=>{setNewMaxThresh(e.target.value)}}
           />
         </div>
