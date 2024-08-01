@@ -12,11 +12,11 @@ export const getPhones = async () => {
   }
 
 
-   export async function deleteLaptop(sn) {
+   export async function deletePhone(sn) {
     try {
-       const deleteLaptopAPI = await fetch (`http://localhost:3300/deleteLaptop/${sn}`)
+       const deletePhoneAPI = await fetch (`http://localhost:3300/deletePhone/${sn}`)
     
-       const response = await deleteLaptopAPI.json()
+       const response = await deletePhoneAPI.json()
     
        if (
         response.message === "Error executing query" ||
@@ -89,8 +89,8 @@ export async function exportPhones() {
   }
 }
 
-// save revoke Laptop
-export async function revokeLaptop(sn) {
+// save revoke Phone
+export async function revokePhone(sn) {
   try {
     const assign = await fetch(`http://localhost:3300/revoke/${sn}`);
     const response = await assign.json();
@@ -99,7 +99,7 @@ export async function revokeLaptop(sn) {
       errorT("An error occured. Please try again later");
       return;
     }
-    // successT("Laptop revoked successfully");
+    // successT("Phone revoked successfully");
     // closeAssignModule();
     // getPhones();
     // setTimeout(() => location.reload(), 1000);
@@ -113,7 +113,7 @@ export async function revokeLaptop(sn) {
 
 export async function getThresh() {
   const getThreshAPI = await fetch(
-    `http://localhost:3300/getThresh/Laptop`
+    `http://localhost:3300/getThresh/Phone`
   );
   const response = await getThreshAPI.json();
 
