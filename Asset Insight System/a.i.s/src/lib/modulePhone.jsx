@@ -63,7 +63,7 @@ export const getLaptops = async () => {
 }
 
 
-// export laptops info
+// export Phones info
 export async function exportLaptops() {
   try {
     const getExportLaptops = await fetch("http://localhost:3300/exportLaptops");
@@ -80,7 +80,7 @@ export async function exportLaptops() {
     }
 
     location.href = "http://localhost:3300/exportLaptops";
-    successT("Laptops exported successfully");
+    successT("Phones exported successfully");
     return;
   } catch (error) {
     console.log("an error occured", error);
