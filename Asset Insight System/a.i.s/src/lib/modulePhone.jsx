@@ -1,5 +1,5 @@
 
-export const getLaptops = async () => {
+export const getPhones = async () => {
     try {
       const response = await fetch(`http://localhost:3300/getlaptops`);
       const data = await response.json();
@@ -64,10 +64,10 @@ export const getLaptops = async () => {
 
 
 // export Phones info
-export async function exportLaptops() {
+export async function exportPhones() {
   try {
-    const getExportLaptops = await fetch("http://localhost:3300/exportLaptops");
-    const response = getExportLaptops;
+    const getExportPhones = await fetch("http://localhost:3300/exportPhones");
+    const response = getExportPhones;
 
     if (response === "error executing query") {
       errorT("An error occured. Please try again later");
@@ -79,7 +79,7 @@ export async function exportLaptops() {
       return;
     }
 
-    location.href = "http://localhost:3300/exportLaptops";
+    location.href = "http://localhost:3300/exportPhones";
     successT("Phones exported successfully");
     return;
   } catch (error) {
@@ -101,7 +101,7 @@ export async function revokeLaptop(sn) {
     }
     // successT("Laptop revoked successfully");
     // closeAssignModule();
-    // getLaptops();
+    // getPhones();
     // setTimeout(() => location.reload(), 1000);
     return;
   } catch (error) {
