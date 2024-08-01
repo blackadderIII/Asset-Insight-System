@@ -240,6 +240,8 @@ const setNewMaxThresh = (maximumthreshold) =>{
 
 
 const saveThresh = async () =>{
+
+      setLoading(true)
       const saveThreshAPI = await fetch('http://localhost:3300/saveThresh',{
         method: "POST",
         headers:{
@@ -256,9 +258,11 @@ const saveThresh = async () =>{
 
       if (response.message==="Error saving threshold"){
         errorT("Error saving threshold")
+        setLoading(false)
       }
     
       successT("Threshold Values Saved")
+      setLoading(false)
 }
 
 
@@ -419,7 +423,7 @@ const saveThresh = async () =>{
 
         <div class="button-module">
           <button id="addLaptop" onClick={()=>saveThresh()}>
-            Add
+           {loading?(<div className="loading-mini"></div>):('Save')}
           </button>
         </div>
       </div>
