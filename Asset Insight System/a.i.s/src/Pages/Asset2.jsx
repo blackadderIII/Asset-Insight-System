@@ -86,7 +86,7 @@ const openEDITModule = (state) => {
               <i class="fal fa-add"></i>
               <h5>Add</h5>
             </div>
-            <div class="add-button" onClick={()=>openModule("edit-active")}>
+            <div class="add-button" onClick={()=>openEDITModule()}>
               <i class="fal fa-edit"></i>
               <h5>Edit</h5>
             </div>
