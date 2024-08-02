@@ -29,8 +29,8 @@ function Asset2() {
 
 //get phones 
 useEffect(() => {
-  getLaptops().then((data)=>{
-    setLaptops(data);
+  getPhones().then((data)=>{
+    setPhones(data);
     setLoading(false);
   },
   setTimeout(()=> setLoading(false),3000)
