@@ -28,20 +28,14 @@ function Asset2() {
 //   const loadingRef = useRef(null);
 
 //get phones 
-  useEffect(() => {
-    async function getPhones() {
-      try {
-        const response = await fetch(`http://localhost:3300/getPhones`);
-        const data = await response.json();
-        setPhones(data);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    }
-    getPhones();
-  }, []);
+useEffect(() => {
+  getLaptops().then((data)=>{
+    setLaptops(data);
+    setLoading(false);
+  },
+  setTimeout(()=> setLoading(false),3000)
+);
+}, []);
 
   const [moduleEdit,setModuleEdit] = useState([]);
 
