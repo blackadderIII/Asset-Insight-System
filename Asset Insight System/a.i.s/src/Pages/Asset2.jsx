@@ -3,7 +3,7 @@ import "../css/Table.css";
 import { AssetTable } from '../Components/Table';
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModulePhone } from "../Components/module";
-import { getLaptops,deleteLaptop,getUsers,exportLaptops,revokeLaptop,getThresh} from "../lib/moduleLaptop";
+import { getPhones,deletePhone,getUsers,exportPhones,revokePhone,getThresh} from "../lib/modulePhone";
 import { ToastContext } from "../utils/toastContext";
 
 
@@ -71,7 +71,7 @@ const handleEditClick = (phone) => {
               <i class="fal fa-edit"></i>
               <h5>Edit</h5>
             </div>
-            <div class="add-button" onclick="exportLaptops()">
+            <div class="add-button" onclick="exportPhones()">
               <i class="fal fa-file-export"></i>
               <h5>Export</h5>
             </div>
