@@ -8,12 +8,14 @@ import { ToastContext } from "../utils/toastContext";
 
 
 function Asset2() {
+  const {errorT,successT,warnT} = useContext(ToastContext)
   const [moduleActive, setModuleActive] = useState([
     null,
     "add-active",
     "edit-active",
   ]);
   const [sn,setSn] = useState(null)
+
   
   const openModule = (state) => {
     setModuleActive(state);
