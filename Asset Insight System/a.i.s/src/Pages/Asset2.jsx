@@ -77,9 +77,9 @@ const handleDeleteClick = (laptop) => {
   const confrimDelete = window.confirm("Do you want to delete this laptop?");
 
   if (confrimDelete) {
-    deleteLaptop(laptop.sn);
+    deletePhone(laptop.sn);
     setTimeout(() => location.reload(), 1000);
-    successT("Laptop Deleted Successfully");
+    successT("Phone Deleted Successfully");
     return;
   }
 };
@@ -101,7 +101,7 @@ const handleDeleteClick = (laptop) => {
               <i class="fal fa-edit"></i>
               <h5>Edit</h5>
             </div>
-            <div class="add-button" onclick="exportPhones()">
+            <div class="add-button" onClick={() => exportPhones()}>
               <i class="fal fa-file-export"></i>
               <h5>Export</h5>
             </div>
