@@ -73,6 +73,17 @@ const openEDITModule = (state) => {
     setThreshInfo(data[0]);
   })
 };
+const handleDeleteClick = (laptop) => {
+  const confrimDelete = window.confirm("Do you want to delete this laptop?");
+
+  if (confrimDelete) {
+    deleteLaptop(laptop.sn);
+    setTimeout(() => location.reload(), 1000);
+    successT("Laptop Deleted Successfully");
+    return;
+  }
+};
+
 
   return (
     <>
