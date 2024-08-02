@@ -15,14 +15,21 @@ function Asset2() {
   ]);
 
   const openModule = (state) => {
-    setModuleActive(state === moduleActive ? null : state);
+    setModuleActive(state);
+    const min = 10000;
+  const max = 99999;
+  const serialNumber = `AISP-${
+    Math.floor(Math.random() * (max - min + 1)) + min
+  }`;
+  // getSuppliers();
+  setSn(serialNumber);
   };
 
   const closeModule = () => {
     setModuleActive(null);
   };
 
-  
+
 
   const [phones, setPhones] = useState([]);
   const [loading, setLoading] = useState(true);
