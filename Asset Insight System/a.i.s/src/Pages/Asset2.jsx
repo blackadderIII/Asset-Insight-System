@@ -3,6 +3,8 @@ import "../css/Table.css";
 import { AssetTable } from '../Components/Table';
 import { TitleComponent1 } from "../Components/TitleComponent";
 import { ModulePhone } from "../Components/module";
+import { getLaptops,deleteLaptop,getUsers,exportLaptops,revokeLaptop,getThresh} from "../lib/moduleLaptop";
+import { ToastContext } from "../utils/toastContext";
 
 
 function Asset2() {
