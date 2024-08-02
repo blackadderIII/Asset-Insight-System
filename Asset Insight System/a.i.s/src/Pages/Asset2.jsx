@@ -13,7 +13,8 @@ function Asset2() {
     "add-active",
     "edit-active",
   ]);
-
+  const [sn,setSn] = useState(null)
+  
   const openModule = (state) => {
     setModuleActive(state);
     const min = 10000;
