@@ -22,6 +22,8 @@ function Asset2() {
     setModuleActive(null);
   };
 
+  
+
   const [phones, setPhones] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
