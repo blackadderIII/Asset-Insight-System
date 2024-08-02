@@ -61,6 +61,19 @@ const handleEditClick = (phone) => {
   setModuleEdit(phone);
 };
 
+const [threshInfo,setThreshInfo] = useState({
+  category:'',
+  minimumthreshold: '',
+  maximumthreshold: ''
+})
+
+const openEDITModule = (state) => {
+  setModuleActive(state);
+  getThresh().then((data)=>{
+    setThreshInfo(data[0]);
+  })
+};
+
   return (
     <>
       <section class="main">
