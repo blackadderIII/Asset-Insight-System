@@ -125,6 +125,7 @@ const handleDeleteClick = (laptop) => {
         closeEditModule={closeEditModule}
         showAssignModule={showAssignModule}
         userList={userList}
+        
       />
     </>
   );
