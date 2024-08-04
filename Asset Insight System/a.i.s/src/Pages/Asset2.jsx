@@ -112,7 +112,7 @@ const handleDeleteClick = (laptop) => {
           </div>
         </div>
 
-        <AssetTable asset={phones} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick} onAssign = {openAssignModule}/>
+        <AssetTable asset={phones} loading={loading} onEdit={handleEditClick} onDelete={handleDeleteClick} onAssign = {openAssignModule} onRevoke = {handleRevoke}/>
         
       </section>
       <ModulePhone
