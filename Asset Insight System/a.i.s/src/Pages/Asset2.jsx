@@ -123,6 +123,7 @@ const handleDeleteClick = (laptop) => {
         assetEditState={moduleEdit}
         showEditModule={showEditModule}
         closeEditModule={closeEditModule}
+        userList={userList}
       />
     </>
   );
