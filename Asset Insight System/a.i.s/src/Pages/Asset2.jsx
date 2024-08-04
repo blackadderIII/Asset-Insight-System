@@ -117,6 +117,7 @@ const handleDeleteClick = (laptop) => {
       </section>
       <ModulePhone
         asset={"Phone"}
+        serialNumber={sn}
         modulestate={moduleActive}
         onClose={closeModule}
         assetEditState={moduleEdit}
