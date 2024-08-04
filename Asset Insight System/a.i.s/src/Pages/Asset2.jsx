@@ -126,7 +126,7 @@ const handleDeleteClick = (laptop) => {
         showAssignModule={showAssignModule}
         userList={userList}
         closeAssignModule={closeAssignModule}
-
+        threshInfo={threshInfo}
       />
     </>
   );
