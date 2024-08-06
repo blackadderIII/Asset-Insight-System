@@ -649,6 +649,12 @@ export function ModulePhone({
   const { errorT, successT, warnT } = useContext(ToastContext);
 
   const user = localStorage.getItem("username");
+
+  const [loading, setLoading] = useState(false);
+
+  
+  const [brand, setBrand] = useState(null);
+  
   return (
     <div>
       {/* Add Phone */}
