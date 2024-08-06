@@ -658,6 +658,10 @@ export function ModulePhone({
   const [model, setModel] = useState(null);
 
   const [ram, setRam] = useState(null);
+
+  const [rom, setRom] = useState(null);
+
+  
   return (
     <div>
       {/* Add Phone */}
