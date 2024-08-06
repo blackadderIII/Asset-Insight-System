@@ -661,6 +661,9 @@ export function ModulePhone({
 
   const [rom, setRom] = useState(null);
 
+  const [comment, setComment] = useState(null);
+
+  const [assignedUser, setAssignedUser] = useState({ value: null, text: null });
   
   return (
     <div>
