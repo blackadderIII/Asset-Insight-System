@@ -640,6 +640,11 @@ export function ModulePhone({
   const handleEditClose = () => {
     closeEditModule();
   };
+
+   const handleAssignClose = () => {
+    closeAssignModule();
+  };
+
   return (
     <div>
       {/* Add Phone */}
