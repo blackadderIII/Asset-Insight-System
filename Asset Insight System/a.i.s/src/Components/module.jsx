@@ -654,7 +654,8 @@ export function ModulePhone({
 
   
   const [brand, setBrand] = useState(null);
-  
+
+  const [model, setModel] = useState(null);
   return (
     <div>
       {/* Add Phone */}
