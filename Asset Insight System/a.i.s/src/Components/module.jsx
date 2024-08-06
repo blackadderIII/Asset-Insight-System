@@ -629,6 +629,10 @@ export function ModulePhone({
   assetEditState,
   showEditModule,
   closeEditModule,
+  showAssignModule,
+  userList,
+  closeAssignModule,
+  threshInfo
 }) {
   const handleClose = () => {
     onClose();
