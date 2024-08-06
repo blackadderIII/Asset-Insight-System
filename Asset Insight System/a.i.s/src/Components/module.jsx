@@ -647,6 +647,8 @@ export function ModulePhone({
 
   
   const { errorT, successT, warnT } = useContext(ToastContext);
+
+  const user = localStorage.getItem("username");
   return (
     <div>
       {/* Add Phone */}
